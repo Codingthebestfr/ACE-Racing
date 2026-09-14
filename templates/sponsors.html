@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Sponsoren | Accelera Force
+{% if current_lang == 'en' %}Sponsors | A.C.E{% else %}Sponsoren | A.C.E{% endif %}
 {% endblock %}
 
 
@@ -10,200 +10,161 @@ Sponsoren | Accelera Force
 <section class="page-header">
 
     <p class="section-label">
-        PARTNERS & SPONSORS
+        {% if current_lang == 'en' %}PARTNERS &amp; SPONSORS{% else %}PARTNERS & SPONSORS{% endif %}
     </p>
 
     <h1>
-        Unsere Partner
+        {% if current_lang == 'en' %}Our partners{% else %}Unsere Partner{% endif %}
     </h1>
 
     <p>
-        Noch am Anfang – aber mit großen Zielen.
-        Wir suchen Unternehmen und Partner, die unser
-        STEM-Racing-Projekt unterstützen möchten.
+        {% if current_lang == 'en' %}
+            Still at the beginning – but with big goals. We are looking for companies and partners who want to support our STEM Racing project.
+        {% else %}
+            Noch am Anfang – aber mit großen Zielen.
+            Wir suchen Unternehmen und Partner, die unser
+            STEM-Racing-Projekt unterstützen möchten.
+        {% endif %}
     </p>
 
 </section>
-
-
-<!-- =========================
-     SPONSOR PLACEHOLDER
-========================== -->
 
 <section class="sponsor-section">
 
     <div class="sponsor-placeholder">
 
         <p class="section-label">
-            YOUR LOGO HERE
+            {% if current_lang == 'en' %}YOUR LOGO HERE{% else %}YOUR LOGO HERE{% endif %}
         </p>
 
         <h2>
-            Werden Sie unser Partner.
+            {% if current_lang == 'en' %}Become our partner.{% else %}Werden Sie unser Partner.{% endif %}
         </h2>
 
         <p>
-            Dieser Bereich ist für zukünftige
-            Sponsoren und Partner reserviert.
+            {% if current_lang == 'en' %}
+                This area is reserved for future sponsors and partners.
+            {% else %}
+                Dieser Bereich ist für zukünftige
+                Sponsoren und Partner reserviert.
+            {% endif %}
         </p>
 
     </div>
 
 </section>
-
-
-<!-- =========================
-     WHY SPONSOR US?
-========================== -->
 
 <section class="content-section">
 
     <div class="content-text">
 
         <p class="section-label">
-            WHY US?
+            {% if current_lang == 'en' %}WHY US?{% else %}WHY US?{% endif %}
         </p>
 
         <h2>
-            Gemeinsam Zukunft entwickeln.
+            {% if current_lang == 'en' %}Building the future together.{% else %}Gemeinsam Zukunft entwickeln.{% endif %}
         </h2>
 
         <p>
-            STEM Racing verbindet Technik, Konstruktion,
-            Digitalisierung, Teamarbeit und Motorsport.
+            {% if current_lang == 'en' %}
+                STEM Racing combines technology, engineering, digitalisation, teamwork and motorsport.
+            {% else %}
+                STEM Racing verbindet Technik, Konstruktion,
+                Digitalisierung, Teamarbeit und Motorsport.
+            {% endif %}
         </p>
 
         <p>
-            Als neu gegründetes Team möchten wir unser
-            Projekt von Anfang an professionell aufbauen
-            und unsere Entwicklung transparent zeigen.
+            {% if current_lang == 'en' %}
+                As a newly founded team, we want to build our project professionally from the start and present our progress transparently.
+            {% else %}
+                Als neu gegründetes Team möchten wir unser
+                Projekt von Anfang an professionell aufbauen
+                und unsere Entwicklung transparent zeigen.
+            {% endif %}
         </p>
 
         <p>
-            Mit der Unterstützung von Partnern können wir
-            unsere technischen Möglichkeiten erweitern
-            und unser Projekt weiterentwickeln.
+            {% if current_lang == 'en' %}
+                With support from partners, we can expand our technical possibilities and continue developing our project.
+            {% else %}
+                Mit der Unterstützung von Partnern können wir
+                unsere technischen Möglichkeiten erweitern
+                und unser Projekt weiterentwickeln.
+            {% endif %}
         </p>
 
     </div>
 
-
     <div class="info-box">
 
         <h3>
-            Was wir bieten
+            {% if current_lang == 'en' %}What we offer{% else %}Was wir bieten{% endif %}
         </h3>
 
         <ul>
-            <li>Logo auf unserer Website</li>
-            <li>Präsentation unseres Projekts</li>
-            <li>Team- und Projektpräsentationen</li>
-            <li>Sichtbarkeit bei Veranstaltungen</li>
-            <li>Gemeinsame technische Projekte</li>
+            <li>{% if current_lang == 'en' %}Logo on our website{% else %}Logo auf unserer Website{% endif %}</li>
+            <li>{% if current_lang == 'en' %}Presentation of our project{% else %}Präsentation unseres Projekts{% endif %}</li>
+            <li>{% if current_lang == 'en' %}Team and project presentations{% else %}Team- und Projektpräsentationen{% endif %}</li>
+            <li>{% if current_lang == 'en' %}Visibility at events{% else %}Sichtbarkeit bei Veranstaltungen{% endif %}</li>
+            <li>{% if current_lang == 'en' %}Joint technical projects{% else %}Gemeinsame technische Projekte{% endif %}</li>
         </ul>
 
     </div>
 
 </section>
 
-
-<!-- =========================
-     SPONSOR LEVELS
-========================== -->
-
 <section class="sponsor-levels">
 
     <p class="section-label">
-        PARTNERSHIP
+        {% if current_lang == 'en' %}PARTNERSHIP{% else %}PARTNERSHIP{% endif %}
     </p>
 
     <h2>
-        Möglichkeiten der Unterstützung
+        {% if current_lang == 'en' %}Ways to support us{% else %}Möglichkeiten der Unterstützung{% endif %}
     </h2>
 
     <div class="sponsor-grid">
 
         <div class="sponsor-card">
-
-            <span class="sponsor-number">
-                01
-            </span>
-
-            <h3>
-                Financial
-            </h3>
-
-            <p>
-                Unterstützung bei der Finanzierung
-                von Materialien, Fertigung und
-                Projektkosten.
-            </p>
-
+            <span class="sponsor-number">01</span>
+            <h3>{% if current_lang == 'en' %}Financial{% else %}Financial{% endif %}</h3>
+            <p>{% if current_lang == 'en' %}Support for financing materials, manufacturing and project costs.{% else %}Unterstützung bei der Finanzierung von Materialien, Fertigung und Projektkosten.{% endif %}</p>
         </div>
 
-
         <div class="sponsor-card">
-
-            <span class="sponsor-number">
-                02
-            </span>
-
-            <h3>
-                Technical
-            </h3>
-
-            <p>
-                Unterstützung durch Materialien,
-                Fertigungsmöglichkeiten,
-                Know-how oder technische Beratung.
-            </p>
-
+            <span class="sponsor-number">02</span>
+            <h3>{% if current_lang == 'en' %}Technical{% else %}Technical{% endif %}</h3>
+            <p>{% if current_lang == 'en' %}Support through materials, manufacturing options, know-how or technical advice.{% else %}Unterstützung durch Materialien, Fertigungsmöglichkeiten, Know-how oder technische Beratung.{% endif %}</p>
         </div>
 
-
         <div class="sponsor-card">
-
-            <span class="sponsor-number">
-                03
-            </span>
-
-            <h3>
-                Partnership
-            </h3>
-
-            <p>
-                Eine langfristige Zusammenarbeit
-                zwischen unserem Team und einem
-                Unternehmen.
-            </p>
-
+            <span class="sponsor-number">03</span>
+            <h3>{% if current_lang == 'en' %}Partnership{% else %}Partnership{% endif %}</h3>
+            <p>{% if current_lang == 'en' %}A long-term collaboration between our team and a company.{% else %}Eine langfristige Zusammenarbeit zwischen unserem Team und einem Unternehmen.{% endif %}</p>
         </div>
 
     </div>
 
 </section>
 
-
-<!-- =========================
-     CTA
-========================== -->
-
 <section class="sponsor-cta">
 
     <p class="section-label">
-        INTERESTED?
+        {% if current_lang == 'en' %}INTERESTED?{% else %}INTERESTED?{% endif %}
     </p>
 
     <h2>
-        Sie möchten unser Projekt unterstützen?
+        {% if current_lang == 'en' %}Would you like to support our project?{% else %}Sie möchten unser Projekt unterstützen?{% endif %}
     </h2>
 
     <p>
-        Wir freuen uns über Ihre Nachricht.
+        {% if current_lang == 'en' %}We would be glad to hear from you.{% else %}Wir freuen uns über Ihre Nachricht.{% endif %}
     </p>
 
     <a href="{{ url_for('contact') }}" class="button">
-        Kontakt aufnehmen
+        {% if current_lang == 'en' %}Get in touch{% else %}Kontakt aufnehmen{% endif %}
     </a>
 
 </section>

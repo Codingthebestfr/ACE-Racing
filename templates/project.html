@@ -1,29 +1,29 @@
 {% extends "base.html" %}
 
-{% block title %}Projekt | Accelera Force{% endblock %}
+{% block title %}{% if current_lang == 'en' %}Project | A.C.E{% else %}Projekt | A.C.E{% endif %}{% endblock %}
 
 {% block content %}
 <section class="page-header">
-	<p class="section-label">UNSER PROJEKT</p>
+	<p class="section-label">{% if current_lang == 'en' %}OUR PROJECT{% else %}UNSER PROJEKT{% endif %}</p>
 	<h1>Engineering the Future</h1>
-	<p>STEM Racing verbindet Technik, Kreativität und Organisation in einem echten Teamprojekt.</p>
+	<p>{% if current_lang == 'en' %}STEM Racing combines technology, creativity and organisation in a real team project.{% else %}STEM Racing verbindet Technik, Kreativität und Organisation in einem echten Teamprojekt.{% endif %}</p>
 </section>
 
 <section class="content-section">
 	<div class="content-text">
-		<p class="section-label">VON DER IDEE ZUM RENNEN</p>
-		<h2>Ein Projekt mit vielen Perspektiven.</h2>
-		<p>Wir arbeiten gemeinsam an Konstruktion, Fertigung, Marketing und Teamorganisation. Jede Aufgabe trägt dazu bei, dass unser Projekt auf und neben der Strecke funktioniert.</p>
-		<p>Unsere Arbeitsweise bleibt übersichtlich: Ziele festlegen, ausprobieren, auswerten und die nächste Version bauen.</p>
+		<p class="section-label">{% if current_lang == 'en' %}FROM IDEA TO RACE{% else %}VON DER IDEE ZUM RENNEN{% endif %}</p>
+		<h2>{% if current_lang == 'en' %}A project with many perspectives.{% else %}Ein Projekt mit vielen Perspektiven.{% endif %}</h2>
+		<p>{% if current_lang == 'en' %}We work together on design, production, marketing and team organisation. Every task helps our project function on and off the track.{% else %}Wir arbeiten gemeinsam an Konstruktion, Fertigung, Marketing und Teamorganisation. Jede Aufgabe trägt dazu bei, dass unser Projekt auf und neben der Strecke funktioniert.{% endif %}</p>
+		<p>{% if current_lang == 'en' %}We keep our workflow clear: define goals, test, evaluate and build the next version.{% else %}Unsere Arbeitsweise bleibt übersichtlich: Ziele festlegen, ausprobieren, auswerten und die nächste Version bauen.{% endif %}</p>
 	</div>
 
 	<aside class="info-box">
-		<h3>Projektphasen</h3>
+		<h3>{% if current_lang == 'en' %}Project phases{% else %}Projektphasen{% endif %}</h3>
 		<ul>
-			<li>Recherche und Planung</li>
-			<li>CAD und Konstruktion</li>
-			<li>Fertigung und Tests</li>
-			<li>Präsentation und Rennen</li>
+			<li>{% if current_lang == 'en' %}Research and planning{% else %}Recherche und Planung{% endif %}</li>
+			<li>{% if current_lang == 'en' %}CAD and design{% else %}CAD und Konstruktion{% endif %}</li>
+			<li>{% if current_lang == 'en' %}Production and testing{% else %}Fertigung und Tests{% endif %}</li>
+			<li>{% if current_lang == 'en' %}Presentation and racing{% else %}Präsentation und Rennen{% endif %}</li>
 		</ul>
 	</aside>
 </section>

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Impressum | Accelera Force
+{% if current_lang == 'en' %}Legal notice | A.C.E{% else %}Impressum | A.C.E{% endif %}
 {% endblock %}
 
 
@@ -10,30 +10,29 @@ Impressum | Accelera Force
 <section class="page-header">
 
     <p class="section-label">
-        LEGAL NOTICE
+        {% if current_lang == 'en' %}LEGAL NOTICE{% else %}LEGAL NOTICE{% endif %}
     </p>
 
     <h1>
-        Impressum
+        {% if current_lang == 'en' %}Legal notice{% else %}Impressum{% endif %}
     </h1>
 
     <p>
-        Kontakt und Anschrift unseres STEM-Racing-Teams.
+        {% if current_lang == 'en' %}Contact information and address of our STEM Racing team.{% else %}Kontakt und Anschrift unseres STEM-Racing-Teams.{% endif %}
     </p>
 
 </section>
-
 
 <section class="content-section">
 
     <div class="content-text">
 
         <h2>
-            Accelera Force
+            A.C.E
         </h2>
 
         <p>
-            Accelera Force am Einhard-Gymnasium Aachen<br>
+            A.C.E am Einhard-Gymnasium Aachen<br>
             STEM Racing 2026/27
         </p>
 
@@ -43,16 +42,15 @@ Impressum | Accelera Force
         </p>
 
         <a class="button button-outline" href="https://www.google.com/maps/search/?api=1&amp;query=Robert-Schuman-Str.+4%2C+52066+Aachen" target="_blank" rel="noopener noreferrer">
-            Jetzt anreisen
+            {% if current_lang == 'en' %}Get directions{% else %}Jetzt anreisen{% endif %}
         </a>
 
     </div>
 
-
     <div class="info-box impressum-contact">
 
         <h3>
-            Kontakt
+            {% if current_lang == 'en' %}Contact{% else %}Kontakt{% endif %}
         </h3>
 
         <ul>
@@ -61,8 +59,8 @@ Impressum | Accelera Force
             <li>Tri-Dung Tran: <a href="mailto:dung20.tran01@gmail.com">dung20.tran01@gmail.com</a></li>
             <li>Yashmith Gettam: <a href="mailto:yashmith.gettam@gmail.com">yashmith.gettam@gmail.com</a></li>
             <li>Darius Melian Flamand: <a href="mailto:dariusmelian16@gmail.com">dariusmelian16@gmail.com</a></li>
-            <li>Team Email: <a href="mailto:max.musterman@gmail.com">max.musterman@gmail.com</a></li>
-            <li>Telefon: <a href="tel:+4917623350637">+49 176 23350637</a></li>
+            <li>{% if current_lang == 'en' %}Team email{% else %}Team Email{% endif %}: <a href="mailto:max.musterman@gmail.com">max.musterman@gmail.com</a></li>
+            <li>{% if current_lang == 'en' %}Phone{% else %}Telefon{% endif %}: <a href="tel:+4917623350637">+49 176 23350637</a></li>
         </ul>
 
     </div>

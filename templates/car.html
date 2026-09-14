@@ -1,29 +1,29 @@
 {% extends "base.html" %}
 
-{% block title %}Unser Auto | Accelera Force{% endblock %}
+{% block title %}{% if current_lang == 'en' %}Our car | A.C.E{% else %}Unser Auto | A.C.E{% endif %}{% endblock %}
 
 {% block content %}
 <section class="page-header">
-	<p class="section-label">ENGINEERING</p>
-	<h1>Unser Auto</h1>
-	<p>Vom ersten Entwurf bis zur Rennstrecke: jedes Detail entsteht mit einem klaren Ziel.</p>
+	<p class="section-label">{% if current_lang == 'en' %}ENGINEERING{% else %}ENGINEERING{% endif %}</p>
+	<h1>{% if current_lang == 'en' %}Our car{% else %}Unser Auto{% endif %}</h1>
+	<p>{% if current_lang == 'en' %}From the first concept to the race track: every detail is created with a clear goal.{% else %}Vom ersten Entwurf bis zur Rennstrecke: jedes Detail entsteht mit einem klaren Ziel.{% endif %}</p>
 </section>
 
 <section class="content-section">
 	<div class="content-text">
-		<p class="section-label">DESIGN &amp; ENTWICKLUNG</p>
-		<h2>Präzision, die Geschwindigkeit schafft.</h2>
-		<p>Wir entwickeln einen kleinen, aerodynamischen Rennwagen und verbinden Konstruktion, Tests und Teamarbeit in einem gemeinsamen Prozess.</p>
-		<p>Jede Änderung wird begründet, geplant und überprüft. So wird aus einer Idee Schritt für Schritt ein zuverlässiges Rennauto.</p>
+		<p class="section-label">{% if current_lang == 'en' %}DESIGN &amp; DEVELOPMENT{% else %}DESIGN &amp; ENTWICKLUNG{% endif %}</p>
+		<h2>{% if current_lang == 'en' %}Precision that creates speed.{% else %}Präzision, die Geschwindigkeit schafft.{% endif %}</h2>
+		<p>{% if current_lang == 'en' %}We develop a small, aerodynamic racing car and combine design, testing and teamwork in one process.{% else %}Wir entwickeln einen kleinen, aerodynamischen Rennwagen und verbinden Konstruktion, Tests und Teamarbeit in einem gemeinsamen Prozess.{% endif %}</p>
+		<p>{% if current_lang == 'en' %}Every change is explained, planned and checked. This turns an idea into a reliable race car step by step.{% else %}Jede Änderung wird begründet, geplant und überprüft. So wird aus einer Idee Schritt für Schritt ein zuverlässiges Rennauto.{% endif %}</p>
 	</div>
 
 	<aside class="info-box">
-		<h3>Unser Fokus</h3>
+		<h3>{% if current_lang == 'en' %}Our focus{% else %}Unser Fokus{% endif %}</h3>
 		<ul>
-			<li>Aerodynamik</li>
-			<li>Leichtbau</li>
-			<li>CAD &amp; Prototyping</li>
-			<li>Tests und Optimierung</li>
+			<li>{% if current_lang == 'en' %}Aerodynamics{% else %}Aerodynamik{% endif %}</li>
+			<li>{% if current_lang == 'en' %}Lightweight design{% else %}Leichtbau{% endif %}</li>
+			<li>{% if current_lang == 'en' %}CAD &amp; prototyping{% else %}CAD &amp; Prototyping{% endif %}</li>
+			<li>{% if current_lang == 'en' %}Testing and optimisation{% else %}Tests und Optimierung{% endif %}</li>
 		</ul>
 	</aside>
 </section>

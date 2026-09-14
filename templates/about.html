@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Über uns | Accelera Force
+{% if current_lang == 'en' %}About us | A.C.E{% else %}Über uns | A.C.E{% endif %}
 {% endblock %}
 
 
@@ -14,13 +14,17 @@
     </p>
 
     <h1>
-        Wer sind wir?
+        {% if current_lang == 'en' %}Who are we?{% else %}Wer sind wir?{% endif %}
     </h1>
 
     <p>
-        Wir sind ein neu gegründetes Team des
-        Einhard-Gymnasiums Aachen und nehmen am
-        STEM-Racing-Projekt teil.
+        {% if current_lang == 'en' %}
+            We are a newly founded team from Einhard-Gymnasium Aachen and take part in the STEM Racing project.
+        {% else %}
+            Wir sind ein neu gegründetes Team des
+            Einhard-Gymnasiums Aachen und nehmen am
+            STEM-Racing-Projekt teil.
+        {% endif %}
     </p>
 
 </section>
@@ -31,19 +35,27 @@
     <div class="content-text">
 
         <h2>
-            Unsere Idee
+            {% if current_lang == 'en' %}Our idea{% else %}Unsere Idee{% endif %}
         </h2>
 
         <p>
-            Bei STEM Racing verbinden wir Technik,
-            Konstruktion, Kreativität und Teamarbeit.
+            {% if current_lang == 'en' %}
+                At STEM Racing we combine technology, engineering, creativity and teamwork.
+            {% else %}
+                Bei STEM Racing verbinden wir Technik,
+                Konstruktion, Kreativität und Teamarbeit.
+            {% endif %}
         </p>
 
         <p>
-            Unser Ziel ist es, gemeinsam einen möglichst
-            schnellen und gut entwickelten Rennwagen zu
-            konstruieren und dabei möglichst viel über
-            moderne Ingenieurarbeit zu lernen.
+            {% if current_lang == 'en' %}
+                Our goal is to build a fast and well-developed racing car together while learning as much as possible about modern engineering.
+            {% else %}
+                Unser Ziel ist es, gemeinsam einen möglichst
+                schnellen und gut entwickelten Rennwagen zu
+                konstruieren und dabei möglichst viel über
+                moderne Ingenieurarbeit zu lernen.
+            {% endif %}
         </p>
 
     </div>
@@ -52,7 +64,7 @@
     <div class="info-box">
 
         <h3>
-            Unser Fokus
+            {% if current_lang == 'en' %}Our focus{% else %}Unser Fokus{% endif %}
         </h3>
 
         <ul>
@@ -72,14 +84,18 @@
     <div class="info-box">
 
         <h3>
-            Unsere bisherigen Erfahrungen
+            {% if current_lang == 'en' %}Our previous experience{% else %}Unsere bisherigen Erfahrungen{% endif %}
         </h3>
 
         <p>
-            Durch unsere bisherigen Erfahrungen mit
-            LEGO, Technik und Teamarbeit konnten wir bereits
-            erste Erfahrungen mit praktischem
-            Problemlösen und Teamarbeit sammeln.
+            {% if current_lang == 'en' %}
+                Through our previous experience with LEGO, technology and teamwork, we have already learned important steps for our project.
+            {% else %}
+                Durch unsere bisherigen Erfahrungen mit
+                LEGO, Technik und Teamarbeit konnten wir bereits
+                erste Erfahrungen mit praktischem
+                Problemlösen und Teamarbeit sammeln.
+            {% endif %}
         </p>
 
     </div>
@@ -88,13 +104,17 @@
     <div class="content-text">
 
         <h2>
-            Jetzt geht es weiter
+            {% if current_lang == 'en' %}Now we continue{% else %}Jetzt geht es weiter{% endif %}
         </h2>
 
         <p>
-            STEM Racing gibt uns die Möglichkeit,
-            diese Erfahrungen auf ein neues Level
-            zu bringen.
+            {% if current_lang == 'en' %}
+                STEM Racing gives us the opportunity to take these experiences to a new level.
+            {% else %}
+                STEM Racing gibt uns die Möglichkeit,
+                diese Erfahrungen auf ein neues Level
+                zu bringen.
+            {% endif %}
         </p>
 
     </div>

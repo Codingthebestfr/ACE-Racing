@@ -1,24 +1,20 @@
 {% extends "base.html" %}
 
 {% block title %}
-Team | Accelera Force
+{% if current_lang == 'en' %}Team | A.C.E{% else %}Team | A.C.E{% endif %}
 {% endblock %}
 
 
 {% block content %}
 
-<!-- =========================
-     TEAM HEADER
-========================== -->
-
 <section class="page-header">
 
     <p class="section-label">
-        OUR TEAM
+        {% if current_lang == 'en' %}OUR TEAM{% else %}OUR TEAM{% endif %}
     </p>
 
     <h1>
-        Das Team
+        {% if current_lang == 'en' %}The team{% else %}Das Team{% endif %}
     </h1>
 
     <p>
@@ -27,210 +23,114 @@ Team | Accelera Force
 
 </section>
 
-
-<!-- =========================
-     TEAM FOTO
-========================== -->
-
 <section class="team-photo-section">
 
     <div class="team-photo-placeholder">
 
-        <!--
-            HIER SPÄTER EUER TEAMFOTO EINSETZEN
-
-            Beispiel:
-            <img src="{{ url_for('static', filename='images/team.jpg') }}"
-                 alt="Accelera Force Team">
-        -->
-
         <span>
-            TEAMFOTO
+            {% if current_lang == 'en' %}TEAM PHOTO{% else %}TEAMFOTO{% endif %}
         </span>
 
         <small>
-            Bild folgt
+            {% if current_lang == 'en' %}Coming soon{% else %}Bild folgt{% endif %}
         </small>
 
     </div>
 
 </section>
 
-
-<!-- =========================
-     TEAM MEMBERS
-========================== -->
-
 <section class="team-section">
 
     <p class="section-label">
-        MEET THE TEAM
+        {% if current_lang == 'en' %}MEET THE TEAM{% else %}MEET THE TEAM{% endif %}
     </p>
 
     <h2>
-        Unser Team
+        {% if current_lang == 'en' %}Our team{% else %}Unser Team{% endif %}
     </h2>
 
     <div class="team-grid">
 
-
-        <!-- MINH -->
-
         <div class="team-card">
-
-            <div class="team-number">
-                01
-            </div>
-
-            <h3>
-                Minh Dao
-            </h3>
-
-            <p class="team-age">
-                15 Jahre
-            </p>
-
-            <p>
-                Head of IT & Media, Teil des Konstruktionsteams/Forschung
-            </p>
-
+            <div class="team-number">01</div>
+            <h3>Minh Dao</h3>
+            <p class="team-age">{% if current_lang == 'en' %}15 years{% else %}15 Jahre{% endif %}</p>
+            <p>{% if current_lang == 'en' %}Head of IT & Media, part of the design and research team{% else %}Head of IT & Media, Teil des Konstruktionsteams/Forschung{% endif %}</p>
         </div>
 
-
-        <!-- YASHMITH -->
-
         <div class="team-card">
-
-            <div class="team-number">
-                02
-            </div>
-
-            <h3>
-                Yashmith Gettam
-            </h3>
-
-            <p class="team-age">
-                14 Jahre
-            </p>
-
-            <p>
-                Teamleader, Teil des Konstruktionsteams/Forschung
-            </p>
-
+            <div class="team-number">02</div>
+            <h3>Yashmith Gettam</h3>
+            <p class="team-age">{% if current_lang == 'en' %}14 years{% else %}14 Jahre{% endif %}</p>
+            <p>{% if current_lang == 'en' %}Team leader, part of the design and research team{% else %}Teamleader, Teil des Konstruktionsteams/Forschung{% endif %}</p>
         </div>
 
-
-        <!-- DARIUS -->
-
         <div class="team-card">
-
-            <div class="team-number">
-                03
-            </div>
-
-            <h3>
-                Darius Melian Flamand
-            </h3>
-
-            <p class="team-age">
-                15 Jahre
-            </p>
-
-            <p>
-                Head of Production, Teil des Konstruktionsteams/Forschung
-            </p>
-
+            <div class="team-number">03</div>
+            <h3>Darius Melian Flamand</h3>
+            <p class="team-age">{% if current_lang == 'en' %}15 years{% else %}15 Jahre{% endif %}</p>
+            <p>{% if current_lang == 'en' %}Head of Production, part of the design and research team{% else %}Head of Production, Teil des Konstruktionsteams/Forschung{% endif %}</p>
         </div>
 
-
-        <!-- TRI-DUNG -->
-
         <div class="team-card">
-
-            <div class="team-number">
-                04
-            </div>
-
-            <h3>
-                Tri-Dung Tran
-            </h3>
-
-            <p class="team-age">
-                15 Jahre
-            </p>
-
-            <p>
-                Head of Graphics/Designing und Social Media
-            </p>
-
+            <div class="team-number">04</div>
+            <h3>Tri-Dung Tran</h3>
+            <p class="team-age">{% if current_lang == 'en' %}15 years{% else %}15 Jahre{% endif %}</p>
+            <p>{% if current_lang == 'en' %}Head of Graphics/Design and Social Media{% else %}Head of Graphics/Designing und Social Media{% endif %}</p>
         </div>
 
-
-        <!-- OMAR -->
-
         <div class="team-card">
-
-            <div class="team-number">
-                05
-            </div>
-
-            <h3>
-                Omar Ahmed
-            </h3>
-
-            <p class="team-age">
-                16 Jahre
-            </p>
-
-            <p>
-                Head of PR & Marketing
-            </p>
-
+            <div class="team-number">05</div>
+            <h3>Omar Ahmed</h3>
+            <p class="team-age">{% if current_lang == 'en' %}16 years{% else %}16 Jahre{% endif %}</p>
+            <p>{% if current_lang == 'en' %}Head of PR & Marketing{% else %}Head of PR & Marketing{% endif %}</p>
         </div>
 
     </div>
 
 </section>
 
-
-<!-- =========================
-     TEAM PHILOSOPHY
-========================== -->
-
 <section class="content-section">
 
     <div class="content-text">
 
         <h2>
-            Gemeinsam statt allein.
+            {% if current_lang == 'en' %}Together, not alone.{% else %}Gemeinsam statt allein.{% endif %}
         </h2>
 
         <p>
-            STEM Racing ist mehr als nur ein Rennwagen.
-            Wir arbeiten gemeinsam an Konstruktion,
-            Technik, Planung und Präsentation.
+            {% if current_lang == 'en' %}
+                STEM Racing is more than just a race car. We work together on design, technology, planning and presentation.
+            {% else %}
+                STEM Racing ist mehr als nur ein Rennwagen.
+                Wir arbeiten gemeinsam an Konstruktion,
+                Technik, Planung und Präsentation.
+            {% endif %}
         </p>
 
         <p>
-            Jeder von uns bringt eigene Interessen,
-            Ideen und Fähigkeiten mit. Genau diese
-            Kombination macht unser Team aus.
+            {% if current_lang == 'en' %}
+                Each of us brings different interests, ideas and skills. This combination is what makes our team special.
+            {% else %}
+                Jeder von uns bringt eigene Interessen,
+                Ideen und Fähigkeiten mit. Genau diese
+                Kombination macht unser Team aus.
+            {% endif %}
         </p>
 
     </div>
 
-
     <div class="info-box">
 
         <h3>
-            ACCELERA FORCE
+            A.C.E
         </h3>
 
         <ul>
-            <li>5 Teammitglieder</li>
+            <li>{% if current_lang == 'en' %}5 team members{% else %}5 Teammitglieder{% endif %}</li>
             <li>STEM Racing 2026/27</li>
-            <li>Einhard-Gymnasium Aachen</li>
-            <li>Engineering & Racing</li>
+            <li>{% if current_lang == 'en' %}Einhard-Gymnasium Aachen{% else %}Einhard-Gymnasium Aachen{% endif %}</li>
+            <li>{% if current_lang == 'en' %}Engineering & Racing{% else %}Engineering & Racing{% endif %}</li>
         </ul>
 
     </div>

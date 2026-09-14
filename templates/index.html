@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Home | Accelera Force
+Home | A.C.E
 {% endblock %}
 
 
@@ -16,23 +16,27 @@ Home | Accelera Force
         </p>
 
         <h1>
-            ACCELERA<br>
-            <span>FORCE</span>
+            A.C.E
         </h1>
 
         <p class="hero-description">
-            Technik. Teamwork. Innovation.
-            Gemeinsam entwickeln wir unseren eigenen Rennwagen.
+            {% if current_lang == 'en' %}
+                Technology. Teamwork. Innovation.
+                Together we develop our own racing car.
+            {% else %}
+                Technik. Teamwork. Innovation.
+                Gemeinsam entwickeln wir unseren eigenen Rennwagen.
+            {% endif %}
         </p>
 
         <div class="hero-buttons">
 
             <a href="{{ url_for('about') }}" class="button">
-                Über uns
+                {% if current_lang == 'en' %}About us{% else %}Über uns{% endif %}
             </a>
 
             <a href="{{ url_for('car') }}" class="button button-outline">
-                Unser Auto
+                {% if current_lang == 'en' %}Our car{% else %}Unser Auto{% endif %}
             </a>
 
         </div>
@@ -45,7 +49,7 @@ Home | Accelera Force
 <section class="intro">
 
     <p class="section-label">
-        UNSER PROJEKT
+        {% if current_lang == 'en' %}OUR PROJECT{% else %}UNSER PROJEKT{% endif %}
     </p>
 
     <h2>
@@ -53,8 +57,12 @@ Home | Accelera Force
     </h2>
 
     <p>
-        Wir sind ein neu gegründetes Accelera-Force-Team und nehmen
-        am STEM-Racing-Projekt teil.
+        {% if current_lang == 'en' %}
+            We are a newly founded team and take part in the STEM Racing project.
+        {% else %}
+            Wir sind ein neu gegründetes Team und nehmen
+            am STEM-Racing-Projekt teil.
+        {% endif %}
     </p>
 
     <div class="cards">
@@ -64,11 +72,15 @@ Home | Accelera Force
             <h3>TEAM</h3>
 
             <p>
-                Lernen Sie unser Team und unsere Aufgaben kennen.
+                {% if current_lang == 'en' %}
+                    Get to know our team and our roles.
+                {% else %}
+                    Lernen Sie unser Team und unsere Aufgaben kennen.
+                {% endif %}
             </p>
 
             <a href="{{ url_for('team') }}">
-                Mehr erfahren →
+                {% if current_lang == 'en' %}Learn more →{% else %}Mehr erfahren →{% endif %}
             </a>
 
         </div>
@@ -79,11 +91,15 @@ Home | Accelera Force
             <h3>ENGINEERING</h3>
 
             <p>
-                Von der Idee über CAD bis zum fertigen Rennwagen.
+                {% if current_lang == 'en' %}
+                    From the idea to CAD and the finished race car.
+                {% else %}
+                    Von der Idee über CAD bis zum fertigen Rennwagen.
+                {% endif %}
             </p>
 
             <a href="{{ url_for('project') }}">
-                Unser Projekt →
+                {% if current_lang == 'en' %}Our project →{% else %}Unser Projekt →{% endif %}
             </a>
 
         </div>
@@ -94,12 +110,16 @@ Home | Accelera Force
             <h3>RACING</h3>
 
             <p>
-                Unser Ziel: einen möglichst schnellen und
-                gut entwickelten Rennwagen zu bauen.
+                {% if current_lang == 'en' %}
+                    Our goal is to build a fast, well-developed racing car.
+                {% else %}
+                    Unser Ziel: einen möglichst schnellen und
+                    gut entwickelten Rennwagen zu bauen.
+                {% endif %}
             </p>
 
             <a href="{{ url_for('car') }}">
-                Unser Auto →
+                {% if current_lang == 'en' %}Our car →{% else %}Unser Auto →{% endif %}
             </a>
 
         </div>

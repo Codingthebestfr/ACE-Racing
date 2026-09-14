@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Kontakt | Accelera Force
+{% if current_lang == 'en' %}Contact | A.C.E{% else %}Kontakt | A.C.E{% endif %}
 {% endblock %}
 
 
@@ -10,175 +10,126 @@ Kontakt | Accelera Force
 <section class="page-header">
 
     <p class="section-label">
-        CONTACT
+        {% if current_lang == 'en' %}CONTACT{% else %}CONTACT{% endif %}
     </p>
 
     <h1>
-        Kontakt
+        {% if current_lang == 'en' %}Contact{% else %}Kontakt{% endif %}
     </h1>
 
     <p>
-        Sie möchten mehr über unser Team oder unser
-        STEM-Racing-Projekt erfahren?
-        Schreiben Sie uns gerne.
+        {% if current_lang == 'en' %}
+            Would you like to know more about our team or our STEM Racing project? Please feel free to get in touch.
+        {% else %}
+            Sie möchten mehr über unser Team oder unser
+            STEM-Racing-Projekt erfahren?
+            Schreiben Sie uns gerne.
+        {% endif %}
     </p>
 
 </section>
 
-
 <section class="contact-section">
-
-    <!-- =========================
-         CONTACT INFO
-    ========================== -->
 
     <div class="contact-main">
 
         <p class="section-label">
-            GET IN TOUCH
+            {% if current_lang == 'en' %}GET IN TOUCH{% else %}GET IN TOUCH{% endif %}
         </p>
 
         <h2>
-            Kontaktieren Sie uns.
+            {% if current_lang == 'en' %}Get in touch.{% else %}Kontaktieren Sie uns.{% endif %}
         </h2>
 
         <p>
-            Ob Fragen zu unserem Projekt,
-            Interesse an einer Partnerschaft oder
-            einfach Interesse an unserem Team –
-            wir freuen uns über Ihre Nachricht.
+            {% if current_lang == 'en' %}
+                Whether you have questions about our project, are interested in a partnership, or simply want to learn more about our team – we are happy to hear from you.
+            {% else %}
+                Ob Fragen zu unserem Projekt,
+                Interesse an einer Partnerschaft oder
+                einfach Interesse an unserem Team –
+                wir freuen uns über Ihre Nachricht.
+            {% endif %}
         </p>
 
         <div class="contact-list">
             <div class="contact-person">
-                <h3>Kontaktdaten: Minh Dao (IT & Media, Konstruktion & Forschung)</h3>
-                <a href="mailto:minh.dao.game5@gmail.com" class="contact-email">
-                    minh.dao.game5@gmail.com
-                </a>
-                <a href="mailto:minh.dao.game5@gmail.com" class="button">
-                    Minh Dao schreiben
-                </a>
+                <h3>{% if current_lang == 'en' %}Contact: Minh Dao (IT & Media, design and research){% else %}Kontaktdaten: Minh Dao (IT & Media, Konstruktion & Forschung){% endif %}</h3>
+                <a href="mailto:minh.dao.game5@gmail.com" class="contact-email">minh.dao.game5@gmail.com</a>
+                <a href="mailto:minh.dao.game5@gmail.com" class="button">{% if current_lang == 'en' %}Write to Minh Dao{% else %}Minh Dao schreiben{% endif %}</a>
             </div>
 
             <div class="contact-person">
-                <h3>Kontaktdaten: Omar Ahmed (Head of PR & Marketing) </h3>
-                <a href="mailto:omarahmed6306@gmail.com" class="contact-email">
-                    omarahmed6306@gmail.com
-                </a>
-                <a href="mailto:omarahmed6306@gmail.com" class="button">
-                    Omar Ahmed schreiben
-                </a>
+                <h3>{% if current_lang == 'en' %}Contact: Omar Ahmed (Head of PR & Marketing){% else %}Kontaktdaten: Omar Ahmed (Head of PR & Marketing){% endif %}</h3>
+                <a href="mailto:omarahmed6306@gmail.com" class="contact-email">omarahmed6306@gmail.com</a>
+                <a href="mailto:omarahmed6306@gmail.com" class="button">{% if current_lang == 'en' %}Write to Omar Ahmed{% else %}Omar Ahmed schreiben{% endif %}</a>
             </div>
 
             <div class="contact-person">
-                <h3>Kontaktdaten: Tri-Dung Tran (Graphics, Design & Social Media)</h3>
-                <a href="mailto:dung20.tran01@gmail.com" class="contact-email">
-                    dung20.tran01@gmail.com
-                </a>
-                <a href="mailto:dung20.tran01@gmail.com" class="button">
-                    Tri-Dung Tran schreiben
-                </a>
+                <h3>{% if current_lang == 'en' %}Contact: Tri-Dung Tran (Graphics, Design & Social Media){% else %}Kontaktdaten: Tri-Dung Tran (Graphics, Design & Social Media){% endif %}</h3>
+                <a href="mailto:dung20.tran01@gmail.com" class="contact-email">dung20.tran01@gmail.com</a>
+                <a href="mailto:dung20.tran01@gmail.com" class="button">{% if current_lang == 'en' %}Write to Tri-Dung Tran{% else %}Tri-Dung Tran schreiben{% endif %}</a>
             </div>
 
             <div class="contact-person">
-                <h3>Kontaktdaten: Yashmith Gettam (Teamleader, Konstruktion & Forschung)</h3>
-                <a href="mailto:yashmith.gettam@gmail.com" class="contact-email">
-                    yashmith.gettam@gmail.com
-                </a>
-                <a href="mailto:yashmith.gettam@gmail.com" class="button">
-                    Yashmith Gettam schreiben
-                </a>
+                <h3>{% if current_lang == 'en' %}Contact: Yashmith Gettam (Team leader, design and research){% else %}Kontaktdaten: Yashmith Gettam (Teamleader, Konstruktion & Forschung){% endif %}</h3>
+                <a href="mailto:yashmith.gettam@gmail.com" class="contact-email">yashmith.gettam@gmail.com</a>
+                <a href="mailto:yashmith.gettam@gmail.com" class="button">{% if current_lang == 'en' %}Write to Yashmith Gettam{% else %}Yashmith Gettam schreiben{% endif %}</a>
             </div>
 
             <div class="contact-person">
-                <h3>Kontaktdaten: Darius Melian Flamand (Production, Konstruktion & Forschung)</h3>
-                <a href="mailto:dariusmelian16@gmail.com" class="contact-email">
-                    dariusmelian16@gmail.com
-                </a>
-                <a href="mailto:dariusmelian16@gmail.com" class="button">
-                    Darius Melian Flamand schreiben
-                </a>
+                <h3>{% if current_lang == 'en' %}Contact: Darius Melian Flamand (Production, design and research){% else %}Kontaktdaten: Darius Melian Flamand (Production, Konstruktion & Forschung){% endif %}</h3>
+                <a href="mailto:dariusmelian16@gmail.com" class="contact-email">dariusmelian16@gmail.com</a>
+                <a href="mailto:dariusmelian16@gmail.com" class="button">{% if current_lang == 'en' %}Write to Darius Melian Flamand{% else %}Darius Melian Flamand schreiben{% endif %}</a>
             </div>
         </div>
 
     </div>
 
-
-    <!-- =========================
-         CONTACT INFO BOX
-    ========================== -->
-
     <div class="info-box contact-box">
 
         <h3>
-            Accelera Force
+            A.C.E
         </h3>
 
         <ul>
-            <li>
-                Einhard-Gymnasium Aachen
-            </li>
-
-            <li>
-                STEM Racing 2026/27
-            </li>
-
-            <li>
-                Aachen, NRW
-            </li>
-
-            <li>
-                Minh Dao: minh.dao.game5@gmail.com
-            </li>
-
-            <li>
-                Omar Ahmed: omarahmed6306@gmail.com
-            </li>
-
-            <li>
-                Tri-Dung Tran: dung20.tran01@gmail.com
-            </li>
-
-            <li>
-                Yashmith Gettam: yashmith.gettam@gmail.com
-            </li>
-
-            <li>
-                Darius Melian Flamand: dariusmelian16@gmail.com
-            </li>
-
-            <li>
-                Team Email: <a href="mailto:max.musterman@gmail.com">max.musterman@gmail.com</a>
-            </li>
+            <li>Einhard-Gymnasium Aachen</li>
+            <li>STEM Racing 2026/27</li>
+            <li>Aachen, NRW</li>
+            <li>Minh Dao: minh.dao.game5@gmail.com</li>
+            <li>Omar Ahmed: omarahmed6306@gmail.com</li>
+            <li>Tri-Dung Tran: dung20.tran01@gmail.com</li>
+            <li>Yashmith Gettam: yashmith.gettam@gmail.com</li>
+            <li>Darius Melian Flamand: dariusmelian16@gmail.com</li>
+            <li>{% if current_lang == 'en' %}Team email{% else %}Team Email{% endif %}: <a href="mailto:max.musterman@gmail.com">max.musterman@gmail.com</a></li>
         </ul>
 
     </div>
 
 </section>
 
-
-<!-- =========================
-     SPONSOR CTA
-========================== -->
-
 <section class="contact-sponsor">
 
     <p class="section-label">
-        PARTNERSHIP
+        {% if current_lang == 'en' %}PARTNERSHIP{% else %}PARTNERSHIP{% endif %}
     </p>
 
     <h2>
-        Interesse an einer Zusammenarbeit?
+        {% if current_lang == 'en' %}Interested in a collaboration?{% else %}Interesse an einer Zusammenarbeit?{% endif %}
     </h2>
 
     <p>
-        Wir sind aktuell auf der Suche nach
-        Unternehmen und Partnern, die unser
-        Projekt unterstützen möchten.
+        {% if current_lang == 'en' %}
+            We are currently looking for companies and partners who want to support our project.
+        {% else %}
+            Wir sind aktuell auf der Suche nach
+            Unternehmen und Partnern, die unser
+            Projekt unterstützen möchten.
+        {% endif %}
     </p>
 
     <a href="{{ url_for('sponsors') }}" class="button button-outline">
-        Sponsor werden
+        {% if current_lang == 'en' %}Become a sponsor{% else %}Sponsor werden{% endif %}
     </a>
 
 </section>

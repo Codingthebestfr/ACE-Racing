@@ -88,6 +88,42 @@ a {
     z-index: 1000;
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px;
+    border: 1px solid #2c333d;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.lang-switch a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    padding: 6px 8px;
+    border-radius: 999px;
+    color: #d7dce2;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lang-switch a.is-active {
+    background: #d946ef;
+    color: #080b10;
+}
+
 .logo {
     color: #ffffff;
     text-decoration: none;
@@ -137,9 +173,7 @@ nav a.is-active {
 
 .menu-toggle {
     display: block;
-    position: absolute;
-    top: 20px;
-    right: 7%;
+    position: static;
     border: 1px solid #3a424d;
     background: transparent;
     color: #ffffff;

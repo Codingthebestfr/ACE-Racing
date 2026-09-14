@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="{{ current_lang }}">
 
 <head>
     <meta charset="UTF-8">
@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#080b10">
 
-    <title>{% block title %}Accelera Force{% endblock %}</title>
+    <title>{% block title %}A.C.E{% endblock %}</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-    <a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+    <a class="skip-link" href="#main-content">{{ t('skip_to_content') }}</a>
 
     <!-- =========================
          NAVIGATION
@@ -22,23 +22,30 @@
 
     <header class="navbar">
 
-        <a class="logo" href="{{ url_for('home') }}" aria-label="Accelera Force Startseite">
-            ACCELERA<span>FORCE</span>
+        <a class="logo" href="{{ url_for('home') }}" aria-label="A.C.E Startseite">
+            {{ t('site_name') }}
         </a>
 
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
-            <span class="menu-icon" aria-hidden="true"></span>
-            <span class="sr-only">Menü öffnen</span>
-        </button>
+        <div class="nav-actions">
+            <div class="lang-switch" aria-label="Language switch">
+                <a href="{{ request.path }}?lang=de" class="{% if current_lang == 'de' %}is-active{% endif %}">{{ t('lang_de') }}</a>
+                <a href="{{ request.path }}?lang=en" class="{% if current_lang == 'en' %}is-active{% endif %}">{{ t('lang_en') }}</a>
+            </div>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+                <span class="menu-icon" aria-hidden="true"></span>
+                <span class="sr-only">{{ t('menu_open') }}</span>
+            </button>
+        </div>
 
         <nav id="site-navigation" aria-label="Hauptnavigation">
-            <a class="{% if request.endpoint == 'home' %}is-active{% endif %}" href="{{ url_for('home') }}">Home</a>
-            <a class="{% if request.endpoint == 'about' %}is-active{% endif %}" href="{{ url_for('about') }}">Über uns</a>
-            <a class="{% if request.endpoint == 'team' %}is-active{% endif %}" href="{{ url_for('team') }}">Team</a>
-            <a class="{% if request.endpoint == 'car' %}is-active{% endif %}" href="{{ url_for('car') }}">Unser Auto</a>
-            <a class="{% if request.endpoint == 'project' %}is-active{% endif %}" href="{{ url_for('project') }}">Projekt</a>
-            <a class="{% if request.endpoint == 'sponsors' %}is-active{% endif %}" href="{{ url_for('sponsors') }}">Sponsoren</a>
-            <a class="{% if request.endpoint == 'contact' %}is-active{% endif %}" href="{{ url_for('contact') }}">Kontakt</a>
+            <a class="{% if request.endpoint == 'home' %}is-active{% endif %}" href="{{ url_for('home') }}">{{ t('nav_home') }}</a>
+            <a class="{% if request.endpoint == 'about' %}is-active{% endif %}" href="{{ url_for('about') }}">{{ t('nav_about') }}</a>
+            <a class="{% if request.endpoint == 'team' %}is-active{% endif %}" href="{{ url_for('team') }}">{{ t('nav_team') }}</a>
+            <a class="{% if request.endpoint == 'car' %}is-active{% endif %}" href="{{ url_for('car') }}">{{ t('nav_car') }}</a>
+            <a class="{% if request.endpoint == 'project' %}is-active{% endif %}" href="{{ url_for('project') }}">{{ t('nav_project') }}</a>
+            <a class="{% if request.endpoint == 'sponsors' %}is-active{% endif %}" href="{{ url_for('sponsors') }}">{{ t('nav_sponsors') }}</a>
+            <a class="{% if request.endpoint == 'contact' %}is-active{% endif %}" href="{{ url_for('contact') }}">{{ t('nav_contact') }}</a>
         </nav>
 
     </header>
@@ -66,26 +73,26 @@
         <div class="footer-content">
 
             <div>
-                <h3>Accelera Force</h3>
+                <h3>{{ t('site_name') }}</h3>
                 <p>
                     STEM Racing Team
                 </p>
             </div>
 
             <div>
-                <h3>Navigation</h3>
+                <h3>{{ t('footer_navigation') }}</h3>
 
-                <a href="{{ url_for('home') }}">Home</a>
-                <a href="{{ url_for('about') }}">Über uns</a>
-                <a href="{{ url_for('team') }}">Team</a>
-                <a href="{{ url_for('car') }}">Auto</a>
+                <a href="{{ url_for('home') }}">{{ t('nav_home') }}</a>
+                <a href="{{ url_for('about') }}">{{ t('nav_about') }}</a>
+                <a href="{{ url_for('team') }}">{{ t('nav_team') }}</a>
+                <a href="{{ url_for('car') }}">{{ t('nav_car') }}</a>
             </div>
 
             <div>
-                <h3>Impressum</h3>
+                <h3>{{ t('footer_impressum') }}</h3>
 
                 <p>
-                    Accelera Force am Einhard-Gymnasium Aachen
+                    A.C.E am Einhard-Gymnasium Aachen
                 </p>
 
                 <p class="footer-address">
@@ -94,7 +101,7 @@
                 </p>
 
                 <a class="button button-outline footer-map-button" href="https://www.google.com/maps/search/?api=1&amp;query=Robert-Schuman-Str.+4%2C+52066+Aachen" target="_blank" rel="noopener noreferrer">
-                    Jetzt anreisen
+                    {{ t('footer_map') }}
                 </a>
 
                 <p>
@@ -107,13 +114,13 @@
                     Telefon: <a href="tel:+4917623350637">+49 176 23350637</a>
                 </p>
 
-                <a href="{{ url_for('impressum') }}">Alle Impressumsangaben</a>
+                <a href="{{ url_for('impressum') }}">{{ t('footer_all_impressum') }}</a>
             </div>
 
         </div>
 
         <div class="copyright">
-            © 2026 Accelera Force
+            {{ t('copyright') }}
         </div>
 
     </footer>
