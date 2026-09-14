@@ -456,6 +456,14 @@ footer {
     margin-bottom: 20px;
 }
 
+.footer-map-button {
+    display: inline-block !important;
+    width: auto;
+    margin-bottom: 45px;
+    padding: 10px 18px;
+    font-size: 14px;
+}
+
 .footer-content a {
     display: block;
 
