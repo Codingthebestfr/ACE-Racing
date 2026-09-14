@@ -101,8 +101,21 @@ a {
 }
 
 nav {
+    display: none;
+}
+
+nav.is-open {
     display: flex;
-    gap: 28px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    position: absolute;
+    top: calc(100% + 1px);
+    right: 0;
+    width: min(280px, 100%);
+    padding: 14px 7%;
+    background: rgba(8, 11, 16, 0.98);
+    border-bottom: 1px solid #202731;
 }
 
 nav a {
@@ -123,7 +136,10 @@ nav a.is-active {
 }
 
 .menu-toggle {
-    display: none;
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 7%;
     border: 1px solid #3a424d;
     background: transparent;
     color: #ffffff;
@@ -135,8 +151,8 @@ nav a.is-active {
 .menu-icon::before,
 .menu-icon::after {
     display: block;
-    width: 22px;
-    height: 2px;
+    width: 36px;
+    height: 4px;
     background: currentColor;
     transition: transform 0.2s ease;
 }
@@ -436,6 +452,10 @@ footer {
     color: #9ba2ac;
 }
 
+.footer-address {
+    margin-bottom: 20px;
+}
+
 .footer-content a {
     display: block;
 
@@ -486,6 +506,13 @@ footer {
         right: 5%;
     }
 
+    .menu-icon,
+    .menu-icon::before,
+    .menu-icon::after {
+        width: 22px;
+        height: 2px;
+    }
+
     nav {
         display: none;
         gap: 15px;
@@ -498,6 +525,10 @@ footer {
     nav.is-open {
         display: flex;
         width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding-top: 4px;
     }
 
     .hero {
@@ -605,6 +636,10 @@ footer {
     border: 1px solid #252c35;
 
     padding: 35px;
+}
+
+.impressum-contact {
+    margin-top: 20px;
 }
 
 .info-box h3 {
