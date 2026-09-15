@@ -9,7 +9,9 @@
             const isOpen = menuButton.getAttribute("aria-expanded") === "true";
             menuButton.setAttribute("aria-expanded", String(!isOpen));
             navigation.classList.toggle("is-open", !isOpen);
-            menuButton.querySelector(".sr-only").textContent = isOpen ? "Menü öffnen" : "Menü schließen";
+            menuButton.querySelector(".sr-only").textContent = isOpen
+                ? menuButton.dataset.openLabel
+                : menuButton.dataset.closeLabel;
         });
 
         navigation.addEventListener("click", function (event) {

@@ -9,6 +9,9 @@ LANGUAGE_COOKIE_NAME = "site_lang"
 TRANSLATIONS = {
     "de": {
         "site_name": "A.C.E",
+        "home_aria_label": "A.C.E Startseite",
+        "main_navigation": "Hauptnavigation",
+        "language_switch": "Sprachauswahl",
         "nav_home": "Home",
         "nav_about": "Über uns",
         "nav_team": "Team",
@@ -128,6 +131,9 @@ TRANSLATIONS = {
     },
     "en": {
         "site_name": "A.C.E",
+        "home_aria_label": "A.C.E home page",
+        "main_navigation": "Main navigation",
+        "language_switch": "Language selection",
         "nav_home": "Home",
         "nav_about": "About us",
         "nav_team": "Team",
@@ -257,7 +263,14 @@ def persist_language(response):
             requested_lang,
             max_age=60 * 60 * 24 * 365,
             samesite="Lax",
+            secure=True,
+            httponly=True,
         )
+    response.headers["Content-Security-Policy"] = "default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    response.headers["Permissions-Policy"] = "camera=(), geolocation=(), microphone=()"
+    response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
     return response
 
 
@@ -318,4 +331,4 @@ def sponsors():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
