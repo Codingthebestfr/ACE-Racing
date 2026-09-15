@@ -706,6 +706,14 @@ footer {
     color: #d5dae0;
 }
 
+.info-box li a {
+    white-space: nowrap;
+}
+
+.impressum-contact li:last-child {
+    font-size: 15px;
+}
+
 .info-box li:last-child {
     border-bottom: none;
 }
