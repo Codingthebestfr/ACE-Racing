@@ -10,7 +10,7 @@
 <section class="page-header">
 
     <p class="section-label">
-        ABOUT US
+        {% if current_lang == 'en' %}ABOUT US{% else %}ÜBER UNS{% endif %}
     </p>
 
     <h1>
@@ -68,10 +68,17 @@
         </h3>
 
         <ul>
-            <li>Engineering</li>
-            <li>Teamwork</li>
-            <li>Innovation</li>
-            <li>Racing</li>
+            {% if current_lang == 'en' %}
+                <li>Engineering</li>
+                <li>Teamwork</li>
+                <li>Innovation</li>
+                <li>Racing</li>
+            {% else %}
+                <li>Ingenieurwesen</li>
+                <li>Teamarbeit</li>
+                <li>Innovation</li>
+                <li>Rennsport</li>
+            {% endif %}
         </ul>
 
     </div>
