@@ -245,6 +245,20 @@ nav a.is-active {
             rgba(8, 11, 16, 0.98),
             rgba(8, 11, 16, 0.70),
             rgba(8, 11, 16, 0.35)
+        ),
+        repeating-linear-gradient(
+            0deg,
+            rgba(174, 181, 191, 0.13) 0,
+            rgba(174, 181, 191, 0.13) 1px,
+            transparent 1px,
+            transparent 64px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            rgba(174, 181, 191, 0.13) 0,
+            rgba(174, 181, 191, 0.13) 1px,
+            transparent 1px,
+            transparent 64px
         );
 
     position: relative;
@@ -266,6 +280,24 @@ nav a.is-active {
 
 .hero-content {
     max-width: 800px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-model {
+    position: absolute;
+    top: 16%;
+    right: 5%;
+    width: min(42vw, 600px);
+    z-index: 0;
+    opacity: 0.82;
+    transform: rotate(-3deg);
+}
+
+.hero-model img {
+    display: block;
+    width: 100%;
+    filter: grayscale(1) brightness(0.62) contrast(1.08);
 }
 
 .hero-small {
@@ -579,6 +611,12 @@ footer {
         min-height: 600px;
     }
 
+    .hero-model {
+        right: 2%;
+        width: 48vw;
+        opacity: 0.62;
+    }
+
     .cards {
         grid-template-columns: 1fr;
     }
@@ -605,6 +643,13 @@ footer {
 
     .hero-description {
         font-size: 17px;
+    }
+
+    .hero-model {
+        top: 18%;
+        right: 4%;
+        width: 86%;
+        opacity: 0.3;
     }
 
     .intro {
