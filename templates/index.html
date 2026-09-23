@@ -1,50 +1,53 @@
 {% extends "base.html" %}
 
-{% block title %}
-Home | A.C.E
-{% endblock %}
+{% block title %}A.C.E | STEM Racing Team{% endblock %}
+
+{% block meta_description %}{% if current_lang == 'en' %}A.C.E is a student STEM Racing team from Aachen developing its own race car through engineering, teamwork and innovation.{% else %}A.C.E ist ein STEM-Racing-Team aus Aachen und entwickelt mit Engineering, Teamarbeit und Innovation einen eigenen Rennwagen.{% endif %}{% endblock %}
 
 
 {% block content %}
 
-<section class="hero">
+<section class="hero hero-home">
 
     <div class="hero-content">
 
-        <p class="hero-small">
-            STEM RACING 2026 / 27
+        <p class="hero-kicker">
+            <span class="status-dot" aria-hidden="true"></span>
+            {% if current_lang == 'en' %}STEM RACING / SEASON 2026-27{% else %}STEM RACING / SAISON 2026-27{% endif %}
         </p>
 
         <h1>
-            A.C.E
+            <span class="hero-word"><span class="hero-initial">A</span>cceleration.</span><br>
+            <span class="hero-word"><span class="hero-initial">C</span>ollaboration.</span><br>
+            <span class="hero-word"><span class="hero-initial">E</span>xcellence.</span>
         </h1>
 
         <p class="hero-description">
             {% if current_lang == 'en' %}
-                Technology. Teamwork. Innovation.
-                Together we develop our own racing car.
+                Technology. Teamwork. Innovation. Together we develop our own racing car.
             {% else %}
-                Technik. Teamarbeit. Innovation.
-                Gemeinsam entwickeln wir unseren eigenen Rennwagen.
+                Technik. Teamarbeit. Innovation. Gemeinsam entwickeln wir unseren eigenen Rennwagen.
             {% endif %}
         </p>
 
         <div class="hero-buttons">
 
             <a href="{{ url_for('about') }}" class="button">
-                {% if current_lang == 'en' %}About us{% else %}Über uns{% endif %}
+                {% if current_lang == 'en' %}Meet the team{% else %}Team kennenlernen{% endif %}
             </a>
 
             <a href="{{ url_for('car') }}" class="button button-outline">
-                {% if current_lang == 'en' %}Our car{% else %}Unser Auto{% endif %}
+                {% if current_lang == 'en' %}Explore the project{% else %}Projekt entdecken{% endif %}
             </a>
 
         </div>
 
     </div>
 
-    <div class="hero-model" aria-hidden="true">
-        <img src="{{ url_for('static', filename='images/stem-racing-chassis.png') }}?v=shadow-fixed" alt="">
+    <div class="hero-data" aria-label="{% if current_lang == 'en' %}Project status{% else %}Projektstatus{% endif %}">
+        <div class="hero-data-line"><span>{% if current_lang == 'en' %}CURRENT FOCUS{% else %}AKTUELLER FOKUS{% endif %}</span><strong>{% if current_lang == 'en' %}DESIGN + BUILD{% else %}DESIGN + BAU{% endif %}</strong></div>
+        <div class="hero-data-line"><span>{% if current_lang == 'en' %}BASE{% else %}STANDORT{% endif %}</span><strong>EINHARD-GYMNASIUM AACHEN / DE</strong></div>
+        <div class="hero-data-line"><span>{% if current_lang == 'en' %}STATUS{% else %}STATUS{% endif %}</span><strong class="accent-text">{% if current_lang == 'en' %}01 - IN MOTION{% else %}01 - IN ENTWICKLUNG{% endif %}</strong></div>
     </div>
 
 </section>
@@ -53,11 +56,11 @@ Home | A.C.E
 <section class="intro">
 
     <p class="section-label">
-        {% if current_lang == 'en' %}OUR PROJECT{% else %}UNSER PROJEKT{% endif %}
+        {% if current_lang == 'en' %}THE MISSION{% else %}DIE MISSION{% endif %}
     </p>
 
     <h2>
-        Engineering the Future
+        {% if current_lang == 'en' %}We build more than a car.{% else %}Wir bauen mehr als ein Auto.{% endif %}
     </h2>
 
     <p>
@@ -69,22 +72,29 @@ Home | A.C.E
         {% endif %}
     </p>
 
-    <div class="cards">
+    <div class="home-stats" aria-label="{% if current_lang == 'en' %}Team facts{% else %}Teamfakten{% endif %}">
+        <div><strong>05</strong><span>{% if current_lang == 'en' %}team members{% else %}Teammitglieder{% endif %}</span></div>
+        <div><strong>01</strong><span>{% if current_lang == 'en' %}race car in development{% else %}Rennwagen in Entwicklung{% endif %}</span></div>
+        <div><strong>∞</strong><span>{% if current_lang == 'en' %}ideas to test{% else %}Ideen zum Testen{% endif %}</span></div>
+    </div>
+
+    <div class="cards home-pillars">
 
         <div class="card">
 
-            <h3>TEAM</h3>
+            <span class="card-index">01 / {% if current_lang == 'en' %}PEOPLE{% else %}MENSCHEN{% endif %}</span>
+            <h3>{% if current_lang == 'en' %}Team{% else %}Team{% endif %}</h3>
 
             <p>
                 {% if current_lang == 'en' %}
-                    Get to know our team and our roles.
+                    Five people, different strengths and one shared goal.
                 {% else %}
-                    Lernen Sie unser Team und unsere Aufgaben kennen.
+                    Fünf Köpfe, unterschiedliche Stärken und ein gemeinsames Ziel.
                 {% endif %}
             </p>
 
             <a href="{{ url_for('team') }}">
-                {% if current_lang == 'en' %}Learn more →{% else %}Mehr erfahren →{% endif %}
+                {% if current_lang == 'en' %}Meet the team <span aria-hidden="true">↗</span>{% else %}Team kennenlernen <span aria-hidden="true">↗</span>{% endif %}
             </a>
 
         </div>
@@ -92,18 +102,19 @@ Home | A.C.E
 
         <div class="card">
 
-            <h3>ENGINEERING</h3>
+            <span class="card-index">02 / {% if current_lang == 'en' %}PROCESS{% else %}PROZESS{% endif %}</span>
+            <h3>{% if current_lang == 'en' %}Engineering{% else %}Engineering{% endif %}</h3>
 
             <p>
                 {% if current_lang == 'en' %}
-                    From the idea to CAD and the finished race car.
+                    From the first idea through CAD and 3D printing to a finished race car.
                 {% else %}
-                    Von der Idee über CAD bis zum fertigen Rennwagen.
+                    Von der Idee über CAD und 3D-Druck bis zum fertigen Rennwagen.
                 {% endif %}
             </p>
 
             <a href="{{ url_for('project') }}">
-                {% if current_lang == 'en' %}Our project →{% else %}Unser Projekt →{% endif %}
+                {% if current_lang == 'en' %}See the process <span aria-hidden="true">↗</span>{% else %}Prozess ansehen <span aria-hidden="true">↗</span>{% endif %}
             </a>
 
         </div>
@@ -111,25 +122,33 @@ Home | A.C.E
 
         <div class="card">
 
-            <h3>RACING</h3>
+            <span class="card-index">03 / {% if current_lang == 'en' %}PERFORMANCE{% else %}LEISTUNG{% endif %}</span>
+            <h3>{% if current_lang == 'en' %}Racing{% else %}Racing{% endif %}</h3>
 
             <p>
                 {% if current_lang == 'en' %}
-                    Our goal is to build a fast, well-developed racing car.
+                    Every decision is tested, reviewed and made better.
                 {% else %}
-                    Unser Ziel: einen möglichst schnellen und
-                    gut entwickelten Rennwagen zu bauen.
+                    Jede Entscheidung wird getestet, bewertet und besser gemacht.
                 {% endif %}
             </p>
 
             <a href="{{ url_for('car') }}">
-                {% if current_lang == 'en' %}Our car →{% else %}Unser Auto →{% endif %}
+                {% if current_lang == 'en' %}Explore the car <span aria-hidden="true">↗</span>{% else %}Auto entdecken <span aria-hidden="true">↗</span>{% endif %}
             </a>
 
         </div>
 
     </div>
 
+</section>
+
+<section class="home-cta">
+    <div>
+        <p class="section-label">{% if current_lang == 'en' %}OPEN FOR PARTNERSHIPS{% else %}OFFEN FÜR PARTNERSCHAFTEN{% endif %}</p>
+        <h2>{% if current_lang == 'en' %}Help us turn ambition into motion.{% else %}Helfen Sie uns, aus Ambition Bewegung zu machen.{% endif %}</h2>
+    </div>
+    <a href="{{ url_for('sponsors') }}" class="button">{% if current_lang == 'en' %}Partner with A.C.E{% else %}Partner von A.C.E werden{% endif %} <span aria-hidden="true">↗</span></a>
 </section>
 
 {% endblock %}

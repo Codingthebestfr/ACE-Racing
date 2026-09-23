@@ -27,6 +27,34 @@
         {% endif %}
     </p>
 
+    <div class="page-meta">
+        <span>{% if current_lang == 'en' %}TEAM ORIGIN{% else %}TEAMURSPRUNG{% endif %}</span>
+        <strong>EINHARD-GYMNASIUM AACHEN</strong>
+        <span>{% if current_lang == 'en' %}SEASON 2026-27{% else %}SAISON 2026-27{% endif %}</span>
+    </div>
+
+</section>
+
+<section class="section-band">
+    <p class="section-label">{% if current_lang == 'en' %}WHAT DRIVES US{% else %}WAS UNS ANTREIBT{% endif %}</p>
+    <h2>{% if current_lang == 'en' %}Curiosity in. Progress out.{% else %}Neugier rein. Fortschritt raus.{% endif %}</h2>
+    <div class="feature-grid">
+        <article class="feature-card">
+            <span class="card-index">01 / {% if current_lang == 'en' %}BUILD{% else %}BAUEN{% endif %}</span>
+            <h3>{% if current_lang == 'en' %}Make it real{% else %}Ideen werden echt{% endif %}</h3>
+            <p>{% if current_lang == 'en' %}We turn sketches, questions and prototypes into something that can move.{% else %}Wir machen aus Skizzen, Fragen und Prototypen etwas, das sich bewegen kann.{% endif %}</p>
+        </article>
+        <article class="feature-card">
+            <span class="card-index">02 / {% if current_lang == 'en' %}LEARN{% else %}LERNEN{% endif %}</span>
+            <h3>{% if current_lang == 'en' %}Learn by doing{% else %}Lernen durch Machen{% endif %}</h3>
+            <p>{% if current_lang == 'en' %}Every test gives us a better question and a stronger next version.{% else %}Jeder Test bringt uns eine bessere Frage und eine stärkere nächste Version.{% endif %}</p>
+        </article>
+        <article class="feature-card">
+            <span class="card-index">03 / {% if current_lang == 'en' %}GROW{% else %}WACHSEN{% endif %}</span>
+            <h3>{% if current_lang == 'en' %}Grow together{% else %}Gemeinsam wachsen{% endif %}</h3>
+            <p>{% if current_lang == 'en' %}Different skills become one team when everyone owns a piece of the result.{% else %}Unterschiedliche Fähigkeiten werden zum Team, wenn alle Verantwortung für das Ergebnis übernehmen.{% endif %}</p>
+        </article>
+    </div>
 </section>
 
 

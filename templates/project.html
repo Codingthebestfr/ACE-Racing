@@ -7,7 +7,18 @@
 	<p class="section-label">{% if current_lang == 'en' %}OUR PROJECT{% else %}UNSER PROJEKT{% endif %}</p>
 	<h1>Engineering the Future</h1>
 	<p>{% if current_lang == 'en' %}STEM Racing combines technology, creativity and organisation in a real team project.{% else %}STEM Racing verbindet Technik, Kreativität und Organisation in einem echten Teamprojekt.{% endif %}</p>
+	<div class="page-meta">
+		<span>{% if current_lang == 'en' %}PROJECT STATUS{% else %}PROJEKTSTATUS{% endif %}</span>
+		<strong>01 - {% if current_lang == 'en' %}IN MOTION{% else %}IN ENTWICKLUNG{% endif %}</strong>
+		<span>{% if current_lang == 'en' %}IDEA TO RACE{% else %}IDEE BIS RENNEN{% endif %}</span>
+	</div>
 </section>
+
+<div class="timeline-grid">
+	<div class="timeline-card"><span class="card-index">01 / START</span><h3>{% if current_lang == 'en' %}Research{% else %}Recherche{% endif %}</h3><p>{% if current_lang == 'en' %}Ask the right questions before building the first version.{% else %}Die richtigen Fragen stellen, bevor die erste Version entsteht.{% endif %}</p></div>
+	<div class="timeline-card"><span class="card-index">02 / {% if current_lang == 'en' %}BUILD{% else %}BAU{% endif %}</span><h3>{% if current_lang == 'en' %}Design{% else %}Konstruktion{% endif %}</h3><p>{% if current_lang == 'en' %}Turn ideas into CAD models, decisions and a buildable plan.{% else %}Aus Ideen werden CAD-Modelle, Entscheidungen und ein umsetzbarer Plan.{% endif %}</p></div>
+	<div class="timeline-card"><span class="card-index">03 / {% if current_lang == 'en' %}TEST{% else %}TESTEN{% endif %}</span><h3>{% if current_lang == 'en' %}Race{% else %}Rennen{% endif %}</h3><p>{% if current_lang == 'en' %}Present the result, learn from it and prepare the next iteration.{% else %}Das Ergebnis präsentieren, daraus lernen und die nächste Version vorbereiten.{% endif %}</p></div>
+</div>
 
 <section class="content-section">
 	<div class="content-text">

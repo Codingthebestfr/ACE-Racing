@@ -1,6 +1,18 @@
 (function () {
     "use strict";
 
+    const deviceQuery = window.matchMedia("(max-width: 900px)");
+
+    function updateDeviceMode() {
+        const mode = deviceQuery.matches ? "mobile" : "desktop";
+        document.documentElement.dataset.deviceMode = mode;
+        document.documentElement.classList.toggle("is-mobile", mode === "mobile");
+        document.documentElement.classList.toggle("is-desktop", mode === "desktop");
+    }
+
+    updateDeviceMode();
+    deviceQuery.addEventListener("change", updateDeviceMode);
+
     const menuButton = document.querySelector(".menu-toggle");
     const navigation = document.querySelector("#site-navigation");
 

@@ -27,7 +27,19 @@
         {% endif %}
     </p>
 
+    <div class="page-meta">
+        <span>{% if current_lang == 'en' %}PARTNER PROGRAM{% else %}PARTNERPROGRAMM{% endif %}</span>
+        <strong>{% if current_lang == 'en' %}OPEN FOR COLLABORATION{% else %}OFFEN FÜR ZUSAMMENARBEIT{% endif %}</strong>
+        <span>{% if current_lang == 'en' %}AACHEN / DE{% else %}AACHEN / DE{% endif %}</span>
+    </div>
+
 </section>
+
+<div class="metric-grid">
+    <div class="metric-card"><strong>01</strong><span>{% if current_lang == 'en' %}student engineering team{% else %}Schüler-Engineering-Team{% endif %}</span></div>
+    <div class="metric-card"><strong>03</strong><span>{% if current_lang == 'en' %}ways to support{% else %}Möglichkeiten zu unterstützen{% endif %}</span></div>
+    <div class="metric-card"><strong>∞</strong><span>{% if current_lang == 'en' %}room to create impact{% else %}Raum für Wirkung{% endif %}</span></div>
+</div>
 
 <section class="sponsor-section">
 

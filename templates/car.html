@@ -7,7 +7,18 @@
 	<p class="section-label">{% if current_lang == 'en' %}ENGINEERING{% else %}ENGINEERING{% endif %}</p>
 	<h1>{% if current_lang == 'en' %}Our car{% else %}Unser Auto{% endif %}</h1>
 	<p>{% if current_lang == 'en' %}From the first concept to the race track: every detail is created with a clear goal.{% else %}Vom ersten Entwurf bis zur Rennstrecke: jedes Detail entsteht mit einem klaren Ziel.{% endif %}</p>
+	<div class="page-meta">
+		<span>{% if current_lang == 'en' %}VEHICLE PROGRAM{% else %}FAHRZEUGPROGRAMM{% endif %}</span>
+		<strong>STEM RACING 2026-27</strong>
+		<span>{% if current_lang == 'en' %}CAD / 3D PRINT{% else %}CAD / 3D-DRUCK{% endif %}</span>
+	</div>
 </section>
+
+<div class="metric-grid">
+	<div class="metric-card"><strong>01</strong><span>{% if current_lang == 'en' %}race car in development{% else %}Rennwagen in Entwicklung{% endif %}</span></div>
+	<div class="metric-card"><strong>CAD</strong><span>{% if current_lang == 'en' %}digital design workflow{% else %}digitaler Konstruktionsprozess{% endif %}</span></div>
+	<div class="metric-card"><strong>3D</strong><span>{% if current_lang == 'en' %}printed prototypes{% else %}gedruckte Prototypen{% endif %}</span></div>
+</div>
 
 <section class="content-section">
 	<div class="content-text">
@@ -27,5 +38,27 @@
 			<li>{% if current_lang == 'en' %}Testing and optimisation{% else %}Tests und Optimierung{% endif %}</li>
 		</ul>
 	</aside>
+</section>
+
+<section class="section-band">
+	<p class="section-label">{% if current_lang == 'en' %}DESIGN LOGIC{% else %}DESIGNLOGIK{% endif %}</p>
+	<h2>{% if current_lang == 'en' %}Every line has a reason.{% else %}Jede Linie hat einen Grund.{% endif %}</h2>
+	<div class="feature-grid">
+		<article class="feature-card">
+			<span class="card-index">01 / {% if current_lang == 'en' %}SHAPE{% else %}FORM{% endif %}</span>
+			<h3>{% if current_lang == 'en' %}Aerodynamics{% else %}Aerodynamik{% endif %}</h3>
+			<p>{% if current_lang == 'en' %}We shape the car around speed, stability and a clear visual identity.{% else %}Wir gestalten das Auto für Geschwindigkeit, Stabilität und eine klare visuelle Identität.{% endif %}</p>
+		</article>
+		<article class="feature-card">
+			<span class="card-index">02 / {% if current_lang == 'en' %}MAKE{% else %}MACHEN{% endif %}</span>
+			<h3>{% if current_lang == 'en' %}Prototype{% else %}Prototyp{% endif %}</h3>
+			<p>{% if current_lang == 'en' %}Digital models become physical parts through 3D printing and hands-on testing.{% else %}Digitale Modelle werden durch 3D-Druck und praktische Tests zu echten Bauteilen.{% endif %}</p>
+		</article>
+		<article class="feature-card">
+			<span class="card-index">03 / {% if current_lang == 'en' %}REFINE{% else %}VERBESSERN{% endif %}</span>
+			<h3>{% if current_lang == 'en' %}Optimise{% else %}Optimieren{% endif %}</h3>
+			<p>{% if current_lang == 'en' %}Every iteration helps us understand what works and what needs to change.{% else %}Jede Version zeigt uns, was funktioniert und was sich noch ändern muss.{% endif %}</p>
+		</article>
+	</div>
 </section>
 {% endblock %}
