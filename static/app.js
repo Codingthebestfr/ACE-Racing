@@ -34,7 +34,7 @@
         });
     }
 
-    const revealItems = document.querySelectorAll(".card, .team-card, .sponsor-card, .info-box, .content-text");
+    const revealItems = document.querySelectorAll(".card, .team-card, .sponsor-card, .info-box, .content-text, .metric-card, .timeline-card, .feature-card, .contact-person-card");
 
     if ("IntersectionObserver" in window && revealItems.length) {
         const revealObserver = new IntersectionObserver(function (entries, observer) {
