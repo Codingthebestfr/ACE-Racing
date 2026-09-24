@@ -330,5 +330,31 @@ def sponsors():
     return render_template("sponsors.html")
 
 
+@app.route("/sitemap.xml")
+def sitemap():
+    pages = [
+        "/",
+        "/about",
+        "/team",
+        "/car",
+        "/project",
+        "/sponsors",
+        "/contact",
+        "/impressum"
+    ]
+
+    sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>'
+    sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+
+    for page in pages:
+        sitemap_xml += f"<url><loc>https://ace-racing.onrender.com{page}</loc></url>"
+
+    sitemap_xml += "</urlset>"
+
+    return sitemap_xml, 200, {"Content-Type": "application/xml"}
+
+
+
+
 if __name__ == "__main__":
     app.run()
