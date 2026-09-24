@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="{{ current_lang }}" data-device-mode="desktop">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +16,7 @@
     <meta property="og:title" content="{% block og_title %}A.C.E. Racing – STEM Racing Team aus Aachen{% endblock %}">
     <meta property="og:description" content="{% block og_description %}A.C.E. Racing entwickelt als STEM-Racing-Team in Aachen einen eigenen Rennwagen.{% endblock %}">
 
-    <meta name="google-site-verification" content="cPE7UnuxALZNXwSe5Zkk_JAuQYZfw4GBz-4qrTUoSp0" />
+    <meta name="google-site-verification" content="cPE7UnuxALZNXwSe5Zkk_JAuQYZfw4GBz-4qrTUoSp0">
 
     <title>{% block title %}A.C.E. Racing – STEM Racing Team aus Aachen{% endblock %}</title>
 
@@ -39,25 +41,82 @@
         </a>
 
         <div class="nav-actions">
+
             <div class="lang-switch" aria-label="{{ t('language_switch') }}">
-                <a href="{{ request.path }}?lang=de" class="{% if current_lang == 'de' %}is-active{% endif %}"{% if current_lang == 'de' %} aria-current="true"{% endif %}>{{ t('lang_de') }}</a>
-                <a href="{{ request.path }}?lang=en" class="{% if current_lang == 'en' %}is-active{% endif %}"{% if current_lang == 'en' %} aria-current="true"{% endif %}>{{ t('lang_en') }}</a>
+
+                <a href="{{ request.path }}?lang=de"
+                   class="{% if current_lang == 'de' %}is-active{% endif %}"
+                   {% if current_lang == 'de' %}aria-current="true"{% endif %}>
+                    {{ t('lang_de') }}
+                </a>
+
+                <a href="{{ request.path }}?lang=en"
+                   class="{% if current_lang == 'en' %}is-active{% endif %}"
+                   {% if current_lang == 'en' %}aria-current="true"{% endif %}>
+                    {{ t('lang_en') }}
+                </a>
+
             </div>
 
-            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" data-open-label="{{ t('menu_open') }}" data-close-label="{{ t('menu_close') }}">
+            <button class="menu-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="site-navigation"
+                    data-open-label="{{ t('menu_open') }}"
+                    data-close-label="{{ t('menu_close') }}">
+
                 <span class="menu-icon" aria-hidden="true"></span>
+
                 <span class="sr-only">{{ t('menu_open') }}</span>
+
             </button>
+
         </div>
 
         <nav id="site-navigation" aria-label="{{ t('main_navigation') }}">
-            <a class="{% if request.endpoint == 'home' %}is-active{% endif %}" href="{{ url_for('home') }}"{% if request.endpoint == 'home' %} aria-current="page"{% endif %}>{{ t('nav_home') }}</a>
-            <a class="{% if request.endpoint == 'about' %}is-active{% endif %}" href="{{ url_for('about') }}"{% if request.endpoint == 'about' %} aria-current="page"{% endif %}>{{ t('nav_about') }}</a>
-            <a class="{% if request.endpoint == 'team' %}is-active{% endif %}" href="{{ url_for('team') }}"{% if request.endpoint == 'team' %} aria-current="page"{% endif %}>{{ t('nav_team') }}</a>
-            <a class="{% if request.endpoint == 'car' %}is-active{% endif %}" href="{{ url_for('car') }}"{% if request.endpoint == 'car' %} aria-current="page"{% endif %}>{{ t('nav_car') }}</a>
-            <a class="{% if request.endpoint == 'project' %}is-active{% endif %}" href="{{ url_for('project') }}"{% if request.endpoint == 'project' %} aria-current="page"{% endif %}>{{ t('nav_project') }}</a>
-            <a class="{% if request.endpoint == 'sponsors' %}is-active{% endif %}" href="{{ url_for('sponsors') }}"{% if request.endpoint == 'sponsors' %} aria-current="page"{% endif %}>{{ t('nav_sponsors') }}</a>
-            <a class="{% if request.endpoint == 'contact' %}is-active{% endif %}" href="{{ url_for('contact') }}"{% if request.endpoint == 'contact' %} aria-current="page"{% endif %}>{{ t('nav_contact') }}</a>
+
+            <a class="{% if request.endpoint == 'home' %}is-active{% endif %}"
+               href="{{ url_for('home') }}"
+               {% if request.endpoint == 'home' %}aria-current="page"{% endif %}>
+                {{ t('nav_home') }}
+            </a>
+
+            <a class="{% if request.endpoint == 'about' %}is-active{% endif %}"
+               href="{{ url_for('about') }}"
+               {% if request.endpoint == 'about' %}aria-current="page"{% endif %}>
+                {{ t('nav_about') }}
+            </a>
+
+            <a class="{% if request.endpoint == 'team' %}is-active{% endif %}"
+               href="{{ url_for('team') }}"
+               {% if request.endpoint == 'team' %}aria-current="page"{% endif %}>
+                {{ t('nav_team') }}
+            </a>
+
+            <a class="{% if request.endpoint == 'car' %}is-active{% endif %}"
+               href="{{ url_for('car') }}"
+               {% if request.endpoint == 'car' %}aria-current="page"{% endif %}>
+                {{ t('nav_car') }}
+            </a>
+
+            <a class="{% if request.endpoint == 'project' %}is-active{% endif %}"
+               href="{{ url_for('project') }}"
+               {% if request.endpoint == 'project' %}aria-current="page"{% endif %}>
+                {{ t('nav_project') }}
+            </a>
+
+            <a class="{% if request.endpoint == 'sponsors' %}is-active{% endif %}"
+               href="{{ url_for('sponsors') }}"
+               {% if request.endpoint == 'sponsors' %}aria-current="page"{% endif %}>
+                {{ t('nav_sponsors') }}
+            </a>
+
+            <a class="{% if request.endpoint == 'contact' %}is-active{% endif %}"
+               href="{{ url_for('contact') }}"
+               {% if request.endpoint == 'contact' %}aria-current="page"{% endif %}>
+                {{ t('nav_contact') }}
+            </a>
+
         </nav>
 
     </header>
@@ -70,7 +129,6 @@
     <main id="main-content" tabindex="-1">
 
         {% block content %}
-
         {% endblock %}
 
     </main>
@@ -85,13 +143,18 @@
         <div class="footer-content">
 
             <div>
+
                 <h3>{{ t('site_name') }}</h3>
+
                 <p>
                     STEM Racing Team
                 </p>
+
             </div>
 
+
             <div>
+
                 <h3>{{ t('footer_navigation') }}</h3>
 
                 <a href="{{ url_for('home') }}">{{ t('nav_home') }}</a>
@@ -101,13 +164,16 @@
                 <a href="{{ url_for('project') }}">{{ t('nav_project') }}</a>
                 <a href="{{ url_for('sponsors') }}">{{ t('nav_sponsors') }}</a>
                 <a href="{{ url_for('contact') }}">{{ t('nav_contact') }}</a>
+
             </div>
 
+
             <div>
+
                 <h3>{{ t('footer_impressum') }}</h3>
 
                 <p>
-                    A.C.E am Einhard-Gymnasium Aachen
+                    A.C.E. Racing am Einhard-Gymnasium Aachen
                 </p>
 
                 <p class="footer-address">
@@ -115,18 +181,26 @@
                     52066 Aachen
                 </p>
 
-                <a class="button button-outline footer-map-button" href="https://www.google.com/maps/search/?api=1&amp;query=Robert-Schuman-Str.+4%2C+52066+Aachen" target="_blank" rel="noopener noreferrer">
+                <a class="button button-outline footer-map-button"
+                   href="https://www.google.com/maps/search/?api=1&amp;query=Robert-Schuman-Str.+4%2C+52066+Aachen"
+                   target="_blank"
+                   rel="noopener noreferrer">
                     {{ t('footer_map') }}
                 </a>
 
                 <p>
-                    {{ t('footer_phone') }}: <a href="tel:+4917623350637">+49 176 23350637</a>
+                    {{ t('footer_phone') }}:
+                    <a href="tel:+4917623350637">+49 176 23350637</a>
                 </p>
 
-                <a href="{{ url_for('impressum') }}">{{ t('footer_all_impressum') }}</a>
+                <a href="{{ url_for('impressum') }}">
+                    {{ t('footer_all_impressum') }}
+                </a>
+
             </div>
 
         </div>
+
 
         <div class="copyright">
             {{ t('copyright') }}
@@ -134,9 +208,9 @@
 
     </footer>
 
+
     <script src="{{ url_for('static', filename='app.js') }}" defer></script>
 
 </body>
 
 </html>
-
