@@ -1,9 +1,44 @@
 {% extends "base.html" %}
 
 {% block title %}
-{% if current_lang == 'en' %}About us | A.C.E{% else %}Über uns | A.C.E{% endif %}
+
+{% if current_lang == 'en' %}About us | A.C.E. Racing{% else %}Über uns | A.C.E. Racing{% endif %}
+
 {% endblock %}
 
+{% block meta_description %}
+
+{% if current_lang == 'en' %}
+
+Learn more about A.C.E. Racing, our STEM Racing team from Aachen, our goals and our engineering project.
+
+{% else %}
+
+Erfahre mehr über A.C.E. Racing, unser STEM-Racing-Team aus Aachen, unsere Ziele und unser Engineering-Projekt.
+
+{% endif %}
+
+{% endblock %}
+
+{% block og_title %}
+
+{% if current_lang == 'en' %}About us | A.C.E. Racing{% else %}Über uns | A.C.E. Racing{% endif %}
+
+{% endblock %}
+
+{% block og_description %}
+
+{% if current_lang == 'en' %}
+
+Discover the team, vision and engineering project behind A.C.E. Racing STEM Racing.
+
+{% else %}
+
+Entdecke das Team, die Vision und das Engineering-Projekt hinter A.C.E. Racing STEM Racing.
+
+{% endif %}
+
+{% endblock %}
 
 {% block content %}
 

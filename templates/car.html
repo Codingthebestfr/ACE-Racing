@@ -1,6 +1,44 @@
 {% extends "base.html" %}
 
-{% block title %}{% if current_lang == 'en' %}Our car | A.C.E{% else %}Unser Auto | A.C.E{% endif %}{% endblock %}
+{% block title %}
+
+{% if current_lang == 'en' %}Our car | A.C.E. Racing{% else %}Unser Auto | A.C.E. Racing{% endif %}
+
+{% endblock %}
+
+{% block meta_description %}
+
+{% if current_lang == 'en' %}
+
+Discover the STEM Racing car developed by A.C.E. Racing in Aachen, from engineering and design to technical development.
+
+{% else %}
+
+Entdecke den von A.C.E. Racing in Aachen entwickelten STEM-Racing-Rennwagen – von Engineering und Design bis zur technischen Entwicklung.
+
+{% endif %}
+
+{% endblock %}
+
+{% block og_title %}
+
+{% if current_lang == 'en' %}Our car | A.C.E. Racing{% else %}Unser Auto | A.C.E. Racing{% endif %}
+
+{% endblock %}
+
+{% block og_description %}
+
+{% if current_lang == 'en' %}
+
+Engineering, design and technology behind the A.C.E. Racing STEM Racing car.
+
+{% else %}
+
+Engineering, Design und Technik hinter dem STEM-Racing-Rennwagen von A.C.E. Racing.
+
+{% endif %}
+
+{% endblock %}
 
 {% block content %}
 <section class="page-header">

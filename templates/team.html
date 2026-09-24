@@ -1,9 +1,44 @@
 {% extends "base.html" %}
 
 {% block title %}
-{% if current_lang == 'en' %}Team | A.C.E{% else %}Team | A.C.E{% endif %}
+
+{% if current_lang == 'en' %}Team | A.C.E. Racing{% else %}Team | A.C.E. Racing{% endif %}
+
 {% endblock %}
 
+{% block meta_description %}
+
+{% if current_lang == 'en' %}
+
+Meet the members of A.C.E. Racing, our STEM Racing team from Aachen, and discover their roles in the engineering project.
+
+{% else %}
+
+Lerne die Mitglieder von A.C.E. Racing, unserem STEM-Racing-Team aus Aachen, und ihre Aufgaben im Engineering-Projekt kennen.
+
+{% endif %}
+
+{% endblock %}
+
+{% block og_title %}
+
+{% if current_lang == 'en' %}Team | A.C.E. Racing{% else %}Team | A.C.E. Racing{% endif %}
+
+{% endblock %}
+
+{% block og_description %}
+
+{% if current_lang == 'en' %}
+
+Meet the team behind A.C.E. Racing and discover our different roles and areas of responsibility.
+
+{% else %}
+
+Lerne das Team hinter A.C.E. Racing und unsere verschiedenen Aufgabenbereiche kennen.
+
+{% endif %}
+
+{% endblock %}
 
 {% block content %}
 

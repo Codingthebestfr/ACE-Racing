@@ -1,9 +1,28 @@
-{% extends "base.html" %}
+{% block title %}A.C.E. Racing – STEM Racing Team aus Aachen{% endblock %}
 
-{% block title %}A.C.E | STEM Racing Team{% endblock %}
+{% block meta_description %}
+{% if current_lang == 'en' %}
+A.C.E. Racing is a student STEM Racing team from Aachen developing its own race car through engineering, teamwork and innovation.
+{% else %}
+A.C.E. Racing ist ein STEM-Racing-Team des Einhard-Gymnasiums Aachen. Wir entwickeln und bauen unseren eigenen Rennwagen mit Engineering, Teamarbeit und Innovation.
+{% endif %}
+{% endblock %}
 
-{% block meta_description %}{% if current_lang == 'en' %}A.C.E is a student STEM Racing team from Aachen developing its own race car through engineering, teamwork and innovation.{% else %}A.C.E ist ein STEM-Racing-Team aus Aachen und entwickelt mit Engineering, Teamarbeit und Innovation einen eigenen Rennwagen.{% endif %}{% endblock %}
+{% block og_title %}
+{% if current_lang == 'en' %}
+A.C.E. Racing – STEM Racing Team from Aachen
+{% else %}
+A.C.E. Racing – STEM Racing Team aus Aachen
+{% endif %}
+{% endblock %}
 
+{% block og_description %}
+{% if current_lang == 'en' %}
+Engineering, teamwork and innovation: A.C.E. Racing develops its own STEM Racing car in Aachen.
+{% else %}
+Engineering, Teamarbeit und Innovation: A.C.E. Racing entwickelt in Aachen einen eigenen STEM-Racing-Rennwagen.
+{% endif %}
+{% endblock %}
 
 {% block content %}
 

@@ -1,6 +1,44 @@
 {% extends "base.html" %}
 
-{% block title %}{% if current_lang == 'en' %}Contact | A.C.E{% else %}Kontakt | A.C.E{% endif %}{% endblock %}
+{% block title %}
+
+{% if current_lang == 'en' %}Contact | A.C.E. Racing{% else %}Kontakt | A.C.E. Racing{% endif %}
+
+{% endblock %}
+
+{% block meta_description %}
+
+{% if current_lang == 'en' %}
+
+Contact A.C.E. Racing, the STEM Racing team from Aachen, for questions, partnerships and project inquiries.
+
+{% else %}
+
+Kontaktiere A.C.E. Racing, das STEM-Racing-Team aus Aachen, für Fragen, Partnerschaften und Anfragen zu unserem Projekt.
+
+{% endif %}
+
+{% endblock %}
+
+{% block og_title %}
+
+{% if current_lang == 'en' %}Contact | A.C.E. Racing{% else %}Kontakt | A.C.E. Racing{% endif %}
+
+{% endblock %}
+
+{% block og_description %}
+
+{% if current_lang == 'en' %}
+
+Get in touch with A.C.E. Racing for partnerships, sponsorships and questions about our STEM Racing project.
+
+{% else %}
+
+Nimm Kontakt mit A.C.E. Racing auf – für Partnerschaften, Sponsoring und Fragen zu unserem STEM-Racing-Projekt.
+
+{% endif %}
+
+{% endblock %}
 
 {% block content %}
 <div class="contact-page">

@@ -1,6 +1,44 @@
 {% extends "base.html" %}
 
-{% block title %}{% if current_lang == 'en' %}Project | A.C.E{% else %}Projekt | A.C.E{% endif %}{% endblock %}
+{% block title %}
+
+{% if current_lang == 'en' %}Project | A.C.E. Racing{% else %}Projekt | A.C.E. Racing{% endif %}
+
+{% endblock %}
+
+{% block meta_description %}
+
+{% if current_lang == 'en' %}
+
+Discover the A.C.E. Racing STEM Racing project in Aachen, from planning and engineering to the development of our racing car.
+
+{% else %}
+
+Entdecke das STEM-Racing-Projekt von A.C.E. Racing in Aachen – von der Planung und dem Engineering bis zur Entwicklung unseres Rennwagens.
+
+{% endif %}
+
+{% endblock %}
+
+{% block og_title %}
+
+{% if current_lang == 'en' %}Project | A.C.E. Racing{% else %}Projekt | A.C.E. Racing{% endif %}
+
+{% endblock %}
+
+{% block og_description %}
+
+{% if current_lang == 'en' %}
+
+From the first idea to the finished race car: discover the development process behind A.C.E. Racing.
+
+{% else %}
+
+Von der ersten Idee bis zum Rennwagen: Entdecke den Entwicklungsprozess hinter A.C.E. Racing.
+
+{% endif %}
+
+{% endblock %}
 
 {% block content %}
 <section class="page-header">

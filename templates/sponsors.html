@@ -1,9 +1,44 @@
 {% extends "base.html" %}
 
 {% block title %}
-{% if current_lang == 'en' %}Sponsors | A.C.E{% else %}Sponsoren | A.C.E{% endif %}
+
+{% if current_lang == 'en' %}Sponsors | A.C.E. Racing{% else %}Sponsoren | A.C.E. Racing{% endif %}
+
 {% endblock %}
 
+{% block meta_description %}
+
+{% if current_lang == 'en' %}
+
+Discover the sponsors and partnership opportunities of A.C.E. Racing, a STEM Racing team from Aachen.
+
+{% else %}
+
+Entdecke die Sponsoren und Partnerschaftsmöglichkeiten von A.C.E. Racing, einem STEM-Racing-Team aus Aachen.
+
+{% endif %}
+
+{% endblock %}
+
+{% block og_title %}
+
+{% if current_lang == 'en' %}Sponsors | A.C.E. Racing{% else %}Sponsoren | A.C.E. Racing{% endif %}
+
+{% endblock %}
+
+{% block og_description %}
+
+{% if current_lang == 'en' %}
+
+Support A.C.E. Racing and become a partner of our STEM Racing engineering project in Aachen.
+
+{% else %}
+
+Unterstütze A.C.E. Racing und werde Partner unseres STEM-Racing- und Engineering-Projekts in Aachen.
+
+{% endif %}
+
+{% endblock %}
 
 {% block content %}
 
