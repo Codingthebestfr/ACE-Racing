@@ -2,7 +2,7 @@
 
 {% block title %}
 
-{% if current_lang == 'en' %}Our car | A.C.E. Racing{% else %}Unser Auto | A.C.E. Racing{% endif %}
+{% if current_lang == 'en' %}Car &amp; Project | A.C.E. Racing{% else %}Auto &amp; Projekt | A.C.E. Racing{% endif %}
 
 {% endblock %}
 
@@ -10,11 +10,11 @@
 
 {% if current_lang == 'en' %}
 
-Discover the STEM Racing car developed by A.C.E. Racing in Aachen, from engineering and design to technical development.
+Discover the STEM Racing car and engineering process developed by A.C.E. Racing in Aachen.
 
 {% else %}
 
-Entdecke den von A.C.E. Racing in Aachen entwickelten STEM-Racing-Rennwagen – von Engineering und Design bis zur technischen Entwicklung.
+Entdecke den STEM-Racing-Rennwagen und Entwicklungsprozess von A.C.E. Racing aus Aachen.
 
 {% endif %}
 
@@ -22,7 +22,7 @@ Entdecke den von A.C.E. Racing in Aachen entwickelten STEM-Racing-Rennwagen – 
 
 {% block og_title %}
 
-{% if current_lang == 'en' %}Our car | A.C.E. Racing{% else %}Unser Auto | A.C.E. Racing{% endif %}
+{% if current_lang == 'en' %}Car &amp; Project | A.C.E. Racing{% else %}Auto &amp; Projekt | A.C.E. Racing{% endif %}
 
 {% endblock %}
 
@@ -30,11 +30,11 @@ Entdecke den von A.C.E. Racing in Aachen entwickelten STEM-Racing-Rennwagen – 
 
 {% if current_lang == 'en' %}
 
-Engineering, design and technology behind the A.C.E. Racing STEM Racing car.
+The car, design goals and development process of the A.C.E. Racing STEM Racing project.
 
 {% else %}
 
-Engineering, Design und Technik hinter dem STEM-Racing-Rennwagen von A.C.E. Racing.
+Rennwagen, Entwicklungsziele und Engineering-Prozess von A.C.E. Racing.
 
 {% endif %}
 
@@ -42,61 +42,50 @@ Engineering, Design und Technik hinter dem STEM-Racing-Rennwagen von A.C.E. Raci
 
 {% block content %}
 <section class="page-header">
-	<p class="section-label">{% if current_lang == 'en' %}ENGINEERING{% else %}ENGINEERING{% endif %}</p>
-	<h1>{% if current_lang == 'en' %}Our car{% else %}Unser Auto{% endif %}</h1>
-	<p>{% if current_lang == 'en' %}From the first concept to the race track: every detail is created with a clear goal.{% else %}Vom ersten Entwurf bis zur Rennstrecke: jedes Detail entsteht mit einem klaren Ziel.{% endif %}</p>
-	<div class="page-meta">
-		<span>{% if current_lang == 'en' %}VEHICLE PROGRAM{% else %}FAHRZEUGPROGRAMM{% endif %}</span>
-		<strong>STEM RACING 2026-27</strong>
-		<span>{% if current_lang == 'en' %}CAD / 3D PRINT{% else %}CAD / 3D-DRUCK{% endif %}</span>
-	</div>
+	<p class="section-label">STEM RACING / ENGINEERING</p>
+	<h1>{% if current_lang == 'en' %}Car &amp; Project{% else %}Auto &amp; Projekt{% endif %}</h1>
+	<p>{% if current_lang == 'en' %}The car we are developing and the process that takes it from concept to competition.{% else %}Der Rennwagen, den wir entwickeln, und der Weg von der Idee bis zum Wettbewerb.{% endif %}</p>
+	<div class="page-meta"><span>{% if current_lang == 'en' %}SEASON{% else %}SAISON{% endif %}</span><strong>2026 / 27</strong><span>{% if current_lang == 'en' %}DESIGN · BUILD · TEST{% else %}ENTWURF · BAU · TEST{% endif %}</span></div>
 </section>
 
-<div class="metric-grid">
-	<div class="metric-card"><strong>01</strong><span>{% if current_lang == 'en' %}race car in development{% else %}Rennwagen in Entwicklung{% endif %}</span></div>
-	<div class="metric-card"><strong>CAD</strong><span>{% if current_lang == 'en' %}digital design workflow{% else %}digitaler Konstruktionsprozess{% endif %}</span></div>
-	<div class="metric-card"><strong>3D</strong><span>{% if current_lang == 'en' %}printed prototypes{% else %}gedruckte Prototypen{% endif %}</span></div>
-</div>
+<nav class="engineering-jump-nav" aria-label="{% if current_lang == 'en' %}Car and project sections{% else %}Bereiche Auto und Projekt{% endif %}">
+	<a href="#car">{% if current_lang == 'en' %}01 / The car{% else %}01 / Das Auto{% endif %}</a>
+	<a href="#process">{% if current_lang == 'en' %}02 / Development process{% else %}02 / Entwicklungsprozess{% endif %}</a>
+</nav>
 
-<section class="content-section">
-	<div class="content-text">
-		<p class="section-label">{% if current_lang == 'en' %}DESIGN &amp; DEVELOPMENT{% else %}DESIGN &amp; ENTWICKLUNG{% endif %}</p>
-		<h2>{% if current_lang == 'en' %}Precision that creates speed.{% else %}Präzision, die Geschwindigkeit schafft.{% endif %}</h2>
-		<p>{% if current_lang == 'en' %}We develop a small, aerodynamic racing car and combine design, testing and teamwork in one process.{% else %}Wir entwickeln einen kleinen, aerodynamischen Rennwagen und verbinden Konstruktion, Tests und Teamarbeit in einem gemeinsamen Prozess.{% endif %}</p>
-		<p>{% if current_lang == 'en' %}With Autodesk Fusion 360, we precisely design our racing cars digitally before bringing them to life through 3D printing.{% else %}Mit Autodesk Fusion 360 konstruieren wir unsere Rennwagen präzise am Computer, bevor wir sie mithilfe des 3D-Drucks zum Leben erwecken.{% endif %}</p>
-		<p>{% if current_lang == 'en' %}Every change is explained, planned and checked. This turns an idea into a reliable race car step by step.{% else %}Jede Änderung wird begründet, geplant und überprüft. So wird aus einer Idee Schritt für Schritt ein zuverlässiges Rennauto.{% endif %}</p>
+<section class="engineering-section" id="car">
+	<div class="metric-grid">
+		<div class="metric-card"><strong>01</strong><span>{% if current_lang == 'en' %}race car in development{% else %}Rennwagen in Entwicklung{% endif %}</span></div>
+		<div class="metric-card"><strong>CAD</strong><span>{% if current_lang == 'en' %}digital design workflow{% else %}digitaler Konstruktionsprozess{% endif %}</span></div>
+		<div class="metric-card"><strong>3D</strong><span>{% if current_lang == 'en' %}printed prototypes{% else %}gedruckte Prototypen{% endif %}</span></div>
 	</div>
-
-	<aside class="info-box">
-		<h3>{% if current_lang == 'en' %}Our focus{% else %}Unser Fokus{% endif %}</h3>
-		<ul>
-			<li>{% if current_lang == 'en' %}Aerodynamics{% else %}Aerodynamik{% endif %}</li>
-			<li>{% if current_lang == 'en' %}Lightweight design{% else %}Leichtbau{% endif %}</li>
-			<li>{% if current_lang == 'en' %}CAD &amp; prototyping{% else %}CAD &amp; Prototyping{% endif %}</li>
-			<li>{% if current_lang == 'en' %}Testing and optimisation{% else %}Tests und Optimierung{% endif %}</li>
-		</ul>
-	</aside>
+	<section class="content-section">
+		<div class="content-text">
+			<p class="section-label">{% if current_lang == 'en' %}DESIGN &amp; DEVELOPMENT{% else %}DESIGN &amp; ENTWICKLUNG{% endif %}</p>
+			<h2>{% if current_lang == 'en' %}Precision that creates speed.{% else %}Präzision, die Geschwindigkeit schafft.{% endif %}</h2>
+			<p>{% if current_lang == 'en' %}We develop a compact, aerodynamic race car, combining engineering, prototyping and testing in one team process.{% else %}Wir entwickeln einen kompakten, aerodynamischen Rennwagen und verbinden Konstruktion, Prototyping und Tests in einem gemeinsamen Teamprozess.{% endif %}</p>
+			<p>{% if current_lang == 'en' %}With Autodesk Fusion 360, we design digitally before bringing prototypes to life through 3D printing. Each iteration is reviewed against the regulations, performance goals and manufacturing constraints.{% else %}Mit Autodesk Fusion 360 konstruieren wir digital, bevor wir Entwürfe mit dem 3D-Druck als Prototypen umsetzen. Jede Iteration prüfen wir anhand des Reglements, unserer Leistungsziele und der Fertigungsmöglichkeiten.{% endif %}</p>
+		</div>
+		<aside class="info-box">
+			<h3>{% if current_lang == 'en' %}Design priorities{% else %}Unsere Entwicklungsziele{% endif %}</h3>
+			<ul>
+				<li>{% if current_lang == 'en' %}Aerodynamics and stability{% else %}Aerodynamik und Stabilität{% endif %}</li>
+				<li>{% if current_lang == 'en' %}Low weight{% else %}Geringes Gewicht{% endif %}</li>
+				<li>{% if current_lang == 'en' %}CAD and prototyping{% else %}CAD und Prototyping{% endif %}</li>
+				<li>{% if current_lang == 'en' %}Testing and optimisation{% else %}Tests und Optimierung{% endif %}</li>
+			</ul>
+		</aside>
+	</section>
 </section>
 
-<section class="section-band">
-	<p class="section-label">{% if current_lang == 'en' %}DESIGN LOGIC{% else %}DESIGNLOGIK{% endif %}</p>
-	<h2>{% if current_lang == 'en' %}Every line has a reason.{% else %}Jede Linie hat einen Grund.{% endif %}</h2>
-	<div class="feature-grid">
-		<article class="feature-card">
-			<span class="card-index">01 / {% if current_lang == 'en' %}SHAPE{% else %}FORM{% endif %}</span>
-			<h3>{% if current_lang == 'en' %}Aerodynamics{% else %}Aerodynamik{% endif %}</h3>
-			<p>{% if current_lang == 'en' %}We shape the car around speed, stability and a clear visual identity.{% else %}Wir gestalten das Auto für Geschwindigkeit, Stabilität und eine klare visuelle Identität.{% endif %}</p>
-		</article>
-		<article class="feature-card">
-			<span class="card-index">02 / {% if current_lang == 'en' %}MAKE{% else %}MACHEN{% endif %}</span>
-			<h3>{% if current_lang == 'en' %}Prototype{% else %}Prototyp{% endif %}</h3>
-			<p>{% if current_lang == 'en' %}Digital models become physical parts through 3D printing and hands-on testing.{% else %}Digitale Modelle werden durch 3D-Druck und praktische Tests zu echten Bauteilen.{% endif %}</p>
-		</article>
-		<article class="feature-card">
-			<span class="card-index">03 / {% if current_lang == 'en' %}REFINE{% else %}VERBESSERN{% endif %}</span>
-			<h3>{% if current_lang == 'en' %}Optimise{% else %}Optimieren{% endif %}</h3>
-			<p>{% if current_lang == 'en' %}Every iteration helps us understand what works and what needs to change.{% else %}Jede Version zeigt uns, was funktioniert und was sich noch ändern muss.{% endif %}</p>
-		</article>
+<section class="engineering-process" id="process">
+	<p class="section-label">{% if current_lang == 'en' %}FROM IDEA TO RACE{% else %}VON DER IDEE ZUM RENNEN{% endif %}</p>
+	<h2>{% if current_lang == 'en' %}Four phases. One engineering cycle.{% else %}Vier Phasen. Ein Engineering-Prozess.{% endif %}</h2>
+	<div class="project-process">
+		<article class="project-step"><span>01 / {% if current_lang == 'en' %}RESEARCH &amp; CONCEPT{% else %}RECHERCHE &amp; KONZEPT{% endif %}</span><h3>{% if current_lang == 'en' %}Understand before building{% else %}Erst verstehen, dann bauen{% endif %}</h3><p>{% if current_lang == 'en' %}Review the brief, regulations and design options. Set clear goals before choosing a direction.{% else %}Aufgabe, Reglement und Entwürfe prüfen. Klare Ziele setzen, bevor wir uns festlegen.{% endif %}</p></article>
+		<article class="project-step"><span>02 / CAD</span><h3>{% if current_lang == 'en' %}Design and refine{% else %}Konstruieren und optimieren{% endif %}</h3><p>{% if current_lang == 'en' %}Create the digital model and assess aerodynamics, dimensions, weight and manufacturability.{% else %}Das digitale Modell erstellen und Aerodynamik, Maße, Gewicht sowie Fertigbarkeit bewerten.{% endif %}</p></article>
+		<article class="project-step"><span>03 / {% if current_lang == 'en' %}BUILD &amp; TEST{% else %}BAU &amp; TEST{% endif %}</span><h3>{% if current_lang == 'en' %}Turn models into data{% else %}Modelle praktisch erproben{% endif %}</h3><p>{% if current_lang == 'en' %}Manufacture prototypes, test them and use the results to identify improvements.{% else %}Prototypen fertigen, testen und aus den Ergebnissen konkrete Verbesserungen ableiten.{% endif %}</p></article>
+		<article class="project-step"><span>04 / {% if current_lang == 'en' %}RACE{% else %}WETTBEWERB{% endif %}</span><h3>{% if current_lang == 'en' %}Prepare and present{% else %}Vorbereiten und präsentieren{% endif %}</h3><p>{% if current_lang == 'en' %}Bring the car, portfolio and team presentation together for competition day.{% else %}Auto, Portfolio und Teampräsentation für den Wettbewerbstag zusammenführen.{% endif %}</p></article>
 	</div>
 </section>
 {% endblock %}

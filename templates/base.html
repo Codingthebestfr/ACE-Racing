@@ -37,7 +37,8 @@
     <header class="navbar">
 
         <a class="logo" href="{{ url_for('home') }}" aria-label="{{ t('home_aria_label') }}">
-            {{ t('site_name') }}
+            <img class="school-seal" src="{{ url_for('static', filename='images/einhard-logo-transparent.png') }}" width="50" height="50" alt="" aria-hidden="true">
+            <span class="logo-name">{{ t('site_name') }}<span> Racing</span></span>
         </a>
 
         <div class="nav-actions">
@@ -81,28 +82,22 @@
                 {{ t('nav_home') }}
             </a>
 
-            <a class="{% if request.endpoint == 'about' %}is-active{% endif %}"
-               href="{{ url_for('about') }}"
-               {% if request.endpoint == 'about' %}aria-current="page"{% endif %}>
-                {{ t('nav_about') }}
-            </a>
-
             <a class="{% if request.endpoint == 'team' %}is-active{% endif %}"
                href="{{ url_for('team') }}"
                {% if request.endpoint == 'team' %}aria-current="page"{% endif %}>
                 {{ t('nav_team') }}
             </a>
 
-            <a class="{% if request.endpoint == 'car' %}is-active{% endif %}"
+                <a class="{% if request.endpoint in ['car', 'project'] %}is-active{% endif %}"
                href="{{ url_for('car') }}"
-               {% if request.endpoint == 'car' %}aria-current="page"{% endif %}>
-                {{ t('nav_car') }}
+                    {% if request.endpoint in ['car', 'project'] %}aria-current="page"{% endif %}>
+                     {{ t('nav_car_project') }}
             </a>
 
-            <a class="{% if request.endpoint == 'project' %}is-active{% endif %}"
-               href="{{ url_for('project') }}"
-               {% if request.endpoint == 'project' %}aria-current="page"{% endif %}>
-                {{ t('nav_project') }}
+            <a class="{% if request.endpoint == 'roadmap' %}is-active{% endif %}"
+               href="{{ url_for('roadmap') }}"
+               {% if request.endpoint == 'roadmap' %}aria-current="page"{% endif %}>
+                {% if current_lang == 'en' %}Roadmap{% else %}Zeitplan{% endif %}
             </a>
 
             <a class="{% if request.endpoint == 'sponsors' %}is-active{% endif %}"
@@ -160,8 +155,9 @@
                 <a href="{{ url_for('home') }}">{{ t('nav_home') }}</a>
                 <a href="{{ url_for('about') }}">{{ t('nav_about') }}</a>
                 <a href="{{ url_for('team') }}">{{ t('nav_team') }}</a>
-                <a href="{{ url_for('car') }}">{{ t('nav_car') }}</a>
-                <a href="{{ url_for('project') }}">{{ t('nav_project') }}</a>
+                <a href="{{ url_for('car') }}">{{ t('nav_car_project') }}</a>
+                <a href="{{ url_for('roadmap') }}">{% if current_lang == 'en' %}Roadmap{% else %}Zeitplan{% endif %}</a>
+                <a href="{{ url_for('legacy') }}">{% if current_lang == 'en' %}Legacy{% else %}Unsere Geschichte{% endif %}</a>
                 <a href="{{ url_for('sponsors') }}">{{ t('nav_sponsors') }}</a>
                 <a href="{{ url_for('contact') }}">{{ t('nav_contact') }}</a>
 
@@ -195,6 +191,9 @@
 
                 <a href="{{ url_for('impressum') }}">
                     {{ t('footer_all_impressum') }}
+                </a>
+                <a href="{{ url_for('datenschutz') }}">
+                    {% if current_lang == 'en' %}Privacy{% else %}Datenschutz{% endif %}
                 </a>
 
             </div>

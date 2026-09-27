@@ -1,21 +1,31 @@
-from flask import Flask, render_template, request
+import os
+import re
+import smtplib
+import ssl
+import time
+from email.message import EmailMessage
+
+from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
 
 LANGUAGES = {"de", "en"}
 DEFAULT_LANGUAGE = "de"
 LANGUAGE_COOKIE_NAME = "site_lang"
+CONTACT_SUBMISSIONS = {}
+CONTACT_TOPICS = {"sponsoring", "engineering", "mentoring", "school", "press", "general"}
 
 TRANSLATIONS = {
     "de": {
-        "site_name": "A.C.E",
-        "home_aria_label": "A.C.E Startseite",
+        "site_name": "A.C.E.",
+        "home_aria_label": "A.C.E. Racing am Einhard-Gymnasium Aachen, Startseite",
         "main_navigation": "Hauptnavigation",
         "language_switch": "Sprachauswahl",
         "nav_home": "Home",
         "nav_about": "Über uns",
         "nav_team": "Team",
         "nav_car": "Unser Auto",
+        "nav_car_project": "Auto & Projekt",
         "nav_project": "Projekt",
         "nav_sponsors": "Sponsoren",
         "nav_contact": "Kontakt",
@@ -130,14 +140,15 @@ TRANSLATIONS = {
         "lang_en": "EN"
     },
     "en": {
-        "site_name": "A.C.E",
-        "home_aria_label": "A.C.E home page",
+        "site_name": "A.C.E.",
+        "home_aria_label": "A.C.E. Racing at Einhard-Gymnasium Aachen home page",
         "main_navigation": "Main navigation",
         "language_switch": "Language selection",
         "nav_home": "Home",
         "nav_about": "About us",
         "nav_team": "Team",
         "nav_car": "Our car",
+        "nav_car_project": "Car & Project",
         "nav_project": "Project",
         "nav_sponsors": "Sponsors",
         "nav_contact": "Contact",
@@ -312,17 +323,111 @@ def car():
 
 @app.route("/project")
 def project():
-    return render_template("project.html")
+    return redirect(url_for("car", _anchor="process"))
+
+
+@app.route("/roadmap")
+def roadmap():
+    return render_template("roadmap.html")
+
+
+@app.route("/legacy")
+def legacy():
+    return render_template("legacy.html")
 
 
 @app.route("/contact")
+@app.route("/contact", methods=["POST"])
 def contact():
-    return render_template("contact.html")
+    if request.method == "GET":
+        if request.args.get("sent") == "1":
+            status = "success"
+        elif not all(os.environ.get(key) for key in ("SMTP_HOST", "SMTP_USERNAME", "SMTP_PASSWORD")):
+            status = "unavailable"
+        else:
+            status = None
+        return render_template("contact.html", contact_status=status)
+
+    if request.form.get("website"):
+        language = request.args.get("lang")
+        return redirect(url_for("contact", lang=language if language in LANGUAGES else DEFAULT_LANGUAGE))
+
+    name = request.form.get("name", "").strip()
+    email = request.form.get("email", "").strip()
+    organisation = request.form.get("organisation", "").strip()
+    topic = request.form.get("topic", "")
+    message_text = request.form.get("message", "").strip()
+
+    valid_email = re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", email)
+    if (
+        not name
+        or len(name) > 120
+        or not valid_email
+        or len(email) > 254
+        or len(organisation) > 160
+        or topic not in CONTACT_TOPICS
+        or not message_text
+        or len(message_text) > 5000
+        or request.form.get("privacy_consent") != "yes"
+    ):
+        return render_template("contact.html", contact_status="invalid"), 400
+
+    now = time.monotonic()
+    client_ip = request.remote_addr or "unknown"
+    recent = [stamp for stamp in CONTACT_SUBMISSIONS.get(client_ip, []) if now - stamp < 60]
+    if len(recent) >= 3:
+        CONTACT_SUBMISSIONS[client_ip] = recent
+        return render_template("contact.html", contact_status="rate_limit"), 429
+    recent.append(now)
+    CONTACT_SUBMISSIONS[client_ip] = recent
+
+    smtp_host = os.environ.get("SMTP_HOST")
+    smtp_username = os.environ.get("SMTP_USERNAME")
+    smtp_password = os.environ.get("SMTP_PASSWORD")
+    recipient = os.environ.get("CONTACT_RECIPIENT", "ace.racing001@gmail.com")
+    sender = os.environ.get("SMTP_SENDER", smtp_username or "")
+    try:
+        smtp_port = int(os.environ.get("SMTP_PORT", "587"))
+        if not all((smtp_host, smtp_username, smtp_password, sender, recipient)):
+            return render_template("contact.html", contact_status="unavailable"), 503
+
+        email_message = EmailMessage()
+        email_message["Subject"] = f"A.C.E. website inquiry: {topic}"
+        email_message["From"] = sender
+        email_message["To"] = recipient
+        email_message["Reply-To"] = email
+        email_message.set_content(
+            f"Name: {name}\nEmail: {email}\nOrganisation: {organisation or '-'}\n"
+            f"Topic: {topic}\n\n{message_text}"
+        )
+
+        if smtp_port == 465:
+            with smtplib.SMTP_SSL(smtp_host, smtp_port, timeout=10, context=ssl.create_default_context()) as smtp:
+                smtp.login(smtp_username, smtp_password)
+                smtp.send_message(email_message)
+        else:
+            with smtplib.SMTP(smtp_host, smtp_port, timeout=10) as smtp:
+                smtp.starttls(context=ssl.create_default_context())
+                smtp.login(smtp_username, smtp_password)
+                smtp.send_message(email_message)
+    except (OSError, smtplib.SMTPException, ValueError):
+        return render_template("contact.html", contact_status="unavailable"), 503
+
+    redirect_values = {"sent": "1"}
+    language = request.args.get("lang")
+    if language in LANGUAGES:
+        redirect_values["lang"] = language
+    return redirect(url_for("contact", **redirect_values))
 
 
 @app.route("/impressum")
 def impressum():
     return render_template("impressum.html")
+
+
+@app.route("/datenschutz")
+def datenschutz():
+    return render_template("datenschutz.html")
 
 
 @app.route("/sponsors")
@@ -337,10 +442,12 @@ def sitemap():
         "/about",
         "/team",
         "/car",
-        "/project",
+        "/roadmap",
+        "/legacy",
         "/sponsors",
         "/contact",
-        "/impressum"
+        "/impressum",
+        "/datenschutz"
     ]
 
     sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>'

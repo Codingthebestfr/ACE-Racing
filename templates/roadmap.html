@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}{% if current_lang == 'en' %}Roadmap | A.C.E. Racing{% else %}Zeitplan | A.C.E. Racing{% endif %}{% endblock %}
+{% block meta_description %}{% if current_lang == 'en' %}Follow the A.C.E. Racing season plan from registration and engineering to the 2027 championships.{% else %}Verfolge den Saisonplan von A.C.E. Racing: von Anmeldung und Engineering bis zu den Meisterschaften 2027.{% endif %}{% endblock %}
+{% block og_title %}{% if current_lang == 'en' %}The road to race day | A.C.E. Racing{% else %}Der Weg zum Renntag | A.C.E. Racing{% endif %}{% endblock %}
+{% block og_description %}{% if current_lang == 'en' %}A transparent look at our development phases and competition milestones for the 2026/27 season.{% else %}Ein transparenter Einblick in unsere Entwicklungsphasen und Wettbewerbsmeilensteine der Saison 2026/27.{% endif %}{% endblock %}
+
+{% block content %}
+<section class="page-header roadmap-header">
+    <p class="section-label">{% if current_lang == 'en' %}SEASON 2026 / 27{% else %}SAISON 2026 / 27{% endif %}</p>
+    <h1>{% if current_lang == 'en' %}The road to race day.{% else %}Der Weg zum Renntag.{% endif %}</h1>
+    <p>{% if current_lang == 'en' %}Two connected plans: how we develop the car and the competition milestones ahead. Dates not officially confirmed are marked accordingly.{% else %}Zwei verbundene Pläne: die Entwicklung unseres Rennwagens und die anstehenden Wettbewerbe. Noch nicht offiziell bestätigte Termine sind entsprechend gekennzeichnet.{% endif %}</p>
+    <div class="page-meta"><span>{% if current_lang == 'en' %}CURRENT PHASE{% else %}AKTUELLE PHASE{% endif %}</span><strong>{% if current_lang == 'en' %}TEAM &amp; REGISTRATION{% else %}TEAM &amp; ANMELDUNG{% endif %}</strong><span>{% if current_lang == 'en' %}UPDATED SEPTEMBER 2026{% else %}STAND: SEPTEMBER 2026{% endif %}</span></div>
+</section>
+
+<section class="roadmap-section" aria-labelledby="development-roadmap-title">
+    <p class="section-label">{% if current_lang == 'en' %}01 / TEAM DEVELOPMENT{% else %}01 / TEAM-ENTWICKLUNG{% endif %}</p>
+    <h2 id="development-roadmap-title">{% if current_lang == 'en' %}Our development roadmap.{% else %}Unsere Entwicklungs-Roadmap.{% endif %}</h2>
+    <p class="roadmap-intro">{% if current_lang == 'en' %}A working plan for the season. The order is clear; individual work packages may overlap as the project develops.{% else %}Unser Arbeitsplan für die Saison. Die Reihenfolge gibt Orientierung; einzelne Arbeitspakete können sich im Projektverlauf überschneiden.{% endif %}</p>
+    <div class="roadmap-scroll" tabindex="0" role="region" aria-label="{% if current_lang == 'en' %}Horizontal development timeline{% else %}Horizontaler Entwicklungs-Zeitstrahl{% endif %}">
+        <ol class="roadmap-track development-track">
+            <li class="roadmap-stop is-current"><span class="roadmap-date">{% if current_lang == 'en' %}SEP — NOV 2026{% else %}SEP — NOV 2026{% endif %}</span><span class="roadmap-node" aria-hidden="true"></span><h3>{% if current_lang == 'en' %}Team &amp; registration{% else %}Team &amp; Anmeldung{% endif %}</h3><p>{% if current_lang == 'en' %}Confirm roles, plan the budget, find partners and complete season registration by 30 November 2026.{% else %}Rollen festlegen, Budget planen, Partner finden und die Saisonanmeldung bis zum 30. November 2026 abschließen.{% endif %}</p></li>
+            <li><span class="roadmap-date">{% if current_lang == 'en' %}NOV 2026 — JAN 2027{% else %}NOV 2026 — JAN 2027{% endif %}</span><span class="roadmap-node" aria-hidden="true"></span><h3>{% if current_lang == 'en' %}Concept &amp; CAD{% else %}Konzept &amp; CAD{% endif %}</h3><p>{% if current_lang == 'en' %}Develop concepts, create the CAD model and evaluate aerodynamic ideas and feasibility.{% else %}Konzepte entwickeln, das CAD-Modell erstellen und Aerodynamik sowie Umsetzbarkeit bewerten.{% endif %}</p></li>
+            <li><span class="roadmap-date">{% if current_lang == 'en' %}JAN — FEB 2027{% else %}JAN — FEB 2027{% endif %}</span><span class="roadmap-node" aria-hidden="true"></span><h3>{% if current_lang == 'en' %}Build &amp; test{% else %}Bau &amp; Tests{% endif %}</h3><p>{% if current_lang == 'en' %}Plan manufacturing, assemble the car, test performance and refine the design.{% else %}Fertigung planen, den Rennwagen aufbauen, Leistung testen und das Design weiterentwickeln.{% endif %}</p></li>
+            <li><span class="roadmap-date">{% if current_lang == 'en' %}FEB — MAR 2027{% else %}FEB — MÄR 2027{% endif %}</span><span class="roadmap-node" aria-hidden="true"></span><h3>{% if current_lang == 'en' %}Race preparation{% else %}Wettbewerbsvorbereitung{% endif %}</h3><p>{% if current_lang == 'en' %}Prepare portfolios, presentation, pit display and competition-day workflows.{% else %}Portfolios, Präsentation, Pit Display und Abläufe für den Wettbewerbstag vorbereiten.{% endif %}</p></li>
+        </ol>
+    </div>
+</section>
+
+<section class="roadmap-section competition-roadmap" aria-labelledby="competition-roadmap-title">
+    <p class="section-label">{% if current_lang == 'en' %}02 / COMPETITION SEASON{% else %}02 / WETTBEWERBSSAISON{% endif %}</p>
+    <h2 id="competition-roadmap-title">{% if current_lang == 'en' %}The competition route.{% else %}Der Wettbewerbsweg.{% endif %}</h2>
+    <p class="roadmap-intro">{% if current_lang == 'en' %}Progression depends on qualification. We will add exact dates when they are officially confirmed.{% else %}Der weitere Weg hängt von der Qualifikation ab. Genaue Termine ergänzen wir, sobald sie offiziell bestätigt sind.{% endif %}</p>
+    <div class="roadmap-scroll" tabindex="0" role="region" aria-label="{% if current_lang == 'en' %}Horizontal competition timeline{% else %}Horizontaler Wettbewerbs-Zeitstrahl{% endif %}">
+        <ol class="roadmap-track competition-track">
+            <li><span class="roadmap-date">{% if current_lang == 'en' %}MAR 2027 · DATE TBA{% else %}MÄR 2027 · TERMIN FOLGT{% endif %}</span><span class="roadmap-node" aria-hidden="true"></span><h3>{% if current_lang == 'en' %}Regional / WEST{% else %}Regionalmeisterschaft WEST{% endif %}</h3><p>{% if current_lang == 'en' %}Heinsberg is the announced host location. Exact event date: to be announced.{% else %}Heinsberg ist als Austragungsort angekündigt. Das genaue Veranstaltungsdatum folgt.{% endif %}</p></li>
+            <li><span class="roadmap-date">{% if current_lang == 'en' %}MAY 2027 · DATE TBA{% else %}MAI 2027 · TERMIN FOLGT{% endif %}</span><span class="roadmap-node" aria-hidden="true"></span><h3>{% if current_lang == 'en' %}German Championship{% else %}Deutsche Meisterschaft{% endif %}</h3><p>{% if current_lang == 'en' %}Nationales Automuseum — The Loh Collection. Exact date to be confirmed.{% else %}Nationales Automuseum — The Loh Collection. Das genaue Datum wird noch bestätigt.{% endif %}</p></li>
+            <li class="roadmap-conditional"><span class="roadmap-date">{% if current_lang == 'en' %}IF QUALIFIED{% else %}BEI QUALIFIKATION{% endif %}</span><span class="roadmap-node" aria-hidden="true"></span><h3>{% if current_lang == 'en' %}World Finals{% else %}Weltmeisterschaft{% endif %}</h3><p>{% if current_lang == 'en' %}The international stage is only part of our route if we qualify. The 2027 venue and date are not yet listed.{% else %}Die internationale Bühne gehört nur bei erfolgreicher Qualifikation zu unserem Weg. Austragungsort und Termin für 2027 sind noch nicht eingetragen.{% endif %}</p></li>
+        </ol>
+    </div>
+</section>
+
+<section class="roadmap-footnote"><p class="section-label">{% if current_lang == 'en' %}TRANSPARENT BY DESIGN{% else %}TRANSPARENZ IST TEIL DES PLANS{% endif %}</p><p>{% if current_lang == 'en' %}Dates marked “TBA” are not confirmed event dates. We will update this timeline when organisers publish reliable information.{% else %}Mit „Termin folgt“ gekennzeichnete Angaben sind keine bestätigten Veranstaltungstermine. Wir aktualisieren den Zeitstrahl, sobald die Veranstalter verlässliche Informationen veröffentlichen.{% endif %}</p></section>
+{% endblock %}
