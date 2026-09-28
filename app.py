@@ -390,7 +390,7 @@ def contact():
 
         email_data = {
             "from": "A.C.E. Racing <onboarding@resend.dev>",
-            "to": [recipient],
+            "to": ["delivered@resend.dev"],
             "subject": f"A.C.E. website inquiry: {topic}",
             "reply_to": email,
             "text": (
