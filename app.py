@@ -417,7 +417,12 @@ def contact():
         with urllib.request.urlopen(api_request, timeout=15) as response:
             response.read()
 
-    except (OSError, urllib.error.HTTPError, urllib.error.URLError) as e:
+    except urllib.error.HTTPError as e:
+        error_body = e.read().decode("utf-8", errors="replace")
+        app.logger.error("RESEND EMAIL ERROR: HTTP %s - %s", e.code, error_body)
+        return render_template("contact.html", contact_status="unavailable"), 503
+
+    except (OSError, urllib.error.URLError) as e:
         app.logger.exception("RESEND EMAIL ERROR: %s", e)
         return render_template("contact.html", contact_status="unavailable"), 503
     
