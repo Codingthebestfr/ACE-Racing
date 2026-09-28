@@ -72,6 +72,38 @@ Engineering, Teamarbeit und Innovation: A.C.E. Racing entwickelt in Aachen einen
 
 </section>
 
+<section class="home-team-story" aria-labelledby="home-team-story-title">
+    <div class="home-team-photo team-photo-placeholder">
+        <span>{% if current_lang == 'en' %}TEAM PHOTO{% else %}TEAMFOTO{% endif %}</span>
+        <small>{% if current_lang == 'en' %}Coming this week{% else %}Bild folgt diese Woche{% endif %}</small>
+    </div>
+    <div class="home-team-story-copy">
+        <p class="section-label">{% if current_lang == 'en' %}OUR TEAM{% else %}UNSER TEAM{% endif %}</p>
+        <h2 id="home-team-story-title">{% if current_lang == 'en' %}Five people. One project. One direction.{% else %}Fünf Menschen. Ein Projekt. Eine Richtung.{% endif %}</h2>
+        <p>{% if current_lang == 'en' %}We are <strong>A.C.E. Racing</strong>, a five-member student team from <strong>Einhard-Gymnasium Aachen</strong>. Together, we take part in STEM Racing and develop our own race car from the first concept to the track.{% else %}Wir sind <strong>A.C.E. Racing</strong>, ein fünfköpfiges Schülerteam des <strong>Einhard-Gymnasiums Aachen</strong>. Gemeinsam nehmen wir an STEM Racing teil und entwickeln unseren eigenen Rennwagen vom ersten Konzept bis zur Rennstrecke.{% endif %}</p>
+        <p>{% if current_lang == 'en' %}Our responsibilities cover engineering, production, IT, communication and presentation. Every role contributes to the same goal: turning a complex project into a clear, tangible result.{% else %}Unsere Verantwortungsbereiche umfassen Engineering, Produktion, IT, Kommunikation und Präsentation. Jede Rolle trägt zum gleichen Ziel bei: ein komplexes Projekt in ein klares, greifbares Ergebnis zu verwandeln.{% endif %}</p>
+        <a class="text-link" href="{{ url_for('team') }}">{% if current_lang == 'en' %}Meet the full team{% else %}Das vollständige Team kennenlernen{% endif %} <span aria-hidden="true">↗</span></a>
+    </div>
+</section>
+
+<section class="season-countdown" aria-labelledby="countdown-title" data-countdown-target="2026-11-30T23:59:59+01:00">
+    <div class="countdown-copy">
+        <p class="section-label">{% if current_lang == 'en' %}THE NEXT MILESTONE{% else %}DER NÄCHSTE MEILENSTEIN{% endif %}</p>
+        <h2 id="countdown-title">{% if current_lang == 'en' %}The season is moving.{% else %}Die Saison kommt in Bewegung.{% endif %}</h2>
+        <p>{% if current_lang == 'en' %}Our next fixed milestone is the season registration deadline. After that, the focus shifts fully to concept, CAD and engineering.{% else %}Unser nächster fester Meilenstein ist der Anmeldeschluss der Saison. Danach liegt unser voller Fokus auf Konzept, CAD und Engineering.{% endif %}</p>
+    </div>
+    <div class="countdown-panel" aria-live="polite">
+        <div class="countdown-date">{% if current_lang == 'en' %}REGISTRATION DEADLINE · 30 NOV 2026{% else %}ANMELDESCHLUSS · 30. NOV 2026{% endif %}</div>
+        <div class="countdown-values">
+            <div><strong data-countdown-days>--</strong><span>{% if current_lang == 'en' %}days{% else %}Tage{% endif %}</span></div>
+            <div><strong data-countdown-hours>--</strong><span>{% if current_lang == 'en' %}hours{% else %}Stunden{% endif %}</span></div>
+            <div><strong data-countdown-minutes>--</strong><span>{% if current_lang == 'en' %}minutes{% else %}Minuten{% endif %}</span></div>
+            <div><strong data-countdown-seconds>--</strong><span>{% if current_lang == 'en' %}seconds{% else %}Sekunden{% endif %}</span></div>
+        </div>
+        <span class="countdown-status">{% if current_lang == 'en' %}TEAM / REGISTRATION / ENGINEERING{% else %}TEAM / ANMELDUNG / ENGINEERING{% endif %}</span>
+    </div>
+</section>
+
 
 <section class="intro">
 

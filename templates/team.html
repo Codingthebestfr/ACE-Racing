@@ -61,19 +61,43 @@ Lerne das Team hinter A.C.E. Racing und unsere verschiedenen Aufgabenbereiche ke
 </div>
 
 <section class="team-photo-section">
-
-    <div class="team-photo-placeholder">
-
-        <span>
-            {% if current_lang == 'en' %}TEAM PHOTO{% else %}TEAMFOTO{% endif %}
-        </span>
-
-        <small>
-            {% if current_lang == 'en' %}Coming soon{% else %}Bild folgt{% endif %}
-        </small>
-
+    <div class="team-story-block">
+        <div class="team-photo-placeholder">
+            <span>{% if current_lang == 'en' %}TEAM PHOTO{% else %}TEAMFOTO{% endif %}</span>
+            <small>{% if current_lang == 'en' %}Coming this week{% else %}Bild folgt diese Woche{% endif %}</small>
+        </div>
+        <div class="team-story-copy">
+            <p>{% if current_lang == 'en' %}We are <strong>A.C.E. Racing</strong>, a five-member student team from <strong>Einhard-Gymnasium Aachen</strong>. Together, we take part in the <strong>STEM Racing</strong> competition and develop our own race car from the first concept to the track.{% else %}Wir sind <strong>A.C.E. Racing</strong>, ein fünfköpfiges Schülerteam des <strong>Einhard-Gymnasiums Aachen</strong>. Gemeinsam nehmen wir am <strong>STEM-Racing-Wettbewerb</strong> teil und entwickeln unseren eigenen Rennwagen vom ersten Konzept bis zur Rennstrecke.{% endif %}</p>
+            <p>{% if current_lang == 'en' %}Our project combines engineering, production, digital systems, communication and presentation. Every team member owns a clear area of responsibility, while major decisions are developed and reviewed together.{% else %}Unser Projekt verbindet Engineering, Produktion, digitale Systeme, Kommunikation und Präsentation. Jedes Teammitglied übernimmt einen klaren Verantwortungsbereich, während wichtige Entscheidungen gemeinsam entwickelt und überprüft werden.{% endif %}</p>
+            <p>{% if current_lang == 'en' %}We are building more than a car: we are learning how to structure a complex project, communicate technical decisions and turn an idea into something tangible.{% else %}Wir bauen mehr als ein Auto: Wir lernen, ein komplexes Projekt zu strukturieren, technische Entscheidungen zu erklären und eine Idee in etwas Greifbares zu verwandeln.{% endif %}</p>
+        </div>
     </div>
 
+</section>
+
+<section class="team-competencies">
+    <p class="section-label">{% if current_lang == 'en' %}HOW WE CONTRIBUTE{% else %}WAS WIR EINBRINGEN{% endif %}</p>
+    <h2>{% if current_lang == 'en' %}Every role connects to the car.{% else %}Jede Rolle verbindet sich mit dem Auto.{% endif %}</h2>
+    <div class="competency-grid">
+        <article class="competency-card"><span>01</span><h3>IT &amp; {% if current_lang == 'en' %}Digital systems{% else %}Digitale Systeme{% endif %}</h3><p>{% if current_lang == 'en' %}Website, digital infrastructure and the tools that keep our project organised.{% else %}Website, digitale Infrastruktur und die Werkzeuge, die unser Projekt organisiert halten.{% endif %}</p></article>
+        <article class="competency-card"><span>02</span><h3>{% if current_lang == 'en' %}Research &amp; development{% else %}Forschung &amp; Entwicklung{% endif %}</h3><p>{% if current_lang == 'en' %}Testing assumptions, analysing results and turning feedback into the next iteration.{% else %}Annahmen testen, Ergebnisse auswerten und Feedback in die nächste Version übersetzen.{% endif %}</p></article>
+        <article class="competency-card"><span>03</span><h3>{% if current_lang == 'en' %}Construction &amp; production{% else %}Konstruktion &amp; Produktion{% endif %}</h3><p>{% if current_lang == 'en' %}CAD, manufacturing decisions, assembly and the path from a digital model to a physical car.{% else %}CAD, Fertigungsentscheidungen, Montage und der Weg vom digitalen Modell zum echten Auto.{% endif %}</p></article>
+        <article class="competency-card"><span>04</span><h3>{% if current_lang == 'en' %}Graphics, media &amp; PR{% else %}Grafik, Medien &amp; PR{% endif %}</h3><p>{% if current_lang == 'en' %}Visual identity, communication and the stories that make our engineering understandable to partners and visitors.{% else %}Visuelle Identität, Kommunikation und Geschichten, die unser Engineering für Partner und Besucher verständlich machen.{% endif %}</p></article>
+    </div>
+</section>
+
+<section class="team-profile-section">
+    <div class="content-text">
+        <p class="section-label">{% if current_lang == 'en' %}WHO WE ARE{% else %}WER WIR SIND{% endif %}</p>
+        <h2>{% if current_lang == 'en' %}A student team with a professional mindset.{% else %}Ein Schülerteam mit professionellem Anspruch.{% endif %}</h2>
+        <p>{% if current_lang == 'en' %}A.C.E. Racing is the STEM Racing team of Einhard-Gymnasium Aachen for the 2026/27 season. We are five students with different responsibilities, working toward one shared result: a well-engineered race car and a clear, credible project story.{% else %}A.C.E. Racing ist das STEM-Racing-Team des Einhard-Gymnasiums Aachen für die Saison 2026/27. Wir sind fünf Schülerinnen und Schüler mit unterschiedlichen Verantwortungsbereichen und arbeiten auf ein gemeinsames Ergebnis hin: einen gut entwickelten Rennwagen und eine klare, glaubwürdige Projektgeschichte.{% endif %}</p>
+        <p>{% if current_lang == 'en' %}Our work combines technical development with communication, documentation and project organisation. That means we do not only build the car; we also explain our decisions, record our progress and present the project to partners, judges and visitors.{% else %}Unsere Arbeit verbindet technische Entwicklung mit Kommunikation, Dokumentation und Projektorganisation. Wir bauen also nicht nur das Auto, sondern erklären unsere Entscheidungen, dokumentieren unseren Fortschritt und präsentieren das Projekt gegenüber Partnern, Jurys und Besuchern.{% endif %}</p>
+    </div>
+    <aside class="team-profile-aside">
+        <span class="team-profile-code">A.C.E / TEAM PROFILE</span>
+        <strong>{% if current_lang == 'en' %}AMBITION<br>COLLABORATION<br>EXCELLENCE{% else %}AMBITION<br>COLLABORATION<br>EXCELLENCE{% endif %}</strong>
+        <p>{% if current_lang == 'en' %}Engineering · communication · responsibility{% else %}Engineering · Kommunikation · Verantwortung{% endif %}</p>
+    </aside>
 </section>
 
 <section class="team-section">
@@ -125,6 +149,18 @@ Lerne das Team hinter A.C.E. Racing und unsere verschiedenen Aufgabenbereiche ke
 
     </div>
 
+</section>
+
+<section class="team-portfolio-section">
+    <p class="section-label">{% if current_lang == 'en' %}OUR PRESENTATION PORTFOLIO{% else %}UNSER PRÄSENTATIONSPORTFOLIO{% endif %}</p>
+    <h2>{% if current_lang == 'en' %}What we can show partners.{% else %}Was wir Partnern zeigen können.{% endif %}</h2>
+    <div class="portfolio-grid">
+        <article><span>01</span><h3>{% if current_lang == 'en' %}Team introduction{% else %}Teamvorstellung{% endif %}</h3><p>{% if current_lang == 'en' %}Who we are, how we divide responsibility and how our roles connect to the car.{% else %}Wer wir sind, wie wir Verantwortung verteilen und wie unsere Rollen mit dem Auto verbunden sind.{% endif %}</p></article>
+        <article><span>02</span><h3>{% if current_lang == 'en' %}Engineering story{% else %}Engineering-Geschichte{% endif %}</h3><p>{% if current_lang == 'en' %}Our concept, CAD decisions, aerodynamic priorities, prototypes, tests and next iterations.{% else %}Unser Konzept, CAD-Entscheidungen, aerodynamische Ziele, Prototypen, Tests und nächste Iterationen.{% endif %}</p></article>
+        <article><span>03</span><h3>{% if current_lang == 'en' %}Project documentation{% else %}Projektdokumentation{% endif %}</h3><p>{% if current_lang == 'en' %}A transparent record of milestones, responsibilities, partner contributions and lessons learned.{% else %}Eine transparente Dokumentation von Meilensteinen, Verantwortlichkeiten, Partnerbeiträgen und Lernerfahrungen.{% endif %}</p></article>
+        <article><span>04</span><h3>{% if current_lang == 'en' %}Partner presentation{% else %}Partnerpräsentation{% endif %}</h3><p>{% if current_lang == 'en' %}A concise overview of the project, possible forms of support and the visibility and exchange a partnership can create.{% else %}Ein kompakter Überblick über das Projekt, mögliche Unterstützungsformen sowie Sichtbarkeit und Austausch durch eine Partnerschaft.{% endif %}</p></article>
+    </div>
+    <a class="button" href="{{ url_for('contact') }}">{% if current_lang == 'en' %}Request a team presentation{% else %}Teampräsentation anfragen{% endif %} <span aria-hidden="true">↗</span></a>
 </section>
 
 <section class="content-section">

@@ -34,6 +34,33 @@
         });
     }
 
+    const countdown = document.querySelector("[data-countdown-target]");
+
+    if (countdown) {
+        const target = new Date(countdown.dataset.countdownTarget).getTime();
+        const days = countdown.querySelector("[data-countdown-days]");
+        const hours = countdown.querySelector("[data-countdown-hours]");
+        const minutes = countdown.querySelector("[data-countdown-minutes]");
+        const seconds = countdown.querySelector("[data-countdown-seconds]");
+
+        function updateCountdown() {
+            const remaining = Math.max(0, target - Date.now());
+            const totalSeconds = Math.floor(remaining / 1000);
+            const dayValue = Math.floor(totalSeconds / 86400);
+            const hourValue = Math.floor((totalSeconds % 86400) / 3600);
+            const minuteValue = Math.floor((totalSeconds % 3600) / 60);
+            const secondValue = totalSeconds % 60;
+
+            days.textContent = String(dayValue).padStart(2, "0");
+            hours.textContent = String(hourValue).padStart(2, "0");
+            minutes.textContent = String(minuteValue).padStart(2, "0");
+            seconds.textContent = String(secondValue).padStart(2, "0");
+        }
+
+        updateCountdown();
+        window.setInterval(updateCountdown, 1000);
+    }
+
     const revealItems = document.querySelectorAll(".card, .team-card, .sponsor-card, .info-box, .content-text, .metric-card, .timeline-card, .feature-card, .contact-person-card");
 
     if ("IntersectionObserver" in window && revealItems.length) {
