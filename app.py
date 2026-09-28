@@ -410,9 +410,10 @@ def contact():
                 smtp.starttls(context=ssl.create_default_context())
                 smtp.login(smtp_username, smtp_password)
                 smtp.send_message(email_message)
-    except (OSError, smtplib.SMTPException, ValueError):
+    except (OSError, smtplib.SMTPException, ValueError) as e:
+        app.logger.exception("CONTACT EMAIL ERROR: %s", e)
         return render_template("contact.html", contact_status="unavailable"), 503
-
+    
     redirect_values = {"sent": "1"}
     language = request.args.get("lang")
     if language in LANGUAGES:
