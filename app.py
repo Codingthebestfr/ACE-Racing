@@ -1,10 +1,10 @@
 import os
 import re
-import smtplib
 import ssl
 import time
-from email.message import EmailMessage
-
+import json
+import urllib.request
+import urllib.error
 from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
@@ -381,37 +381,44 @@ def contact():
     recent.append(now)
     CONTACT_SUBMISSIONS[client_ip] = recent
 
-    smtp_host = os.environ.get("SMTP_HOST")
-    smtp_username = os.environ.get("SMTP_USERNAME")
-    smtp_password = os.environ.get("SMTP_PASSWORD")
+    resend_api_key = os.environ.get("RESEND_API_KEY")
     recipient = os.environ.get("CONTACT_RECIPIENT", "ace.racing001@gmail.com")
-    sender = os.environ.get("SMTP_SENDER", smtp_username or "")
+
     try:
-        smtp_port = int(os.environ.get("SMTP_PORT", "587"))
-        if not all((smtp_host, smtp_username, smtp_password, sender, recipient)):
+        if not resend_api_key or not recipient:
             return render_template("contact.html", contact_status="unavailable"), 503
 
-        email_message = EmailMessage()
-        email_message["Subject"] = f"A.C.E. website inquiry: {topic}"
-        email_message["From"] = sender
-        email_message["To"] = recipient
-        email_message["Reply-To"] = email
-        email_message.set_content(
-            f"Name: {name}\nEmail: {email}\nOrganisation: {organisation or '-'}\n"
-            f"Topic: {topic}\n\n{message_text}"
+        email_data = {
+            "from": "A.C.E. Racing <onboarding@resend.dev>",
+            "to": [recipient],
+            "subject": f"A.C.E. website inquiry: {topic}",
+            "reply_to": email,
+            "text": (
+                f"Name: {name}\n"
+                f"Email: {email}\n"
+                f"Organisation: {organisation or '-'}\n"
+                f"Topic: {topic}\n\n"
+                f"{message_text}"
+            ),
+        }
+
+        request_data = json.dumps(email_data).encode("utf-8")
+
+        api_request = urllib.request.Request(
+            "https://api.resend.com/emails",
+            data=request_data,
+            headers={
+                "Authorization": f"Bearer {resend_api_key}",
+                "Content-Type": "application/json",
+            },
+            method="POST",
         )
 
-        if smtp_port == 465:
-            with smtplib.SMTP_SSL(smtp_host, smtp_port, timeout=10, context=ssl.create_default_context()) as smtp:
-                smtp.login(smtp_username, smtp_password)
-                smtp.send_message(email_message)
-        else:
-            with smtplib.SMTP(smtp_host, smtp_port, timeout=10) as smtp:
-                smtp.starttls(context=ssl.create_default_context())
-                smtp.login(smtp_username, smtp_password)
-                smtp.send_message(email_message)
-    except (OSError, smtplib.SMTPException, ValueError) as e:
-        app.logger.exception("CONTACT EMAIL ERROR: %s", e)
+        with urllib.request.urlopen(api_request, timeout=15) as response:
+            response.read()
+
+    except (OSError, urllib.error.HTTPError, urllib.error.URLError) as e:
+        app.logger.exception("RESEND EMAIL ERROR: %s", e)
         return render_template("contact.html", contact_status="unavailable"), 503
     
     redirect_values = {"sent": "1"}
