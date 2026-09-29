@@ -42,18 +42,10 @@ Engineering, Teamarbeit und Innovation: A.C.E. Racing entwickelt in Aachen einen
             <span class="hero-word"><span class="hero-initial">E</span>xcellence.</span>
         </h1>
 
-        <p class="hero-description">
-            {% if current_lang == 'en' %}
-                Technology. Teamwork. Innovation. Together we develop our own racing car.
-            {% else %}
-                Technik. Teamarbeit. Innovation. Gemeinsam entwickeln wir unseren eigenen Rennwagen.
-            {% endif %}
-        </p>
-
         <div class="hero-buttons">
 
             <a href="{{ url_for('about') }}" class="button">
-                {% if current_lang == 'en' %}Meet the team{% else %}Team kennenlernen{% endif %}
+                {% if current_lang == 'en' %}About us{% else %}Über uns{% endif %}
             </a>
 
             <a href="{{ url_for('legacy') }}" class="button button-outline">
@@ -106,29 +98,6 @@ Engineering, Teamarbeit und Innovation: A.C.E. Racing entwickelt in Aachen einen
 
 
 <section class="intro">
-
-    <p class="section-label">
-        {% if current_lang == 'en' %}THE MISSION{% else %}DIE MISSION{% endif %}
-    </p>
-
-    <h2>
-        {% if current_lang == 'en' %}We build more than a car.{% else %}Wir bauen mehr als ein Auto.{% endif %}
-    </h2>
-
-    <p>
-        {% if current_lang == 'en' %}
-            We are a newly founded team and take part in the STEM Racing project.
-        {% else %}
-            Wir sind ein neu gegründetes Team und nehmen
-            am STEM-Racing-Projekt teil.
-        {% endif %}
-    </p>
-
-    <div class="home-stats" aria-label="{% if current_lang == 'en' %}Team facts{% else %}Teamfakten{% endif %}">
-        <div><strong>05</strong><span>{% if current_lang == 'en' %}team members{% else %}Teammitglieder{% endif %}</span></div>
-        <div><strong>01</strong><span>{% if current_lang == 'en' %}race car in development{% else %}Rennwagen in Entwicklung{% endif %}</span></div>
-        <div><strong>∞</strong><span>{% if current_lang == 'en' %}ideas to test{% else %}Ideen zum Testen{% endif %}</span></div>
-    </div>
 
     <div class="cards home-pillars">
 

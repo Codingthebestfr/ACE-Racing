@@ -11,6 +11,6 @@ The contact form forwards messages through SMTP. Configure these environment var
 - `SMTP_USERNAME`
 - `SMTP_PASSWORD`
 - `SMTP_SENDER` (optional; defaults to `SMTP_USERNAME`)
-- `CONTACT_RECIPIENT` (optional; defaults to the A.C.E. team inbox)
+- `CONTACT_RECIPIENT` (optional; defaults to `contact@ace-racing.de`)
 
 The form reports delivery as unavailable until SMTP is configured.

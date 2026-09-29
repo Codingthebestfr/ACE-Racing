@@ -42,6 +42,21 @@ Unterstütze A.C.E. Racing und werde Partner unseres STEM-Racing- und Engineerin
 
 {% block content %}
 
+<section class="supporter-section">
+    <a class="fh-logo" href="https://www.fh-aachen.de/" target="_blank" rel="noopener noreferrer" aria-label="FH Aachen - University of Applied Sciences, {% if current_lang == 'en' %}opens the official website in a new tab{% else %}öffnet die offizielle Website in einem neuen Tab{% endif %}">
+        <span class="fh-logo-bars" aria-hidden="true"><i></i><i></i></span>
+        <span class="fh-logo-name">FH AACHEN</span>
+        <span class="fh-logo-subtitle">UNIVERSITY OF APPLIED SCIENCES</span>
+    </a>
+    <div class="supporter-copy">
+        <p class="section-label">{% if current_lang == 'en' %}CURRENT SUPPORT{% else %}BEREITS UNTERSTÜTZT{% endif %}</p>
+        <h2>{% if current_lang == 'en' %}Built with our network.{% else %}Mit unserem Netzwerk gebaut.{% endif %}</h2>
+        <p>{% if current_lang == 'en' %}FH Aachen - University of Applied Sciences supports A.C.E. Racing. This connection gives our student project access to practical technical exchange and strengthens the bridge between school learning and applied engineering.{% else %}Die FH Aachen - University of Applied Sciences unterstützt A.C.E. Racing. Diese Verbindung ermöglicht unserem Schülerprojekt technischen Austausch aus der Praxis und stärkt die Brücke zwischen schulischem Lernen und angewandtem Engineering.{% endif %}</p>
+        <p class="supporter-note">{% if current_lang == 'en' %}We describe this partnership only in the scope agreed with FH Aachen.{% else %}Wir beschreiben diese Partnerschaft nur in dem Umfang, der mit der FH Aachen abgestimmt ist.{% endif %}</p>
+        <a class="text-link" href="https://www.fh-aachen.de/" target="_blank" rel="noopener noreferrer">{% if current_lang == 'en' %}Visit FH Aachen{% else %}Website der FH Aachen{% endif %} <span aria-hidden="true">↗</span></a>
+    </div>
+</section>
+
 <section class="page-header">
 
     <p class="section-label">
@@ -54,11 +69,9 @@ Unterstütze A.C.E. Racing und werde Partner unseres STEM-Racing- und Engineerin
 
     <p>
         {% if current_lang == 'en' %}
-            Still at the beginning – but with big goals. We are looking for companies and partners who want to support our STEM Racing project.
+            We welcome companies and partners who want to support our STEM Racing project.
         {% else %}
-            Noch am Anfang – aber mit großen Zielen.
-            Wir suchen Unternehmen und Partner, die unser
-            STEM-Racing-Projekt unterstützen möchten.
+            Wir freuen uns über Unternehmen und Partner, die unser STEM-Racing-Projekt unterstützen möchten.
         {% endif %}
     </p>
 
@@ -70,47 +83,6 @@ Unterstütze A.C.E. Racing und werde Partner unseres STEM-Racing- und Engineerin
 
 </section>
 
-<div class="metric-grid">
-    <div class="metric-card"><strong>05</strong><span>{% if current_lang == 'en' %}students in one project team{% else %}Schülerinnen und Schüler in einem Projektteam{% endif %}</span></div>
-    <div class="metric-card"><strong>04</strong><span>{% if current_lang == 'en' %}ways to contribute{% else %}Möglichkeiten mitzuwirken{% endif %}</span></div>
-    <div class="metric-card"><strong>01</strong><span>{% if current_lang == 'en' %}car, built as a real project{% else %}Rennwagen als echtes Projekt{% endif %}</span></div>
-</div>
-
-<section class="sponsor-section">
-
-    <div class="sponsor-placeholder">
-
-        <p class="section-label">
-            {% if current_lang == 'en' %}YOUR LOGO HERE{% else %}IHR LOGO HIER{% endif %}
-        </p>
-
-        <h2>
-            {% if current_lang == 'en' %}Become our partner.{% else %}Werden Sie unser Partner.{% endif %}
-        </h2>
-
-        <p>
-            {% if current_lang == 'en' %}
-                This area is reserved for future sponsors and partners.
-            {% else %}
-                Dieser Bereich ist für zukünftige
-                Sponsoren und Partner reserviert.
-            {% endif %}
-        </p>
-
-    </div>
-
-</section>
-
-<section class="supporter-section">
-    <div class="supporter-copy">
-        <p class="section-label">{% if current_lang == 'en' %}CURRENT SUPPORT{% else %}BEREITS UNTERSTÜTZT{% endif %}</p>
-        <h2>{% if current_lang == 'en' %}Built with our network.{% else %}Mit unserem Netzwerk gebaut.{% endif %}</h2>
-        <p>{% if current_lang == 'en' %}The FH Aachen supports A.C.E. Racing. This connection gives our student project access to practical technical exchange and strengthens the bridge between school learning and applied engineering.{% else %}Die FH Aachen unterstützt A.C.E. Racing. Diese Verbindung ermöglicht unserem Schülerprojekt technischen Austausch aus der Praxis und stärkt die Brücke zwischen schulischem Lernen und angewandtem Engineering.{% endif %}</p>
-        <p class="supporter-note">{% if current_lang == 'en' %}We describe this partnership only in the scope agreed with the FH Aachen.{% else %}Wir beschreiben diese Partnerschaft nur in dem Umfang, der mit der FH Aachen abgestimmt ist.{% endif %}</p>
-    </div>
-    <div class="supporter-mark" aria-label="FH Aachen">FH<br><span>AACHEN</span></div>
-</section>
-
 <section class="sponsor-value-section">
     <p class="section-label">{% if current_lang == 'en' %}WHY A.C.E.?{% else %}WARUM A.C.E.?{% endif %}</p>
     <h2>{% if current_lang == 'en' %}A partnership with a visible outcome.{% else %}Eine Partnerschaft mit sichtbarem Ergebnis.{% endif %}</h2>
@@ -120,14 +92,6 @@ Unterstütze A.C.E. Racing und werde Partner unseres STEM-Racing- und Engineerin
         <article><span>03</span><h3>{% if current_lang == 'en' %}Create useful exchange{% else %}Austausch schaffen{% endif %}</h3><p>{% if current_lang == 'en' %}Bring real questions from industry into a project where students can test, present and improve their work.{% else %}Bringen Sie echte Fragen aus der Praxis in ein Projekt, in dem Schülerinnen und Schüler testen, präsentieren und verbessern können.{% endif %}</p></article>
         <article><span>04</span><h3>{% if current_lang == 'en' %}Be visible for the right reasons{% else %}Sichtbar mit Wirkung{% endif %}</h3><p>{% if current_lang == 'en' %}Be present in a credible story about technology, education, teamwork and practical learning.{% else %}Seien Sie Teil einer glaubwürdigen Geschichte über Technik, Bildung, Teamarbeit und praktisches Lernen.{% endif %}</p></article>
     </div>
-</section>
-
-<section class="stem-explainer">
-    <p class="section-label">{% if current_lang == 'en' %}WHAT IS STEM RACING?{% else %}WAS IST STEM RACING?{% endif %}</p>
-    <h2>{% if current_lang == 'en' %}A miniature race car. A multidisciplinary challenge.{% else %}Ein kleiner Rennwagen. Eine vielseitige Herausforderung.{% endif %}</h2>
-    <p>{% if current_lang == 'en' %}STEM Racing is an international, Formula 1-endorsed education competition. Teams of 3–6 students aged 9–19 design, make, test, brand and race miniature cars while presenting the thinking behind their work.{% else %}STEM Racing ist ein internationaler, von Formula 1 unterstützter Bildungswettbewerb. Teams aus 3–6 Schülerinnen und Schülern im Alter von 9–19 Jahren entwerfen, fertigen, testen, vermarkten und fahren Miniatur-Rennwagen und präsentieren die Entscheidungen hinter ihrer Arbeit.{% endif %}</p>
-    <div class="stem-route"><span>{% if current_lang == 'en' %}REGISTER{% else %}ANMELDEN{% endif %}</span><i>→</i><span>{% if current_lang == 'en' %}DESIGN &amp; MAKE{% else %}ENTWERFEN &amp; BAUEN{% endif %}</span><i>→</i><span>{% if current_lang == 'en' %}COMPETE{% else %}WETTBEWERB{% endif %}</span></div>
-    <a class="text-link" href="https://www.stemracing.com/" target="_blank" rel="noopener noreferrer">{% if current_lang == 'en' %}Learn about STEM Racing{% else %}STEM Racing kennenlernen{% endif %} <span aria-hidden="true">↗</span></a>
 </section>
 
 <section class="content-section">

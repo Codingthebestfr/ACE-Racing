@@ -101,9 +101,8 @@ TRANSLATIONS = {
         "project_text_2": "Unsere Arbeitsweise bleibt übersichtlich: Ziele festlegen, ausprobieren, auswerten und die nächste Version bauen.",
         "sponsors_page_title": "Sponsoren",
         "sponsors_header": "Unsere Partner",
-        "sponsors_intro": "Noch am Anfang – aber mit großen Zielen. Wir suchen Unternehmen und Partner, die unser STEM-Racing-Projekt unterstützen möchten.",
+        "sponsors_intro": "Wir freuen uns über Unternehmen und Partner, die unser STEM-Racing-Projekt unterstützen möchten.",
         "sponsors_cta_title": "Werden Sie unser Partner.",
-        "sponsors_cta_text": "Dieser Bereich ist für zukünftige Sponsoren und Partner reserviert.",
         "sponsors_why_title": "Gemeinsam Zukunft entwickeln.",
         "sponsors_why_text_1": "STEM Racing verbindet Technik, Konstruktion, Digitalisierung, Teamarbeit und Motorsport.",
         "sponsors_why_text_2": "Als neu gegründetes Team möchten wir unser Projekt von Anfang an professionell aufbauen und unsere Entwicklung transparent zeigen.",
@@ -224,9 +223,8 @@ TRANSLATIONS = {
         "project_text_2": "We keep our workflow clear: define goals, test, evaluate and build the next version.",
         "sponsors_page_title": "Sponsors",
         "sponsors_header": "Our partners",
-        "sponsors_intro": "Still at the beginning – but with big goals. We are looking for companies and partners who want to support our STEM Racing project.",
+        "sponsors_intro": "We welcome companies and partners who want to support our STEM Racing project.",
         "sponsors_cta_title": "Become our partner.",
-        "sponsors_cta_text": "This area is reserved for future sponsors and partners.",
         "sponsors_why_title": "Building the future together.",
         "sponsors_why_text_1": "STEM Racing combines technology, engineering, digitalisation, teamwork and motorsport.",
         "sponsors_why_text_2": "As a newly founded team, we want to build our project professionally from the start and present our progress transparently.",
@@ -382,15 +380,15 @@ def contact():
     CONTACT_SUBMISSIONS[client_ip] = recent
 
     resend_api_key = os.environ.get("RESEND_API_KEY")
-    recipient = os.environ.get("CONTACT_RECIPIENT", "ace.racing001@gmail.com")
+    recipient = os.environ.get("CONTACT_RECIPIENT", "contact@ace-racing.de")
 
     try:
         if not resend_api_key or not recipient:
             return render_template("contact.html", contact_status="unavailable"), 503
 
         email_data = {
-            "from": "A.C.E. Racing <onboarding@resend.dev>",
-            "to": ["delivered@resend.dev"],
+            "from": "A.C.E. Racing <contact@ace-racing.de>",
+            "to": [recipient],
             "subject": f"A.C.E. website inquiry: {topic}",
             "reply_to": email,
             "text": (

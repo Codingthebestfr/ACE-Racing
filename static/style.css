@@ -888,6 +888,28 @@ footer {
     transition: 0.25s ease;
 }
 
+.team-person-photo {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 26px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background:
+        linear-gradient(135deg, rgba(168,85,247,.08), transparent 42%),
+        repeating-linear-gradient(90deg, transparent 0 34px, rgba(255,255,255,.045) 35px 36px),
+        var(--surface);
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.team-person-photo span { color: #f6f7f8; font-size: 14px; font-weight: 800; letter-spacing: .12em; }
+.team-person-photo small { font-size: 12px; }
+
 .team-card:hover {
     transform: translateY(-6px);
 
@@ -1450,10 +1472,16 @@ nav a:hover, nav a.is-active, .footer-content a:hover { color: var(--accent); }
 .portfolio-grid h3 { margin: 34px 0 12px; font-family: var(--display); font-size: 22px; line-height: 1.08; text-transform: uppercase; }
 .portfolio-grid p { color: var(--text-muted); font-size: 14px; }
 .portfolio-grid h3, .portfolio-grid p { overflow-wrap: anywhere; }
-.supporter-section { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 8vw; align-items: center; padding: 88px 10vw; background: #0b1015; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.supporter-section { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(0, 1.2fr); gap: 6vw; align-items: center; padding: 42px 10vw; background: #0b1015; border-bottom: 1px solid var(--border); }
+.fh-logo { display: block; width: min(100%, 440px); padding: 14px 0; color: #fff; text-decoration: none; }
+.fh-logo-bars { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; height: 46px; margin-bottom: 18px; }
+.fh-logo-bars i:first-child { background: #050505; }
+.fh-logo-bars i:last-child { background: #00b1aa; }
+.fh-logo-name { display: block; font-family: Arial, sans-serif; font-size: clamp(26px, 3vw, 42px); font-weight: 800; line-height: 1.12; }
+.fh-logo-subtitle { display: block; margin-top: 2px; font-family: Arial, sans-serif; font-size: clamp(13px, 1.6vw, 21px); font-weight: 300; line-height: 1.2; }
+.fh-logo:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+.fh-logo:hover .fh-logo-name, .fh-logo:hover .fh-logo-subtitle { color: var(--accent-soft); }
 .supporter-note { margin-top: 16px; color: var(--accent-soft) !important; font-size: 13px; }
-.supporter-mark { display: grid; place-items: center; aspect-ratio: 1; border: 1px solid var(--accent); color: #fff; font-family: var(--display); font-size: 48px; line-height: .78; text-align: center; }
-.supporter-mark span { color: var(--accent-soft); font-family: inherit; font-size: 11px; letter-spacing: .15em; }
 .sponsor-value-section { padding: 88px 10vw 24px; }
 .stem-explainer { padding: 88px 10vw 100px; background: var(--surface); border-top: 1px solid var(--border); }
 .stem-route { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; margin: 38px 0 24px; color: var(--accent-soft); font-size: 12px; font-weight: 800; letter-spacing: .1em; }
@@ -1538,7 +1566,7 @@ footer { background: #050608; }
     .team-portfolio-section { padding-left: 7%; padding-right: 7%; }
     .portfolio-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .supporter-section, .stem-explainer { padding-left: 7%; padding-right: 7%; }
-    .supporter-section { grid-template-columns: 1fr 150px; gap: 30px; }
+    .supporter-section { grid-template-columns: minmax(190px, .8fr) minmax(0, 1.2fr); gap: 30px; }
     .engineering-jump-nav { gap: 20px; padding-left: 7%; padding-right: 7%; }
     .engineering-process > .section-label, .engineering-process > h2 { margin-left: 7%; margin-right: 7%; }
     .engineering-process .project-process { padding-bottom: 72px; }
@@ -1571,8 +1599,9 @@ footer { background: #050608; }
     .competency-grid, .value-grid { grid-template-columns: 1fr; }
     .portfolio-grid { grid-template-columns: 1fr; }
     .team-initial-grid { max-width: 290px; }
-    .supporter-section { grid-template-columns: 1fr; }
-    .supporter-mark { width: 130px; }
+    .supporter-section { grid-template-columns: 1fr; gap: 22px; padding-top: 30px; padding-bottom: 36px; }
+    .fh-logo { width: min(100%, 360px); }
+    .fh-logo-bars { height: 38px; }
     .stem-route { align-items: flex-start; flex-direction: column; gap: 8px; }
     .stem-route i { transform: rotate(90deg); margin-left: 8px; }
     .engineering-jump-nav { gap: 16px; }
