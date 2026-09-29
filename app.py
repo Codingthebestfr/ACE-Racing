@@ -14,6 +14,7 @@ DEFAULT_LANGUAGE = "de"
 LANGUAGE_COOKIE_NAME = "site_lang"
 CONTACT_SUBMISSIONS = {}
 CONTACT_TOPICS = {"sponsoring", "engineering", "mentoring", "school", "press", "general"}
+DEFAULT_CONTACT_RECIPIENT = "contact@ace-racing.de"
 
 TRANSLATIONS = {
     "de": {
@@ -340,7 +341,7 @@ def contact():
     if request.method == "GET":
         if request.args.get("sent") == "1":
             status = "success"
-        elif not all(os.environ.get(key) for key in ("SMTP_HOST", "SMTP_USERNAME", "SMTP_PASSWORD")):
+        elif not os.environ.get("RESEND_API_KEY") or not os.environ.get("CONTACT_RECIPIENT", DEFAULT_CONTACT_RECIPIENT):
             status = "unavailable"
         else:
             status = None
@@ -380,7 +381,7 @@ def contact():
     CONTACT_SUBMISSIONS[client_ip] = recent
 
     resend_api_key = os.environ.get("RESEND_API_KEY")
-    recipient = os.environ.get("CONTACT_RECIPIENT", "contact@ace-racing.de")
+    recipient = os.environ.get("CONTACT_RECIPIENT", DEFAULT_CONTACT_RECIPIENT)
 
     try:
         if not resend_api_key or not recipient:
@@ -408,6 +409,7 @@ def contact():
             headers={
                 "Authorization": f"Bearer {resend_api_key}",
                 "Content-Type": "application/json",
+                "User-Agent": "A.C.E.-Racing-Website/1.0 (+https://ace-racing.de)",
             },
             method="POST",
         )
@@ -417,7 +419,8 @@ def contact():
 
     except urllib.error.HTTPError as e:
         error_body = e.read().decode("utf-8", errors="replace")
-        app.logger.error("RESEND EMAIL ERROR: HTTP %s - %s", e.code, error_body)
+        cf_ray = e.headers.get("CF-Ray", "unavailable")
+        app.logger.error("RESEND EMAIL ERROR: HTTP %s - CF-Ray %s - %s", e.code, cf_ray, error_body)
         return render_template("contact.html", contact_status="unavailable"), 503
 
     except (OSError, urllib.error.URLError) as e:

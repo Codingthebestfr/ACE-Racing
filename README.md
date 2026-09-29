@@ -4,13 +4,9 @@ Run the local preview with `python app.py`.
 
 ## Contact form delivery
 
-The contact form forwards messages through SMTP. Configure these environment variables on the server; never commit the password:
+The contact form sends messages through Resend. Configure these environment variables on the server; never commit the API key:
 
-- `SMTP_HOST`
-- `SMTP_PORT` (587 for STARTTLS or 465 for SSL)
-- `SMTP_USERNAME`
-- `SMTP_PASSWORD`
-- `SMTP_SENDER` (optional; defaults to `SMTP_USERNAME`)
+- `RESEND_API_KEY` (required)
 - `CONTACT_RECIPIENT` (optional; defaults to `contact@ace-racing.de`)
 
-The form reports delivery as unavailable until SMTP is configured.
+Verify `ace-racing.de` in Resend and use a sender address on that verified domain. The form reports delivery as unavailable when Resend is not configured or rejects the request.
