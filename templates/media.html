@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}{% if current_lang == 'en' %}Media Center | A.C.E. Racing{% else %}Media Center | A.C.E. Racing{% endif %}{% endblock %}
+
+{% block meta_description %}{% if current_lang == 'en' %}News, videos and photos from A.C.E. Racing.{% else %}Neuigkeiten, Videos und Fotos von A.C.E. Racing.{% endif %}{% endblock %}
+
+{% block og_title %}{% if current_lang == 'en' %}Media Center | A.C.E. Racing{% else %}Media Center | A.C.E. Racing{% endif %}{% endblock %}
+
+{% block og_description %}{% if current_lang == 'en' %}Follow the progress of A.C.E. Racing through news, videos and photos.{% else %}Verfolge die Entwicklung von A.C.E. Racing mit Neuigkeiten, Videos und Fotos.{% endif %}{% endblock %}
+
+{% block content %}
+<section class="page-header media-header">
+    <p class="section-label">{% if current_lang == 'en' %}MEDIA CENTER{% else %}MEDIA CENTER{% endif %}</p>
+    <h1>{% if current_lang == 'en' %}Project in motion.{% else %}Unser Projekt in Bewegung.{% endif %}</h1>
+    <p>{% if current_lang == 'en' %}News, videos and photos will document our journey from the first idea to the race track.{% else %}Neuigkeiten, Videos und Fotos dokumentieren unseren Weg von der ersten Idee bis zur Rennstrecke.{% endif %}</p>
+</section>
+
+<section class="media-center-grid" aria-label="{% if current_lang == 'en' %}Media Center categories{% else %}Kategorien des Media Centers{% endif %}">
+    <article class="media-card media-card-news">
+        <div class="media-card-top"><span class="media-card-index">01</span><span class="media-card-type">{% if current_lang == 'en' %}UPDATES{% else %}NEUIGKEITEN{% endif %}</span></div>
+        <div class="media-placeholder media-placeholder-news"><span>{% if current_lang == 'en' %}NEWS{% else %}NEWS{% endif %}</span><small>{% if current_lang == 'en' %}First update coming soon{% else %}Erstes Update folgt bald{% endif %}</small></div>
+        <h2>{% if current_lang == 'en' %}News{% else %}Neuigkeiten{% endif %}</h2>
+        <p>{% if current_lang == 'en' %}Short updates on milestones, tests and decisions from our project.{% else %}Kurze Updates zu Meilensteinen, Tests und Entscheidungen aus unserem Projekt.{% endif %}</p>
+    </article>
+
+    <article class="media-card media-card-video">
+        <div class="media-card-top"><span class="media-card-index">02</span><span class="media-card-type">{% if current_lang == 'en' %}WATCH{% else %}ANSCHAUEN{% endif %}</span></div>
+        <div class="media-placeholder media-placeholder-video"><span class="media-play" aria-hidden="true">&#9654;</span><small>{% if current_lang == 'en' %}Videos coming soon{% else %}Videos folgen bald{% endif %}</small></div>
+        <h2>{% if current_lang == 'en' %}Videos{% else %}Videos{% endif %}</h2>
+        <p>{% if current_lang == 'en' %}Build sessions, testing and the people behind the car, collected in one place.{% else %}Bauphasen, Tests und die Menschen hinter dem Auto an einem Ort gesammelt.{% endif %}</p>
+    </article>
+
+    <article class="media-card media-card-photo">
+        <div class="media-card-top"><span class="media-card-index">03</span><span class="media-card-type">{% if current_lang == 'en' %}LOOK CLOSER{% else %}EINBLICKE{% endif %}</span></div>
+        <div class="media-placeholder media-placeholder-photo"><span>{% if current_lang == 'en' %}PHOTO GALLERY{% else %}FOTOGALERIE{% endif %}</span><small>{% if current_lang == 'en' %}Photos coming soon{% else %}Fotos folgen bald{% endif %}</small></div>
+        <h2>{% if current_lang == 'en' %}Photos{% else %}Fotos{% endif %}</h2>
+        <p>{% if current_lang == 'en' %}A visual record of our team, our work and the moments around the competition.{% else %}Ein visueller Einblick in unser Team, unsere Arbeit und die Momente rund um den Wettbewerb.{% endif %}</p>
+    </article>
+</section>
+
+<section class="media-note">
+    <p class="section-label">{% if current_lang == 'en' %}COMING NEXT{% else %}ALS NÄCHSTES{% endif %}</p>
+    <p>{% if current_lang == 'en' %}This space will grow with the project. Real stories and media will be added as the season progresses.{% else %}Dieser Bereich wächst mit dem Projekt. Mit dem Fortschritt der Saison kommen echte Geschichten und Medien hinzu.{% endif %}</p>
+</section>
+{% endblock %}

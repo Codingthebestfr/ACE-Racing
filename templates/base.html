@@ -112,6 +112,15 @@
                 {{ t('nav_contact') }}
             </a>
 
+            <div class="nav-more {% if request.endpoint in ['about', 'legacy', 'media'] %}is-active{% endif %}">
+                <button type="button" aria-haspopup="true">{% if current_lang == 'en' %}More{% else %}Mehr{% endif %}<span aria-hidden="true">⌄</span></button>
+                <div class="nav-more-menu">
+                    <a class="{% if request.endpoint == 'about' %}is-active{% endif %}" href="{{ url_for('about') }}">{% if current_lang == 'en' %}About us{% else %}Über uns{% endif %}</a>
+                    <a class="{% if request.endpoint == 'media' %}is-active{% endif %}" href="{{ url_for('media') }}">Media Center</a>
+                    <a class="{% if request.endpoint == 'legacy' %}is-active{% endif %}" href="{{ url_for('legacy') }}">{% if current_lang == 'en' %}Our history{% else %}Unsere Geschichte{% endif %}</a>
+                </div>
+            </div>
+
         </nav>
 
     </header>
@@ -158,6 +167,7 @@
                 <a href="{{ url_for('car') }}">{{ t('nav_car_project') }}</a>
                 <a href="{{ url_for('roadmap') }}">{% if current_lang == 'en' %}Roadmap{% else %}Zeitplan{% endif %}</a>
                 <a href="{{ url_for('legacy') }}">{% if current_lang == 'en' %}Legacy{% else %}Unsere Geschichte{% endif %}</a>
+                <a href="{{ url_for('media') }}">Media Center</a>
                 <a href="{{ url_for('sponsors') }}">{{ t('nav_sponsors') }}</a>
                 <a href="{{ url_for('contact') }}">{{ t('nav_contact') }}</a>
 

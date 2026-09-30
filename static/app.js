@@ -32,6 +32,14 @@
                 navigation.classList.remove("is-open");
             }
         });
+
+        navigation.querySelectorAll(".nav-more > button").forEach(function (moreButton) {
+            moreButton.addEventListener("click", function () {
+                const more = moreButton.parentElement;
+                more.classList.toggle("is-open");
+                moreButton.setAttribute("aria-expanded", String(more.classList.contains("is-open")));
+            });
+        });
     }
 
     const countdown = document.querySelector("[data-countdown-target]");

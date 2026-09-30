@@ -54,11 +54,9 @@ Entdecke das Team, die Vision und das Engineering-Projekt hinter A.C.E. Racing S
 
     <p>
         {% if current_lang == 'en' %}
-            We are a newly founded team from Einhard-Gymnasium Aachen and take part in the STEM Racing project.
+            We are a newly founded team from Einhard-Gymnasium Aachen and take part in the STEM Racing competition.
         {% else %}
-            Wir sind ein neu gegründetes Team des
-            Einhard-Gymnasiums Aachen und nehmen am
-            STEM-Racing-Projekt teil.
+            Wir sind ein neu gegründetes Team des Einhard-Gymnasiums Aachen und nehmen am STEM-Racing-Wettbewerb teil.
         {% endif %}
     </p>
 
@@ -72,12 +70,11 @@ Entdecke das Team, die Vision und das Engineering-Projekt hinter A.C.E. Racing S
 
 <section class="section-band">
     <p class="section-label">{% if current_lang == 'en' %}WHAT DRIVES US{% else %}WAS UNS ANTREIBT{% endif %}</p>
-    <h2>{% if current_lang == 'en' %}Curiosity in. Progress out.{% else %}Neugier rein. Fortschritt raus.{% endif %}</h2>
     <div class="feature-grid">
         <article class="feature-card">
             <span class="card-index">01 / {% if current_lang == 'en' %}BUILD{% else %}BAUEN{% endif %}</span>
             <h3>{% if current_lang == 'en' %}Make it real{% else %}Ideen werden echt{% endif %}</h3>
-            <p>{% if current_lang == 'en' %}We turn sketches, questions and prototypes into something that can move.{% else %}Wir machen aus Skizzen, Fragen und Prototypen etwas, das sich bewegen kann.{% endif %}</p>
+            <p>{% if current_lang == 'en' %}We turn sketches, questions and prototypes into something that can race.{% else %}Wir verwandeln Skizzen, Fragen und Prototypen in etwas, das Rennen fahren kann.{% endif %}</p>
         </article>
         <article class="feature-card">
             <span class="card-index">02 / {% if current_lang == 'en' %}LEARN{% else %}LERNEN{% endif %}</span>
@@ -92,18 +89,9 @@ Entdecke das Team, die Vision und das Engineering-Projekt hinter A.C.E. Racing S
     </div>
 </section>
 
-<section class="stem-explainer">
-    <p class="section-label">{% if current_lang == 'en' %}WHAT IS STEM RACING?{% else %}WAS IST STEM RACING?{% endif %}</p>
-    <h2>{% if current_lang == 'en' %}A miniature race car. A multidisciplinary challenge.{% else %}Ein kleiner Rennwagen. Eine vielseitige Herausforderung.{% endif %}</h2>
-    <p>{% if current_lang == 'en' %}STEM Racing is an international, Formula 1-endorsed education competition. Teams of 3-6 students aged 9-19 design, make, test, brand and race miniature cars while presenting the thinking behind their work.{% else %}STEM Racing ist ein internationaler, von Formula 1 unterstützter Bildungswettbewerb. Teams aus 3-6 Schülerinnen und Schülern im Alter von 9-19 Jahren entwerfen, fertigen, testen, vermarkten und fahren Miniatur-Rennwagen und präsentieren die Entscheidungen hinter ihrer Arbeit.{% endif %}</p>
-    <div class="stem-route"><span>{% if current_lang == 'en' %}REGISTER{% else %}ANMELDEN{% endif %}</span><i aria-hidden="true">→</i><span>{% if current_lang == 'en' %}DESIGN &amp; MAKE{% else %}ENTWERFEN &amp; BAUEN{% endif %}</span><i aria-hidden="true">→</i><span>{% if current_lang == 'en' %}COMPETE{% else %}WETTBEWERB{% endif %}</span></div>
-    <a class="text-link" href="https://www.stemracing.com/" target="_blank" rel="noopener noreferrer">{% if current_lang == 'en' %}Learn about STEM Racing{% else %}STEM Racing kennenlernen{% endif %} <span aria-hidden="true">↗</span></a>
-</section>
-
 <section class="team-profile-section">
     <div class="content-text">
         <p class="section-label">{% if current_lang == 'en' %}WHO WE ARE{% else %}WER WIR SIND{% endif %}</p>
-        <h2>{% if current_lang == 'en' %}A student team with a professional mindset.{% else %}Ein Schülerteam mit professionellem Anspruch.{% endif %}</h2>
         <p>{% if current_lang == 'en' %}A.C.E. Racing is the STEM Racing team of Einhard-Gymnasium Aachen for the 2026/27 season. We are five students with different responsibilities, working toward one shared result: a well-engineered race car and a clear, credible project story.{% else %}A.C.E. Racing ist das STEM-Racing-Team des Einhard-Gymnasiums Aachen für die Saison 2026/27. Wir sind fünf Schülerinnen und Schüler mit unterschiedlichen Verantwortungsbereichen und arbeiten auf ein gemeinsames Ergebnis hin: einen gut entwickelten Rennwagen und eine klare, glaubwürdige Projektgeschichte.{% endif %}</p>
         <p>{% if current_lang == 'en' %}Our work combines technical development with communication, documentation and project organisation. That means we do not only build the car; we also explain our decisions, record our progress and present the project to partners, judges and visitors.{% else %}Unsere Arbeit verbindet technische Entwicklung mit Kommunikation, Dokumentation und Projektorganisation. Wir bauen also nicht nur das Auto, sondern erklären unsere Entscheidungen, dokumentieren unseren Fortschritt und präsentieren das Projekt gegenüber Partnern, Jurys und Besuchern.{% endif %}</p>
     </div>
@@ -112,6 +100,60 @@ Entdecke das Team, die Vision und das Engineering-Projekt hinter A.C.E. Racing S
         <strong>{% if current_lang == 'en' %}AMBITION<br>COLLABORATION<br>EXCELLENCE{% else %}AMBITION<br>COLLABORATION<br>EXCELLENCE{% endif %}</strong>
         <p>{% if current_lang == 'en' %}Engineering · communication · responsibility{% else %}Engineering · Kommunikation · Verantwortung{% endif %}</p>
     </aside>
+</section>
+
+<section class="content-section">
+
+    <div class="info-box">
+
+        <h3>
+            {% if current_lang == 'en' %}Our previous experience{% else %}Unsere bisherigen Erfahrungen{% endif %}
+        </h3>
+
+        <p>
+            {% if current_lang == 'en' %}
+                Through our previous experience with LEGO, technology and teamwork, we have already learned important steps for our project. As passionate Formula 1 fans, we also bring a strong interest in motorsport and prior knowledge of aerodynamics, vehicle dynamics and other engineering fundamentals.
+            {% else %}
+                Durch unsere bisherigen Erfahrungen mit
+                LEGO, Technik und Teamarbeit konnten wir bereits
+                erste Erfahrungen mit praktischem
+                Problemlösen und Teamarbeit sammeln. Als
+                begeisterte Formel-1-Fans bringen wir außerdem
+                großes Interesse am Motorsport sowie Vorwissen
+                in Aerodynamik, Fahrzeugdynamik und weiteren
+                technischen Grundlagen mit.
+            {% endif %}
+        </p>
+
+    </div>
+
+
+    <div class="content-text">
+
+        <h2>
+            {% if current_lang == 'en' %}Now we continue{% else %}Jetzt geht es weiter{% endif %}
+        </h2>
+
+        <p>
+            {% if current_lang == 'en' %}
+                STEM Racing gives us the opportunity to take these experiences to a new level.
+            {% else %}
+                STEM Racing gibt uns die Möglichkeit,
+                diese Erfahrungen auf ein neues Level
+                zu bringen.
+            {% endif %}
+        </p>
+
+    </div>
+
+</section>
+
+<section class="stem-explainer">
+    <p class="section-label">{% if current_lang == 'en' %}WHAT IS STEM RACING?{% else %}WAS IST STEM RACING?{% endif %}</p>
+    <h2>{% if current_lang == 'en' %}A miniature race car. A multidisciplinary challenge.{% else %}Ein kleiner Rennwagen. Eine vielseitige Herausforderung.{% endif %}</h2>
+    <p>{% if current_lang == 'en' %}STEM Racing is an international, Formula 1-endorsed education competition. Teams of 3-6 students aged 9-19 design, make, test, brand and race miniature cars while presenting the thinking behind their work.{% else %}STEM Racing ist ein internationaler, von Formula 1 unterstützter Bildungswettbewerb. Teams aus 3-6 Schülerinnen und Schülern im Alter von 9-19 Jahren entwerfen, fertigen, testen, vermarkten und fahren Miniatur-Rennwagen und präsentieren die Entscheidungen hinter ihrer Arbeit.{% endif %}</p>
+    <div class="stem-route"><span>{% if current_lang == 'en' %}REGISTER{% else %}ANMELDEN{% endif %}</span><i aria-hidden="true">→</i><span>{% if current_lang == 'en' %}DESIGN &amp; MAKE{% else %}ENTWERFEN &amp; BAUEN{% endif %}</span><i aria-hidden="true">→</i><span>{% if current_lang == 'en' %}COMPETE{% else %}WETTBEWERB{% endif %}</span></div>
+    <a class="text-link" href="https://www.stemracing.com/" target="_blank" rel="noopener noreferrer">{% if current_lang == 'en' %}Learn about STEM Racing{% else %}STEM Racing kennenlernen{% endif %} <span aria-hidden="true">↗</span></a>
 </section>
 
 <section class="content-section">
@@ -169,47 +211,5 @@ Entdecke das Team, die Vision und das Engineering-Projekt hinter A.C.E. Racing S
 
 </section>
 
-
-<section class="content-section">
-
-    <div class="info-box">
-
-        <h3>
-            {% if current_lang == 'en' %}Our previous experience{% else %}Unsere bisherigen Erfahrungen{% endif %}
-        </h3>
-
-        <p>
-            {% if current_lang == 'en' %}
-                Through our previous experience with LEGO, technology and teamwork, we have already learned important steps for our project.
-            {% else %}
-                Durch unsere bisherigen Erfahrungen mit
-                LEGO, Technik und Teamarbeit konnten wir bereits
-                erste Erfahrungen mit praktischem
-                Problemlösen und Teamarbeit sammeln.
-            {% endif %}
-        </p>
-
-    </div>
-
-
-    <div class="content-text">
-
-        <h2>
-            {% if current_lang == 'en' %}Now we continue{% else %}Jetzt geht es weiter{% endif %}
-        </h2>
-
-        <p>
-            {% if current_lang == 'en' %}
-                STEM Racing gives us the opportunity to take these experiences to a new level.
-            {% else %}
-                STEM Racing gibt uns die Möglichkeit,
-                diese Erfahrungen auf ein neues Level
-                zu bringen.
-            {% endif %}
-        </p>
-
-    </div>
-
-</section>
 
 {% endblock %}

@@ -335,6 +335,11 @@ def legacy():
     return render_template("legacy.html")
 
 
+@app.route("/media")
+def media():
+    return render_template("media.html")
+
+
 @app.route("/contact")
 @app.route("/contact", methods=["POST"])
 def contact():
@@ -458,6 +463,7 @@ def sitemap():
         "/car",
         "/roadmap",
         "/legacy",
+        "/media",
         "/sponsors",
         "/contact",
         "/impressum",
