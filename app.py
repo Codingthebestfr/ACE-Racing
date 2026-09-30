@@ -474,7 +474,7 @@ def sitemap():
     sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
 
     for page in pages:
-        sitemap_xml += f"<url><loc>https://ace-racing.onrender.com{page}</loc></url>"
+        sitemap_xml += f"<url><loc>https://ace-racing.de{page}</loc></url>"
 
     sitemap_xml += "</urlset>"
 
@@ -486,7 +486,7 @@ def robots():
     return """User-agent: *
 Allow: /
 
-Sitemap: https://ace-racing.onrender.com/sitemap.xml
+Sitemap: https://ace-racing.de/sitemap.xml
 """, 200, {"Content-Type": "text/plain"}
 
 
