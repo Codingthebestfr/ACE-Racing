@@ -1954,6 +1954,12 @@ footer { background: #050608; }
     .navbar .nav-more-menu { position: static; min-width: 0; padding: 0 0 0 16px; border: 0; box-shadow: none; background: transparent; }
 }
 
+@media (min-width: 1101px) and (max-width: 1250px) {
+    .navbar { padding-right: 2.5vw; padding-left: 2.5vw; }
+    .navbar .site-search { flex-basis: 170px; margin-left: 12px; }
+    .navbar nav { gap: 14px; margin-right: 14px; }
+}
+
 /* =========================================
    DEDICATED MOBILE LAYOUT
 ========================================= */
