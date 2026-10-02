@@ -42,6 +42,10 @@ Engineering, Teamarbeit und Innovation: A.C.E. Racing entwickelt in Aachen einen
             <span class="hero-word"><span class="hero-initial">E</span>xcellence.</span>
         </h1>
 
+        <p class="hero-description">
+            {% if current_lang == 'en' %}Research, engineering and teamwork turned into a competitive concept.{% else %}Forschung, Engineering und Teamgeist – in ein konkurrenzfähiges Konzept verwandelt.{% endif %}
+        </p>
+
         <div class="hero-buttons">
 
             <a href="{{ url_for('about') }}" class="button">
@@ -66,8 +70,7 @@ Engineering, Teamarbeit und Innovation: A.C.E. Racing entwickelt in Aachen einen
 
 <section class="home-team-story" aria-labelledby="home-team-story-title">
     <div class="home-team-photo team-photo-placeholder">
-        <span>{% if current_lang == 'en' %}TEAM PHOTO{% else %}TEAMFOTO{% endif %}</span>
-        <small>{% if current_lang == 'en' %}Coming this week{% else %}Bild folgt diese Woche{% endif %}</small>
+        <img src="{{ url_for('static', filename='images/Teamfoto4.jpeg') }}" alt="{% if current_lang == 'en' %}A.C.E. Racing team photo{% else %}Teamfoto von A.C.E. Racing{% endif %}">
     </div>
     <div class="home-team-story-copy">
         <p class="section-label">{% if current_lang == 'en' %}OUR TEAM{% else %}UNSER TEAM{% endif %}</p>

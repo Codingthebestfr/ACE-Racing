@@ -78,6 +78,25 @@ Rennwagen, Entwicklungsziele und Engineering-Prozess von A.C.E. Racing.
 	</section>
 </section>
 
+<section class="project-progress-cta" aria-labelledby="project-progress-title">
+	<div class="project-progress-copy">
+		<p class="section-label">{% if current_lang == 'en' %}OUR CURRENT PROGRESS{% else %}UNSER AKTUELLER FORTSCHRITT{% endif %}</p>
+		<h2 id="project-progress-title">{% if current_lang == 'en' %}Follow our first steps.{% else %}Verfolge unsere ersten Schritte.{% endif %}</h2>
+		<p>{% if current_lang == 'en' %}We are still in the early phase of the project: documenting ideas, researching concepts and developing the first prototype step by step.{% else %}Wir befinden uns noch in der frühen Projektphase: Wir dokumentieren Ideen, forschen und konstruieren unseren ersten Prototyp Schritt für Schritt.{% endif %}</p>
+		<ul>
+			<li>{% if current_lang == 'en' %}Research and project documentation underway{% else %}Recherche und Projektdokumentation in Arbeit{% endif %}</li>
+			<li>{% if current_lang == 'en' %}Concept ideas are being developed and compared{% else %}Konzeptideen werden entwickelt und bewertet{% endif %}</li>
+			<li>{% if current_lang == 'en' %}First prototype construction is in progress{% else %}Der Bau des ersten Prototyps läuft{% endif %}</li>
+		</ul>
+	</div>
+	<div class="project-progress-panel">
+		<span>{% if current_lang == 'en' %}Latest status{% else %}Aktueller Stand{% endif %}</span>
+		<strong>{% if current_lang == 'en' %}01 / Project progress{% else %}01 / Projektfortschritt{% endif %}</strong>
+		<p>{% if current_lang == 'en' %}We are a newly founded team and are currently documenting, researching and constructing our first prototype.{% else %}Wir sind ein neu gegründetes Team und befinden uns derzeit im Dokumentieren, Forschen und Konstruieren unseres ersten Prototyps.{% endif %}</p>
+		<a class="button button-outline" href="{{ url_for('media') }}">{% if current_lang == 'en' %}Open Media Center{% else %}Zum Media Center{% endif %}</a>
+	</div>
+</section>
+
 <section class="engineering-process" id="process">
 	<p class="section-label">{% if current_lang == 'en' %}FROM IDEA TO RACE{% else %}VON DER IDEE ZUM RENNEN{% endif %}</p>
 	<h2>{% if current_lang == 'en' %}Four phases. One engineering cycle.{% else %}Vier Phasen. Ein Engineering-Prozess.{% endif %}</h2>
