@@ -31,10 +31,13 @@ Engineering, Teamarbeit und Innovation: A.C.E. Racing entwickelt in Aachen einen
 
     <div class="hero-content">
 
-        <p class="hero-kicker">
-            <span class="status-dot" aria-hidden="true"></span>
-            {% if current_lang == 'en' %}STEM RACING / SEASON 2026-27{% else %}STEM RACING / SAISON 2026-27{% endif %}
-        </p>
+        <div class="hero-brandline">
+            <p class="hero-kicker">
+                <span class="status-dot" aria-hidden="true"></span>
+                {% if current_lang == 'en' %}STEM RACING / SEASON 2026-27{% else %}STEM RACING / SAISON 2026-27{% endif %}
+            </p>
+            <img class="hero-logo" src="{{ url_for('static', filename='images/Logo1.png') }}" alt="A.C.E. Racing">
+        </div>
 
         <h1>
             <span class="hero-word"><span class="hero-initial">A</span>mbition.</span><br>
