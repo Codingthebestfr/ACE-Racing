@@ -1716,6 +1716,11 @@ footer { background: #050608; }
 }
 
 @media (max-width: 600px) {
+    .home-team-photo {
+        aspect-ratio: 3 / 2;
+        min-height: 0;
+    }
+    .home-team-photo img { min-height: 0; }
     .hero-home {
         padding: 72px 6vw 220px;
     }
@@ -1724,6 +1729,7 @@ footer { background: #050608; }
         line-height: 0.9;
         letter-spacing: -0.06em;
     }
+    .hero-home h1 br { display: none; }
     .hero-home h1 .hero-word {
         display: block;
         white-space: normal;
