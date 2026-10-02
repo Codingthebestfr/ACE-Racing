@@ -1625,6 +1625,10 @@ nav a:hover, nav a.is-active, .footer-content a:hover { color: var(--accent); }
 .engineering-process .project-process { padding-bottom: 90px; }
 .project-step h3 { margin: 32px 0 10px; font-family: var(--display); font-size: 22px; text-transform: uppercase; }
 .engineering-section .content-text h2 { font-size: clamp(34px, 9vw, 72px); }
+@media (min-width: 801px) {
+    .engineering-section .content-text h2 { font-size: clamp(38px, 5vw, 68px); }
+    .engineering-section .info-box { transform: translateX(clamp(12px, 1.5vw, 22px)); }
+}
 .sponsor-levels > h2, .page-header h1 { overflow-wrap: anywhere; }
 
 .contact-form-section { display: grid; grid-template-columns: minmax(260px, .8fr) minmax(0, 1.2fr); gap: 8vw; padding: 96px 10vw; background: #0b1015; }
