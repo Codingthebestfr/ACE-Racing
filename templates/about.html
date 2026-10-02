@@ -68,6 +68,14 @@ Entdecke das Team, die Vision und das Engineering-Projekt hinter A.C.E. Racing S
 
 </section>
 
+<section class="team-profile-section">
+    <div class="content-text">
+        <p class="section-label">{% if current_lang == 'en' %}WHO WE ARE{% else %}WER WIR SIND{% endif %}</p>
+        <p>{% if current_lang == 'en' %}A.C.E. Racing is the STEM Racing team of Einhard-Gymnasium Aachen for the 2026/27 season. We are five students with different responsibilities, working toward one shared result: a well-engineered race car and a clear, credible project story.{% else %}A.C.E. Racing ist das STEM-Racing-Team des Einhard-Gymnasiums Aachen für die Saison 2026/27. Wir sind fünf Schülerinnen und Schüler mit unterschiedlichen Verantwortungsbereichen und arbeiten auf ein gemeinsames Ergebnis hin: einen gut entwickelten Rennwagen und eine klare, glaubwürdige Projektgeschichte.{% endif %}</p>
+        <p>{% if current_lang == 'en' %}Our work combines technical development with communication, documentation and project organisation. That means we do not only build the car; we also explain our decisions, record our progress and present the project to partners, judges and visitors.{% else %}Unsere Arbeit verbindet technische Entwicklung mit Kommunikation, Dokumentation und Projektorganisation. Wir bauen also nicht nur das Auto, sondern erklären unsere Entscheidungen, dokumentieren unseren Fortschritt und präsentieren das Projekt gegenüber Partnern, Jurys und Besuchern.{% endif %}</p>
+    </div>
+</section>
+
 <section class="section-band">
     <p class="section-label">{% if current_lang == 'en' %}WHAT DRIVES US{% else %}WAS UNS ANTREIBT{% endif %}</p>
     <div class="feature-grid">
@@ -87,19 +95,6 @@ Entdecke das Team, die Vision und das Engineering-Projekt hinter A.C.E. Racing S
             <p>{% if current_lang == 'en' %}Different skills become one team when everyone owns a piece of the result.{% else %}Unterschiedliche Fähigkeiten werden zum Team, wenn alle Verantwortung für das Ergebnis übernehmen.{% endif %}</p>
         </article>
     </div>
-</section>
-
-<section class="team-profile-section">
-    <div class="content-text">
-        <p class="section-label">{% if current_lang == 'en' %}WHO WE ARE{% else %}WER WIR SIND{% endif %}</p>
-        <p>{% if current_lang == 'en' %}A.C.E. Racing is the STEM Racing team of Einhard-Gymnasium Aachen for the 2026/27 season. We are five students with different responsibilities, working toward one shared result: a well-engineered race car and a clear, credible project story.{% else %}A.C.E. Racing ist das STEM-Racing-Team des Einhard-Gymnasiums Aachen für die Saison 2026/27. Wir sind fünf Schülerinnen und Schüler mit unterschiedlichen Verantwortungsbereichen und arbeiten auf ein gemeinsames Ergebnis hin: einen gut entwickelten Rennwagen und eine klare, glaubwürdige Projektgeschichte.{% endif %}</p>
-        <p>{% if current_lang == 'en' %}Our work combines technical development with communication, documentation and project organisation. That means we do not only build the car; we also explain our decisions, record our progress and present the project to partners, judges and visitors.{% else %}Unsere Arbeit verbindet technische Entwicklung mit Kommunikation, Dokumentation und Projektorganisation. Wir bauen also nicht nur das Auto, sondern erklären unsere Entscheidungen, dokumentieren unseren Fortschritt und präsentieren das Projekt gegenüber Partnern, Jurys und Besuchern.{% endif %}</p>
-    </div>
-    <aside class="team-profile-aside">
-        <span class="team-profile-code">A.C.E / TEAM PROFILE</span>
-        <strong>{% if current_lang == 'en' %}AMBITION<br>COLLABORATION<br>EXCELLENCE{% else %}AMBITION<br>COLLABORATION<br>EXCELLENCE{% endif %}</strong>
-        <p>{% if current_lang == 'en' %}Engineering · communication · responsibility{% else %}Engineering · Kommunikation · Verantwortung{% endif %}</p>
-    </aside>
 </section>
 
 <section class="content-section">

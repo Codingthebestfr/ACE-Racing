@@ -5,6 +5,8 @@ import time
 import json
 import urllib.request
 import urllib.error
+import unicodedata
+from html.parser import HTMLParser
 from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
@@ -15,6 +17,109 @@ LANGUAGE_COOKIE_NAME = "site_lang"
 CONTACT_SUBMISSIONS = {}
 CONTACT_TOPICS = {"sponsoring", "engineering", "mentoring", "school", "press", "general"}
 DEFAULT_CONTACT_RECIPIENT = "contact@ace-racing.de"
+
+SEARCH_PAGES = (
+    ("home", "index.html", {"de": "Home", "en": "Home"}),
+    ("about", "about.html", {"de": "Über uns", "en": "About us"}),
+    ("team", "team.html", {"de": "Team", "en": "Team"}),
+    ("car", "car.html", {"de": "Auto & Projekt", "en": "Car & Project"}),
+    ("roadmap", "roadmap.html", {"de": "Zeitplan", "en": "Roadmap"}),
+    ("legacy", "legacy.html", {"de": "Unsere Geschichte", "en": "Our history"}),
+    ("media", "media.html", {"de": "Media Center", "en": "Media Center"}),
+    ("sponsors", "sponsors.html", {"de": "Sponsoren", "en": "Sponsors"}),
+    ("contact", "contact.html", {"de": "Kontakt", "en": "Contact"}),
+    ("impressum", "impressum.html", {"de": "Impressum", "en": "Legal notice"}),
+    ("datenschutz", "datenschutz.html", {"de": "Datenschutz", "en": "Privacy"}),
+)
+
+SEARCH_STOP_WORDS = {
+    "a", "an", "and", "are", "as", "at", "be", "by", "do", "for", "from", "how", "in", "is", "it", "of", "on", "or", "the", "to", "was", "we", "what", "where", "who", "with", "you",
+    "aber", "als", "am", "an", "auf", "aus", "bei", "das", "der", "des", "die", "durch", "ein", "eine", "einer", "eines", "für", "im", "in", "ist", "mit", "oder", "und", "von", "was", "wer", "wie", "wir", "zu",
+}
+
+SEARCH_FAQS = {
+    "de": (
+        {"question": "Was ist STEM Racing?", "answer": "Ein internationaler, von Formula 1 unterstützter Bildungswettbewerb. Teams entwerfen, bauen, testen und präsentieren Miniatur-Rennwagen.", "keywords": "wettbewerb formel 1 rennwagen schule", "endpoint": "about"},
+        {"question": "Wer ist A.C.E. Racing?", "answer": "Wir sind das fünfköpfige STEM-Racing-Team des Einhard-Gymnasiums Aachen für die Saison 2026/27.", "keywords": "team mitglieder schüler aachen schule", "endpoint": "team"},
+        {"question": "Was entwickelt das Team?", "answer": "Wir entwickeln einen kompakten Rennwagen. Dazu gehören CAD-Konstruktion mit Autodesk Fusion 360, 3D-Druck von Prototypen, Tests und Optimierung.", "keywords": "auto projekt konstruktion cad fusion 360 prototyping 3d druck", "endpoint": "car"},
+        {"question": "Wie ist der aktuelle Projektstand?", "answer": "Das Team befindet sich in der frühen Projektphase und arbeitet an Recherche, Projektdokumentation, Konzeptideen und dem ersten Prototyp.", "keywords": "fortschritt status aktueller stand prototype prototyp", "endpoint": "car"},
+        {"question": "Wie kann ich A.C.E. Racing unterstützen?", "answer": "Auf der Sponsoren-Seite erklären wir, wie Unternehmen und Partner das STEM-Racing-Projekt unterstützen können.", "keywords": "sponsor partner sponsoring unterstützen", "endpoint": "sponsors"},
+        {"question": "Wie kann ich das Team kontaktieren?", "answer": "Nutze das Kontaktformular oder die veröffentlichten Kontaktdaten auf der Kontaktseite.", "keywords": "email telefon nachricht kontakt erreichen", "endpoint": "contact"},
+        {"question": "Welche Aufgaben hat das Team?", "answer": "Die Aufgaben umfassen Konstruktion, Produktion, IT, Forschung und Entwicklung sowie Grafik, Medien und Kommunikation.", "keywords": "rollen aufgaben it marketing grafik konstruktion produktion", "endpoint": "team"},
+        {"question": "Wo ist A.C.E. Racing zuhause?", "answer": "A.C.E. Racing ist das Team des Einhard-Gymnasiums in Aachen.", "keywords": "adresse standort schule einhard", "endpoint": "impressum"},
+    ),
+    "en": (
+        {"question": "What is STEM Racing?", "answer": "An international, Formula 1-endorsed education competition. Teams design, build, test and present miniature race cars.", "keywords": "competition formula 1 race car school", "endpoint": "about"},
+        {"question": "Who is A.C.E. Racing?", "answer": "We are the five-member STEM Racing team of Einhard-Gymnasium Aachen for the 2026/27 season.", "keywords": "team members students aachen school", "endpoint": "team"},
+        {"question": "What is the team developing?", "answer": "We are developing a compact race car, including CAD design in Autodesk Fusion 360, 3D-printed prototypes, testing and optimisation.", "keywords": "car project engineering cad fusion 360 prototyping 3d print", "endpoint": "car"},
+        {"question": "What is the current project status?", "answer": "The team is in the early project phase, working on research, documentation, concept ideas and its first prototype.", "keywords": "progress status prototype", "endpoint": "car"},
+        {"question": "How can I support A.C.E. Racing?", "answer": "The Sponsors page explains how companies and partners can support the STEM Racing project.", "keywords": "sponsor partner sponsorship support", "endpoint": "sponsors"},
+        {"question": "How can I contact the team?", "answer": "Use the contact form or the published contact details on the Contact page.", "keywords": "email phone message contact reach", "endpoint": "contact"},
+        {"question": "What does the team work on?", "answer": "Responsibilities include construction, production, IT, research and development, graphics, media and communication.", "keywords": "roles responsibilities it marketing graphics construction production", "endpoint": "team"},
+        {"question": "Where is A.C.E. Racing based?", "answer": "A.C.E. Racing is the team of Einhard-Gymnasium in Aachen, Germany.", "keywords": "address location school einhard", "endpoint": "impressum"},
+    ),
+}
+
+
+class _MainContentParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.in_main = False
+        self.ignored_depth = 0
+        self.parts = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "main":
+            self.in_main = True
+        elif self.in_main and tag in {"script", "style", "noscript"}:
+            self.ignored_depth += 1
+
+    def handle_endtag(self, tag):
+        if tag == "main":
+            self.in_main = False
+        elif self.in_main and tag in {"script", "style", "noscript"} and self.ignored_depth:
+            self.ignored_depth -= 1
+
+    def handle_data(self, data):
+        if self.in_main and not self.ignored_depth:
+            self.parts.append(data)
+
+
+def _main_text(rendered_page):
+    parser = _MainContentParser()
+    parser.feed(rendered_page)
+    return re.sub(r"\s+", " ", " ".join(parser.parts)).strip()
+
+
+def _search_tokens(value):
+    normalized = unicodedata.normalize("NFKD", value.casefold().replace("ß", "ss"))
+    plain_text = "".join(char for char in normalized if not unicodedata.combining(char))
+    return [token for token in re.findall(r"[a-z0-9]+", plain_text) if len(token) > 1 and token not in SEARCH_STOP_WORDS]
+
+
+def _search_score(terms, title, text):
+    title_tokens = _search_tokens(title)
+    text_tokens = _search_tokens(text)
+    return sum(title_tokens.count(term) * 8 + min(text_tokens.count(term), 5) for term in set(terms))
+
+
+def _search_snippet(text, query):
+    match = re.search(re.escape(query.strip()), text, re.IGNORECASE)
+    if not match:
+        for term in _search_tokens(query):
+            match = re.search(re.escape(term), text, re.IGNORECASE)
+            if match:
+                break
+    if not match:
+        return text[:260] + ("…" if len(text) > 260 else "")
+
+    start = max(0, match.start() - 90)
+    end = min(len(text), start + 260)
+    if start:
+        start = text.find(" ", start, match.start()) + 1
+    if end < len(text):
+        end = text.rfind(" ", match.end(), end)
+    return ("…" if start else "") + text[start:end].strip() + ("…" if end < len(text) else "")
 
 TRANSLATIONS = {
     "de": {
@@ -303,6 +408,55 @@ def inject_language_state():
 @app.route("/")
 def home():
     return render_template("index.html")
+
+
+@app.route("/search")
+def search():
+    query = request.args.get("q", "").strip()[:120]
+    current_lang = request.args.get("lang") or request.cookies.get(LANGUAGE_COOKIE_NAME) or DEFAULT_LANGUAGE
+    if current_lang not in LANGUAGES:
+        current_lang = DEFAULT_LANGUAGE
+
+    terms = _search_tokens(query)
+    results = []
+
+    if terms:
+        for endpoint, template, titles in SEARCH_PAGES:
+            page_text = _main_text(render_template(template))
+            title = titles[current_lang]
+            score = _search_score(terms, title, page_text)
+            if score:
+                results.append({
+                    "title": title,
+                    "snippet": _search_snippet(page_text, query),
+                    "url": url_for(endpoint, lang=current_lang),
+                    "kind": "Seite" if current_lang == "de" else "Page",
+                    "score": score,
+                })
+
+        for faq in SEARCH_FAQS[current_lang]:
+            title = faq["question"]
+            answer = faq["answer"]
+            score = _search_score(terms, title, f"{answer} {faq['keywords']}")
+            if score:
+                results.append({
+                    "title": title,
+                    "snippet": answer,
+                    "url": url_for(faq["endpoint"], lang=current_lang),
+                    "kind": "Direkte Antwort" if current_lang == "de" else "Quick answer",
+                    "score": score,
+                })
+
+        results.sort(key=lambda result: result["score"], reverse=True)
+        results = results[:10]
+
+    suggested_questions = [faq["question"] for faq in SEARCH_FAQS[current_lang]]
+    return render_template(
+        "search.html",
+        search_query=query,
+        search_results=results,
+        suggested_questions=suggested_questions,
+    )
 
 
 @app.route("/about")

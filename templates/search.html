@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}{% if current_lang == 'en' %}Search | A.C.E. Racing{% else %}Suche | A.C.E. Racing{% endif %}{% endblock %}
+
+{% block meta_description %}{% if current_lang == 'en' %}Search the A.C.E. Racing website for team, car, project and contact information.{% else %}Durchsuche die Website von A.C.E. Racing nach Informationen zu Team, Auto, Projekt und Kontakt.{% endif %}{% endblock %}
+
+{% block og_title %}{% if current_lang == 'en' %}Search | A.C.E. Racing{% else %}Suche | A.C.E. Racing{% endif %}{% endblock %}
+
+{% block og_description %}{% if current_lang == 'en' %}Find information across the A.C.E. Racing website.{% else %}Finde Informationen auf der gesamten A.C.E.-Racing-Website.{% endif %}{% endblock %}
+
+{% block content %}
+<section class="search-page">
+    <p class="section-label">{% if current_lang == 'en' %}SEARCH THE WEBSITE{% else %}WEBSITE DURCHSUCHEN{% endif %}</p>
+    <h1>{% if current_lang == 'en' %}What are you looking for?{% else %}Wonach suchst du?{% endif %}</h1>
+    <p class="search-intro">{% if current_lang == 'en' %}Search team, engineering, project progress, partners and more.{% else %}Finde Inhalte zu Team, Engineering, Projektfortschritt, Partnern und mehr.{% endif %}</p>
+
+    <form class="search-page-form" action="{{ url_for('search') }}" method="get" role="search">
+        <input type="hidden" name="lang" value="{{ current_lang }}">
+        <label class="sr-only" for="search-page-input">{% if current_lang == 'en' %}Search terms{% else %}Suchbegriff{% endif %}</label>
+        <input id="search-page-input" type="search" name="q" value="{{ search_query }}" maxlength="120" placeholder="{% if current_lang == 'en' %}Try “car design” or “sponsorship”{% else %}Zum Beispiel „Autodesign“ oder „Sponsoring“{% endif %}" required>
+        <button class="search-submit" type="submit" aria-label="{% if current_lang == 'en' %}Search{% else %}Suchen{% endif %}">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+        </button>
+    </form>
+
+    {% if search_query %}
+        {% if search_results %}
+            <p class="search-summary" aria-live="polite">{{ search_results|length }} {% if current_lang == 'en' %}results for{% else %}Treffer für{% endif %} <strong>“{{ search_query }}”</strong></p>
+            <ol class="search-results">
+                {% for result in search_results %}
+                    <li class="search-result">
+                        <a href="{{ result.url }}">
+                            <span class="search-result-kind">{{ result.kind }}</span>
+                            <h2>{{ result.title }}</h2>
+                            <p>{{ result.snippet }}</p>
+                            <span class="search-result-link">{% if current_lang == 'en' %}Open page{% else %}Seite öffnen{% endif %} <span aria-hidden="true">↗</span></span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ol>
+        {% else %}
+            <div class="search-empty" role="status">
+                <h2>{% if current_lang == 'en' %}No matches found{% else %}Keine Treffer gefunden{% endif %}</h2>
+                <p>{% if current_lang == 'en' %}Try a shorter phrase or a different keyword.{% else %}Versuche einen kürzeren Suchbegriff oder ein anderes Stichwort.{% endif %}</p>
+            </div>
+        {% endif %}
+    {% else %}
+        <section class="search-suggestions" aria-labelledby="search-suggestions-title">
+            <h2 id="search-suggestions-title">{% if current_lang == 'en' %}Popular questions{% else %}Häufige Fragen{% endif %}</h2>
+            <ul>
+                {% for question in suggested_questions %}
+                    <li><a href="{{ url_for('search', q=question, lang=current_lang) }}">{{ question }}<span aria-hidden="true">↗</span></a></li>
+                {% endfor %}
+            </ul>
+        </section>
+    {% endif %}
+</section>
+{% endblock %}

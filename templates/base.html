@@ -41,6 +41,15 @@
             <span class="logo-name">{{ t('site_name') }}<span> Racing</span></span>
         </a>
 
+        <form class="site-search" action="{{ url_for('search') }}" method="get" role="search">
+            <input type="hidden" name="lang" value="{{ current_lang }}">
+            <label class="sr-only" for="site-search-input">{% if current_lang == 'en' %}Search the website{% else %}Website durchsuchen{% endif %}</label>
+            <input id="site-search-input" type="search" name="q" maxlength="120" value="{{ request.args.get('q', '') if request.endpoint == 'search' else '' }}" placeholder="{% if current_lang == 'en' %}Search...{% else %}Suchen...{% endif %}">
+            <button class="search-submit" type="submit" aria-label="{% if current_lang == 'en' %}Search{% else %}Suchen{% endif %}">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+            </button>
+        </form>
+
         <div class="nav-actions">
 
             <div class="lang-switch" aria-label="{{ t('language_switch') }}">
