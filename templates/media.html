@@ -9,37 +9,99 @@
 {% block og_description %}{% if current_lang == 'en' %}Follow the progress of A.C.E. Racing through news, videos and photos.{% else %}Verfolge die Entwicklung von A.C.E. Racing mit Neuigkeiten, Videos und Fotos.{% endif %}{% endblock %}
 
 {% block content %}
-<section class="page-header media-header">
-    <p class="section-label">{% if current_lang == 'en' %}MEDIA CENTER{% else %}MEDIA CENTER{% endif %}</p>
-    <h1>{% if current_lang == 'en' %}Project in motion.{% else %}Unser Projekt in Bewegung.{% endif %}</h1>
-    <p>{% if current_lang == 'en' %}News, videos and photos will document our journey from the first idea to the race track.{% else %}Neuigkeiten, Videos und Fotos dokumentieren unseren Weg von der ersten Idee bis zur Rennstrecke.{% endif %}</p>
+<section class="page-header media-header" aria-labelledby="media-index-title">
+    <p class="section-label">{% if current_lang == 'en' %}MEDIA CENTER / SEASON 2026–27{% else %}MEDIA CENTER / SAISON 2026–27{% endif %}</p>
+    <h1 id="media-index-title">{% if current_lang == 'en' %}Our project<br>in motion.{% else %}Unser Projekt<br>in Bewegung.{% endif %}</h1>
+    <p class="media-intro">{% if current_lang == 'en' %}Updates, videos and photos document our journey from the first idea to the race track.{% else %}Neuigkeiten, Videos und Fotos dokumentieren unseren Weg von der ersten Idee bis zur Rennstrecke.{% endif %}</p>
+    <div class="page-meta"><span>{% if current_lang == 'en' %}SEASON{% else %}SAISON{% endif %}</span><strong>2026 / 27</strong><span>NEWS · VIDEO · FOTO</span></div>
 </section>
 
-<section class="media-center-grid" aria-label="{% if current_lang == 'en' %}Media Center categories{% else %}Kategorien des Media Centers{% endif %}">
-    <article class="media-card media-card-news">
+<nav class="media-center-grid" aria-label="{% if current_lang == 'en' %}Media categories{% else %}Medienkategorien{% endif %}">
+    <a class="media-category-card" href="#media-news">
         <div class="media-card-top"><span class="media-card-index">01</span><span class="media-card-type">{% if current_lang == 'en' %}UPDATES{% else %}NEUIGKEITEN{% endif %}</span></div>
-        <div class="media-placeholder media-placeholder-news"><span>{% if current_lang == 'en' %}NEWS{% else %}NEWS{% endif %}</span><small>{% if current_lang == 'en' %}First update coming soon{% else %}Erstes Update folgt bald{% endif %}</small></div>
+        <div class="media-category-preview media-preview-news"><span>{% if current_lang == 'en' %}NEWS ARCHIVE{% else %}NEWS-ARCHIV{% endif %}</span><strong>{% if current_lang == 'en' %}PROJECT UPDATES{% else %}PROJEKT-NEWS{% endif %}</strong><small>{% if current_lang == 'en' %}Season 2026–27{% else %}Saison 2026–27{% endif %}</small></div>
         <h2>{% if current_lang == 'en' %}News{% else %}Neuigkeiten{% endif %}</h2>
-        <p>{% if current_lang == 'en' %}Short updates on milestones, tests and decisions from our project.{% else %}Kurze Updates zu Meilensteinen, Tests und Entscheidungen aus unserem Projekt.{% endif %}</p>
-    </article>
-
-    <article class="media-card media-card-video">
+        <p>{% if current_lang == 'en' %}Milestones, decisions and the next steps in our project.{% else %}Meilensteine, Entscheidungen und die nächsten Schritte unseres Projekts.{% endif %}</p>
+        <span class="media-category-link">{% if current_lang == 'en' %}View news{% else %}Neuigkeiten ansehen{% endif %}<b aria-hidden="true">↘</b></span>
+    </a>
+    <a class="media-category-card" href="#media-videos">
         <div class="media-card-top"><span class="media-card-index">02</span><span class="media-card-type">{% if current_lang == 'en' %}WATCH{% else %}ANSCHAUEN{% endif %}</span></div>
-        <div class="media-placeholder media-placeholder-video"><span class="media-play" aria-hidden="true">&#9654;</span><small>{% if current_lang == 'en' %}Videos coming soon{% else %}Videos folgen bald{% endif %}</small></div>
+        <div class="media-category-preview media-preview-video"><span class="media-play" aria-hidden="true">&#9654;</span><small>{% if current_lang == 'en' %}VIDEO TEMPLATES READY{% else %}VIDEO-VORLAGEN BEREIT{% endif %}</small></div>
         <h2>{% if current_lang == 'en' %}Videos{% else %}Videos{% endif %}</h2>
-        <p>{% if current_lang == 'en' %}Build sessions, testing and the people behind the car, collected in one place.{% else %}Bauphasen, Tests und die Menschen hinter dem Auto an einem Ort gesammelt.{% endif %}</p>
-    </article>
-
-    <article class="media-card media-card-photo">
-        <div class="media-card-top"><span class="media-card-index">03</span><span class="media-card-type">{% if current_lang == 'en' %}LOOK CLOSER{% else %}EINBLICKE{% endif %}</span></div>
-        <div class="media-placeholder media-placeholder-photo"><span>{% if current_lang == 'en' %}PHOTO GALLERY{% else %}FOTOGALERIE{% endif %}</span><small>{% if current_lang == 'en' %}Photos coming soon{% else %}Fotos folgen bald{% endif %}</small></div>
+        <p>{% if current_lang == 'en' %}Build sessions, design and testing, collected in one place.{% else %}Bauphasen, Design und Tests an einem Ort gesammelt.{% endif %}</p>
+        <span class="media-category-link">{% if current_lang == 'en' %}Open video archive{% else %}Video-Archiv öffnen{% endif %}<b aria-hidden="true">↘</b></span>
+    </a>
+    <a class="media-category-card" href="#media-photos">
+        <div class="media-card-top"><span class="media-card-index">03</span><span class="media-card-type">{% if current_lang == 'en' %}PHOTO ARCHIVE{% else %}FOTO-ARCHIV{% endif %}</span></div>
+        <div class="media-category-preview media-preview-photos" aria-hidden="true"><span>01</span><span>02</span><span>03</span><small>{% if current_lang == 'en' %}PHOTO SLOTS{% else %}FOTO-PLÄTZE{% endif %}</small></div>
         <h2>{% if current_lang == 'en' %}Photos{% else %}Fotos{% endif %}</h2>
-        <p>{% if current_lang == 'en' %}A visual record of our team, our work and the moments around the competition.{% else %}Ein visueller Einblick in unser Team, unsere Arbeit und die Momente rund um den Wettbewerb.{% endif %}</p>
-    </article>
+        <p>{% if current_lang == 'en' %}Prepared frames for new project images.{% else %}Vorbereitete Plätze für neue Projektbilder.{% endif %}</p>
+        <span class="media-category-link">{% if current_lang == 'en' %}View photo archive{% else %}Foto-Archiv ansehen{% endif %}<b aria-hidden="true">↘</b></span>
+    </a>
+</nav>
+
+<section class="media-news-section" id="media-news" aria-labelledby="media-news-title">
+    <header class="media-section-heading">
+        <div><p class="section-label">01 / {% if current_lang == 'en' %}PROJECT NEWS{% else %}PROJEKT-NEWS{% endif %}</p><h2 id="media-news-title">{% if current_lang == 'en' %}News &amp; updates{% else %}Neuigkeiten &amp; Updates{% endif %}</h2></div>
+        <p>{% if current_lang == 'en' %}Short entries on milestones, design decisions and what's next.{% else %}Kurze Einträge zu Meilensteinen, Designentscheidungen und den nächsten Schritten.{% endif %}</p>
+    </header>
+    <div class="media-news-list">
+        <article class="media-news-entry">
+            <span class="media-news-entry-number">01</span>
+            <div><p>{% if current_lang == 'en' %}SEASON 2026–27 / PROJECT START{% else %}SAISON 2026–27 / PROJEKTSTART{% endif %}</p><h3>{% if current_lang == 'en' %}A new season begins.{% else %}Eine neue Saison beginnt.{% endif %}</h3><span>{% if current_lang == 'en' %}Research and concept work are underway as we shape the first ideas for our race car.{% else %}Recherche und Konzeptarbeit laufen, während erste Ideen für unseren Rennwagen Form annehmen.{% endif %}</span></div>
+            <a href="{{ url_for('car') }}">{% if current_lang == 'en' %}Project{% else %}Projekt{% endif %}<b aria-hidden="true">↗</b></a>
+        </article>
+        <article class="media-news-entry">
+            <span class="media-news-entry-number">02</span>
+            <div><p>DESIGN / ENGINEERING</p><h3>{% if current_lang == 'en' %}Designing with purpose.{% else %}Mit Plan konstruieren.{% endif %}</h3><span>{% if current_lang == 'en' %}3D CAD in Autodesk Fusion 360 supports the design process; CFD simulations are planned for evaluating future concepts.{% else %}3D-CAD mit Autodesk Fusion 360 unterstützt den Entwurf; CFD-Simulationen sind zur Bewertung künftiger Konzepte geplant.{% endif %}</span></div>
+            <a href="{{ url_for('car', _anchor='car') }}">Engineering<b aria-hidden="true">↗</b></a>
+        </article>
+        <article class="media-news-entry">
+            <span class="media-news-entry-number">03</span>
+            <div><p>{% if current_lang == 'en' %}NEXT STEP{% else %}NÄCHSTER SCHRITT{% endif %}</p><h3>{% if current_lang == 'en' %}From concept to prototype.{% else %}Vom Konzept zum Prototyp.{% endif %}</h3><span>{% if current_lang == 'en' %}The next phase connects prototype planning, manufacturing options and systematic optimisation.{% else %}Als Nächstes verbinden wir die Prototypenplanung mit Fertigungsmöglichkeiten und systematischer Optimierung.{% endif %}</span></div>
+            <a href="{{ url_for('car', _anchor='process') }}">{% if current_lang == 'en' %}Process{% else %}Prozess{% endif %}<b aria-hidden="true">↗</b></a>
+        </article>
+    </div>
+</section>
+
+<section class="media-detail-section media-videos-section" id="media-videos" aria-labelledby="media-video-title">
+    <header class="media-section-heading">
+        <div><p class="section-label">02 / {% if current_lang == 'en' %}VIDEO ARCHIVE{% else %}VIDEO-ARCHIV{% endif %}</p><h2 id="media-video-title">{% if current_lang == 'en' %}The build, in motion.{% else %}Der Bau in Bewegung.{% endif %}</h2></div>
+        <p>{% if current_lang == 'en' %}No project videos have been released yet. These frames are ready for the first clips.{% else %}Aktuell sind noch keine Projektvideos veröffentlicht. Diese Vorlagen sind für die ersten Clips vorbereitet.{% endif %}</p>
+    </header>
+    <div class="media-video-slots">
+        <article class="media-video-slot"><div class="media-video-frame"><span>VIDEO 01</span><b aria-hidden="true">&#9654;</b><small>{% if current_lang == 'en' %}ADD CLIP{% else %}CLIP EINFÜGEN{% endif %}</small></div><h3>{% if current_lang == 'en' %}Design &amp; CAD{% else %}Design &amp; CAD{% endif %}</h3></article>
+        <article class="media-video-slot"><div class="media-video-frame"><span>VIDEO 02</span><b aria-hidden="true">&#9654;</b><small>{% if current_lang == 'en' %}ADD CLIP{% else %}CLIP EINFÜGEN{% endif %}</small></div><h3>{% if current_lang == 'en' %}Prototype &amp; build{% else %}Prototyp &amp; Bau{% endif %}</h3></article>
+        <article class="media-video-slot"><div class="media-video-frame"><span>VIDEO 03</span><b aria-hidden="true">&#9654;</b><small>{% if current_lang == 'en' %}ADD CLIP{% else %}CLIP EINFÜGEN{% endif %}</small></div><h3>{% if current_lang == 'en' %}Testing &amp; race day{% else %}Tests &amp; Renntag{% endif %}</h3></article>
+    </div>
+</section>
+
+<section class="media-photos-section" id="media-photos" aria-labelledby="media-photos-title">
+    <header class="media-section-heading">
+        <div><p class="section-label">03 / {% if current_lang == 'en' %}PHOTO ARCHIVE{% else %}FOTO-ARCHIV{% endif %}</p><h2 id="media-photos-title">{% if current_lang == 'en' %}New project photos.{% else %}Neue Projektfotos.{% endif %}</h2></div>
+        <p>{% if current_lang == 'en' %}A space for new images from design, build and testing.{% else %}Platz für neue Aufnahmen aus Konstruktion, Bau und Test.{% endif %}</p>
+    </header>
+    <div class="media-photo-slots">
+        <figure class="media-photo-slot" role="img" aria-label="{% if current_lang == 'en' %}Empty photo placeholder for design sketches{% else %}Leerer Fotoplatz für Designskizzen{% endif %}">
+            <span class="media-slot-number">01</span>
+            <span class="media-slot-mark" aria-hidden="true">+</span>
+            <figcaption><span>{% if current_lang == 'en' %}DESIGN / SKETCHES{% else %}DESIGN / SKIZZEN{% endif %}</span><strong>{% if current_lang == 'en' %}Add a photo{% else %}Foto einfügen{% endif %}</strong></figcaption>
+        </figure>
+        <figure class="media-photo-slot" role="img" aria-label="{% if current_lang == 'en' %}Empty photo placeholder for prototype and manufacturing{% else %}Leerer Fotoplatz für Prototyp und Fertigung{% endif %}">
+            <span class="media-slot-number">02</span>
+            <span class="media-slot-mark" aria-hidden="true">+</span>
+            <figcaption><span>{% if current_lang == 'en' %}BUILD / PROTOTYPE{% else %}BAU / PROTOTYP{% endif %}</span><strong>{% if current_lang == 'en' %}Add a photo{% else %}Foto einfügen{% endif %}</strong></figcaption>
+        </figure>
+        <figure class="media-photo-slot" role="img" aria-label="{% if current_lang == 'en' %}Empty photo placeholder for testing{% else %}Leerer Fotoplatz für Tests{% endif %}">
+            <span class="media-slot-number">03</span>
+            <span class="media-slot-mark" aria-hidden="true">+</span>
+            <figcaption><span>{% if current_lang == 'en' %}TEST / OPTIMISE{% else %}TEST / OPTIMIEREN{% endif %}</span><strong>{% if current_lang == 'en' %}Add a photo{% else %}Foto einfügen{% endif %}</strong></figcaption>
+        </figure>
+    </div>
 </section>
 
 <section class="media-note">
     <p class="section-label">{% if current_lang == 'en' %}COMING NEXT{% else %}ALS NÄCHSTES{% endif %}</p>
-    <p>{% if current_lang == 'en' %}This space will grow with the project. Real stories and media will be added as the season progresses.{% else %}Dieser Bereich wächst mit dem Projekt. Mit dem Fortschritt der Saison kommen echte Geschichten und Medien hinzu.{% endif %}</p>
+    <p>{% if current_lang == 'en' %}As the season progresses, these templates will fill with new project updates, clips and photographs.{% else %}Mit dem Fortschritt der Saison füllen sich diese Vorlagen mit neuen Projekt-Updates, Clips und Fotos.{% endif %}</p>
 </section>
 {% endblock %}
