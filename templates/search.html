@@ -33,7 +33,7 @@
                             <span class="search-result-kind">{{ result.kind }}</span>
                             <h2>{{ result.title }}</h2>
                             <p>{{ result.snippet }}</p>
-                            <span class="search-result-link">{% if current_lang == 'en' %}Open page{% else %}Seite öffnen{% endif %} <span aria-hidden="true">↗</span></span>
+                            <span class="search-result-link">{% if current_lang == 'en' %}Open page{% else %}Seite öffnen{% endif %}</span>
                         </a>
                     </li>
                 {% endfor %}
@@ -49,7 +49,7 @@
             <h2 id="search-suggestions-title">{% if current_lang == 'en' %}Popular questions{% else %}Häufige Fragen{% endif %}</h2>
             <ul>
                 {% for question in suggested_questions %}
-                    <li><a href="{{ url_for('search', q=question, lang=current_lang) }}">{{ question }}<span aria-hidden="true">↗</span></a></li>
+                    <li><a href="{{ url_for('search', q=question, lang=current_lang) }}">{{ question }}</a></li>
                 {% endfor %}
             </ul>
         </section>

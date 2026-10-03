@@ -80,7 +80,7 @@ Engineering, Teamarbeit und Innovation: A.C.E. Racing entwickelt in Aachen einen
         <h2 id="home-team-story-title">{% if current_lang == 'en' %}Five people. One project. One direction.{% else %}Fünf Menschen. Ein Projekt. Eine Richtung.{% endif %}</h2>
         <p>{% if current_lang == 'en' %}We are <strong>A.C.E. Racing</strong>, a five-member student team from <strong>Einhard-Gymnasium Aachen</strong>. Together, we take part in STEM Racing and develop our own race car from the first concept to the track.{% else %}Wir sind <strong>A.C.E. Racing</strong>, ein fünfköpfiges Schülerteam des <strong>Einhard-Gymnasiums Aachen</strong>. Gemeinsam nehmen wir an STEM Racing teil und entwickeln unseren eigenen Rennwagen vom ersten Konzept bis zur Rennstrecke.{% endif %}</p>
         <p>{% if current_lang == 'en' %}Our responsibilities cover engineering, production, IT, communication and presentation. Every role contributes to the same goal: turning a complex project into a clear, tangible result.{% else %}Unsere Verantwortungsbereiche umfassen Engineering, Produktion, IT, Kommunikation und Präsentation. Jede Rolle trägt zum gleichen Ziel bei: ein komplexes Projekt in ein klares, greifbares Ergebnis zu verwandeln.{% endif %}</p>
-        <a class="text-link" href="{{ url_for('team') }}">{% if current_lang == 'en' %}Meet the full team{% else %}Das vollständige Team kennenlernen{% endif %} <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="{{ url_for('team') }}">{% if current_lang == 'en' %}Meet the full team{% else %}Das vollständige Team kennenlernen{% endif %}</a>
     </div>
 </section>
 
@@ -121,7 +121,7 @@ Engineering, Teamarbeit und Innovation: A.C.E. Racing entwickelt in Aachen einen
             </p>
 
             <a href="{{ url_for('team') }}">
-                {% if current_lang == 'en' %}Meet the team <span aria-hidden="true">↗</span>{% else %}Team kennenlernen <span aria-hidden="true">↗</span>{% endif %}
+                {% if current_lang == 'en' %}Meet the team{% else %}Team kennenlernen{% endif %}
             </a>
 
         </div>
@@ -141,7 +141,7 @@ Engineering, Teamarbeit und Innovation: A.C.E. Racing entwickelt in Aachen einen
             </p>
 
             <a href="{{ url_for('car', _anchor='process') }}">
-                {% if current_lang == 'en' %}See the process <span aria-hidden="true">↗</span>{% else %}Prozess ansehen <span aria-hidden="true">↗</span>{% endif %}
+                {% if current_lang == 'en' %}See the process{% else %}Prozess ansehen{% endif %}
             </a>
 
         </div>
@@ -161,7 +161,7 @@ Engineering, Teamarbeit und Innovation: A.C.E. Racing entwickelt in Aachen einen
             </p>
 
             <a href="{{ url_for('car', _anchor='car') }}">
-                {% if current_lang == 'en' %}Explore the car <span aria-hidden="true">↗</span>{% else %}Auto entdecken <span aria-hidden="true">↗</span>{% endif %}
+                {% if current_lang == 'en' %}Explore the car{% else %}Auto entdecken{% endif %}
             </a>
 
         </div>
@@ -175,7 +175,7 @@ Engineering, Teamarbeit und Innovation: A.C.E. Racing entwickelt in Aachen einen
         <p class="section-label">{% if current_lang == 'en' %}BUILT ON A LEGACY{% else %}AUF TRADITION GEBAUT{% endif %}</p>
         <h2 id="home-legacy-title">{% if current_lang == 'en' %}The next chapter starts now.{% else %}Das nächste Kapitel beginnt jetzt.{% endif %}</h2>
         <p>{% if current_lang == 'en' %}STEM Racing teams from Einhard-Gymnasium Aachen have competed nationally and internationally for years. A.C.E. Racing is building its own chapter in that story.{% else %}Teams des Einhard-Gymnasiums Aachen treten seit Jahren bei STEM-Racing-Wettbewerben auf nationaler und internationaler Ebene an. A.C.E. Racing schreibt nun ein eigenes Kapitel dieser Geschichte.{% endif %}</p>
-        <a class="text-link" href="{{ url_for('legacy') }}">{% if current_lang == 'en' %}Explore the school legacy{% else %}Die Schulgeschichte entdecken{% endif %} <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="{{ url_for('legacy') }}">{% if current_lang == 'en' %}Explore the school legacy{% else %}Die Schulgeschichte entdecken{% endif %}</a>
     </div>
     <div class="legacy-strip" aria-label="{% if current_lang == 'en' %}Milestones{% else %}Meilensteine{% endif %}">
         <article><span>2010</span><h3>AIXTREM</h3><p>{% if current_lang == 'en' %}3rd overall · Singapore{% else %}Gesamtwertung Platz 3 · Singapur{% endif %}</p></article>
@@ -191,7 +191,7 @@ Engineering, Teamarbeit und Innovation: A.C.E. Racing entwickelt in Aachen einen
         <p class="section-label">{% if current_lang == 'en' %}THE ROAD AHEAD{% else %}DER WEG VOR UNS{% endif %}</p>
         <h2>{% if current_lang == 'en' %}From concept to competition.{% else %}Vom Konzept bis zum Wettbewerb.{% endif %}</h2>
     </div>
-    <a class="button button-outline" href="{{ url_for('roadmap') }}">{% if current_lang == 'en' %}View the roadmap{% else %}Zeitplan ansehen{% endif %} <span aria-hidden="true">↗</span></a>
+    <a class="button button-outline" href="{{ url_for('roadmap') }}">{% if current_lang == 'en' %}View the roadmap{% else %}Zeitplan ansehen{% endif %}</a>
 </section>
 
 <section class="home-cta">
@@ -199,7 +199,7 @@ Engineering, Teamarbeit und Innovation: A.C.E. Racing entwickelt in Aachen einen
         <p class="section-label">{% if current_lang == 'en' %}OPEN FOR PARTNERSHIPS{% else %}OFFEN FÜR PARTNERSCHAFTEN{% endif %}</p>
         <h2>{% if current_lang == 'en' %}Help us turn ambition into motion.{% else %}Helfen Sie uns, aus Ambition Bewegung zu machen.{% endif %}</h2>
     </div>
-    <a href="{{ url_for('sponsors') }}" class="button">{% if current_lang == 'en' %}Partner with A.C.E{% else %}Partner von A.C.E werden{% endif %} <span aria-hidden="true">↗</span></a>
+    <a href="{{ url_for('sponsors') }}" class="button">{% if current_lang == 'en' %}Partner with A.C.E{% else %}Partner von A.C.E werden{% endif %}</a>
 </section>
 
 {% endblock %}

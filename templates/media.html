@@ -22,21 +22,21 @@
         <div class="media-category-preview media-preview-news"><span>{% if current_lang == 'en' %}NEWS ARCHIVE{% else %}NEWS-ARCHIV{% endif %}</span><strong>{% if current_lang == 'en' %}PROJECT UPDATES{% else %}PROJEKT-NEWS{% endif %}</strong><small>{% if current_lang == 'en' %}Season 2026–27{% else %}Saison 2026–27{% endif %}</small></div>
         <h2>{% if current_lang == 'en' %}News{% else %}Neuigkeiten{% endif %}</h2>
         <p>{% if current_lang == 'en' %}Milestones, decisions and the next steps in our project.{% else %}Meilensteine, Entscheidungen und die nächsten Schritte unseres Projekts.{% endif %}</p>
-        <span class="media-category-link">{% if current_lang == 'en' %}View news{% else %}Neuigkeiten ansehen{% endif %}<b aria-hidden="true">↘</b></span>
+        <span class="media-category-link">{% if current_lang == 'en' %}View news{% else %}Neuigkeiten ansehen{% endif %}</span>
     </a>
     <a class="media-category-card" href="#media-videos">
         <div class="media-card-top"><span class="media-card-index">02</span><span class="media-card-type">{% if current_lang == 'en' %}WATCH{% else %}ANSCHAUEN{% endif %}</span></div>
         <div class="media-category-preview media-preview-video"><span class="media-play" aria-hidden="true">&#9654;</span><small>{% if current_lang == 'en' %}VIDEO TEMPLATES READY{% else %}VIDEO-VORLAGEN BEREIT{% endif %}</small></div>
         <h2>{% if current_lang == 'en' %}Videos{% else %}Videos{% endif %}</h2>
         <p>{% if current_lang == 'en' %}Build sessions, design and testing, collected in one place.{% else %}Bauphasen, Design und Tests an einem Ort gesammelt.{% endif %}</p>
-        <span class="media-category-link">{% if current_lang == 'en' %}Open video archive{% else %}Video-Archiv öffnen{% endif %}<b aria-hidden="true">↘</b></span>
+        <span class="media-category-link">{% if current_lang == 'en' %}Open video archive{% else %}Video-Archiv öffnen{% endif %}</span>
     </a>
     <a class="media-category-card" href="#media-photos">
         <div class="media-card-top"><span class="media-card-index">03</span><span class="media-card-type">{% if current_lang == 'en' %}PHOTO ARCHIVE{% else %}FOTO-ARCHIV{% endif %}</span></div>
         <div class="media-category-preview media-preview-photos" aria-hidden="true"><span>01</span><span>02</span><span>03</span><small>{% if current_lang == 'en' %}PHOTO SLOTS{% else %}FOTO-PLÄTZE{% endif %}</small></div>
         <h2>{% if current_lang == 'en' %}Photos{% else %}Fotos{% endif %}</h2>
         <p>{% if current_lang == 'en' %}Prepared frames for new project images.{% else %}Vorbereitete Plätze für neue Projektbilder.{% endif %}</p>
-        <span class="media-category-link">{% if current_lang == 'en' %}View photo archive{% else %}Foto-Archiv ansehen{% endif %}<b aria-hidden="true">↘</b></span>
+        <span class="media-category-link">{% if current_lang == 'en' %}View photo archive{% else %}Foto-Archiv ansehen{% endif %}</span>
     </a>
 </nav>
 
@@ -49,17 +49,22 @@
         <article class="media-news-entry">
             <span class="media-news-entry-number">01</span>
             <div><p>{% if current_lang == 'en' %}SEASON 2026–27 / PROJECT START{% else %}SAISON 2026–27 / PROJEKTSTART{% endif %}</p><h3>{% if current_lang == 'en' %}A new season begins.{% else %}Eine neue Saison beginnt.{% endif %}</h3><span>{% if current_lang == 'en' %}Research and concept work are underway as we shape the first ideas for our race car.{% else %}Recherche und Konzeptarbeit laufen, während erste Ideen für unseren Rennwagen Form annehmen.{% endif %}</span></div>
-            <a href="{{ url_for('car') }}">{% if current_lang == 'en' %}Project{% else %}Projekt{% endif %}<b aria-hidden="true">↗</b></a>
+            <a href="{{ url_for('car') }}">{% if current_lang == 'en' %}Project{% else %}Projekt{% endif %}</a>
         </article>
         <article class="media-news-entry">
             <span class="media-news-entry-number">02</span>
             <div><p>DESIGN / ENGINEERING</p><h3>{% if current_lang == 'en' %}Designing with purpose.{% else %}Mit Plan konstruieren.{% endif %}</h3><span>{% if current_lang == 'en' %}3D CAD in Autodesk Fusion 360 supports the design process; CFD simulations are planned for evaluating future concepts.{% else %}3D-CAD mit Autodesk Fusion 360 unterstützt den Entwurf; CFD-Simulationen sind zur Bewertung künftiger Konzepte geplant.{% endif %}</span></div>
-            <a href="{{ url_for('car', _anchor='car') }}">Engineering<b aria-hidden="true">↗</b></a>
+            <a href="{{ url_for('car', _anchor='car') }}">Engineering</a>
         </article>
         <article class="media-news-entry">
             <span class="media-news-entry-number">03</span>
             <div><p>{% if current_lang == 'en' %}NEXT STEP{% else %}NÄCHSTER SCHRITT{% endif %}</p><h3>{% if current_lang == 'en' %}From concept to prototype.{% else %}Vom Konzept zum Prototyp.{% endif %}</h3><span>{% if current_lang == 'en' %}The next phase connects prototype planning, manufacturing options and systematic optimisation.{% else %}Als Nächstes verbinden wir die Prototypenplanung mit Fertigungsmöglichkeiten und systematischer Optimierung.{% endif %}</span></div>
-            <a href="{{ url_for('car', _anchor='process') }}">{% if current_lang == 'en' %}Process{% else %}Prozess{% endif %}<b aria-hidden="true">↗</b></a>
+            <a href="{{ url_for('car', _anchor='process') }}">{% if current_lang == 'en' %}Process{% else %}Prozess{% endif %}</a>
+        </article>
+        <article class="media-news-entry">
+            <span class="media-news-entry-number">04</span>
+            <div><p>{% if current_lang == 'en' %}CHASSIS / FIRST DESIGN{% else %}CHASSIS / ERSTER ENTWURF{% endif %}</p><h3>{% if current_lang == 'en' %}The first chassis takes shape.{% else %}Unser erstes Chassis nimmt Form an.{% endif %}</h3><span>{% if current_lang == 'en' %}We have designed the first parts of our chassis. This initial rendering marks an important step from concept toward our first race car.{% else %}Wir haben erste Teile unseres Chassis entworfen. Dieses erste Rendering ist ein wichtiger Schritt vom Konzept hin zu unserem Rennwagen.{% endif %}</span></div>
+            <a href="#chassis-rendering">{% if current_lang == 'en' %}View rendering{% else %}Rendering ansehen{% endif %}</a>
         </article>
     </div>
 </section>
@@ -82,19 +87,39 @@
         <p>{% if current_lang == 'en' %}A space for new images from design, build and testing.{% else %}Platz für neue Aufnahmen aus Konstruktion, Bau und Test.{% endif %}</p>
     </header>
     <div class="media-photo-slots">
-        <figure class="media-photo-slot" role="img" aria-label="{% if current_lang == 'en' %}Empty photo placeholder for design sketches{% else %}Leerer Fotoplatz für Designskizzen{% endif %}">
+        <figure class="media-photo-slot media-photo-slot--image" id="chassis-rendering">
             <span class="media-slot-number">01</span>
-            <span class="media-slot-mark" aria-hidden="true">+</span>
-            <figcaption><span>{% if current_lang == 'en' %}DESIGN / SKETCHES{% else %}DESIGN / SKIZZEN{% endif %}</span><strong>{% if current_lang == 'en' %}Add a photo{% else %}Foto einfügen{% endif %}</strong></figcaption>
+            <img src="{{ url_for('static', filename='images/Chassis Rendering 1.jpeg') }}" alt="{% if current_lang == 'en' %}First rendering of chassis parts designed by A.C.E. Racing{% else %}Erstes Rendering der von A.C.E. Racing entworfenen Chassisteile{% endif %}">
+            <figcaption><span>{% if current_lang == 'en' %}CHASSIS / FIRST DESIGN{% else %}CHASSIS / ERSTER ENTWURF{% endif %}</span><strong>{% if current_lang == 'en' %}Chassis rendering 01{% else %}Chassis-Rendering 01{% endif %}</strong></figcaption>
+        </figure>
+        <figure class="media-photo-slot media-photo-slot--image">
+            <span class="media-slot-number">02</span>
+            <img src="{{ url_for('static', filename='images/Chassis1(02).jpeg') }}" alt="{% if current_lang == 'en' %}Second chassis rendering by A.C.E. Racing{% else %}Zweites Chassis-Rendering von A.C.E. Racing{% endif %}">
+            <figcaption><span>{% if current_lang == 'en' %}CHASSIS / DESIGN{% else %}CHASSIS / DESIGN{% endif %}</span><strong>Chassis-Rendering 02</strong></figcaption>
+        </figure>
+        <figure class="media-photo-slot media-photo-slot--image">
+            <span class="media-slot-number">03</span>
+            <img src="{{ url_for('static', filename='images/Chassis1(03).jpeg') }}" alt="{% if current_lang == 'en' %}Third chassis rendering by A.C.E. Racing{% else %}Drittes Chassis-Rendering von A.C.E. Racing{% endif %}">
+            <figcaption><span>{% if current_lang == 'en' %}CHASSIS / DESIGN{% else %}CHASSIS / DESIGN{% endif %}</span><strong>Chassis-Rendering 03</strong></figcaption>
         </figure>
         <figure class="media-photo-slot" role="img" aria-label="{% if current_lang == 'en' %}Empty photo placeholder for prototype and manufacturing{% else %}Leerer Fotoplatz für Prototyp und Fertigung{% endif %}">
-            <span class="media-slot-number">02</span>
+            <span class="media-slot-number">04</span>
             <span class="media-slot-mark" aria-hidden="true">+</span>
             <figcaption><span>{% if current_lang == 'en' %}BUILD / PROTOTYPE{% else %}BAU / PROTOTYP{% endif %}</span><strong>{% if current_lang == 'en' %}Add a photo{% else %}Foto einfügen{% endif %}</strong></figcaption>
         </figure>
         <figure class="media-photo-slot media-photo-slot--filled" role="img" aria-label="{% if current_lang == 'en' %}Team photo of A.C.E. Racing{% else %}Teamfoto von A.C.E. Racing{% endif %}">
-            <span class="media-slot-number">03</span>
+            <span class="media-slot-number">05</span>
             <figcaption><span>{% if current_lang == 'en' %}TEAM / ACE{% else %}TEAM / ACE{% endif %}</span><strong>{% if current_lang == 'en' %}Team photo{% else %}Teamfoto{% endif %}</strong></figcaption>
+        </figure>
+        <figure class="media-photo-slot" role="img" aria-label="{% if current_lang == 'en' %}Empty photo placeholder for the next chassis design update{% else %}Leerer Fotoplatz für das nächste Chassis-Design-Update{% endif %}">
+            <span class="media-slot-number">06</span>
+            <span class="media-slot-mark" aria-hidden="true">+</span>
+            <figcaption><span>{% if current_lang == 'en' %}CHASSIS / NEXT ITERATION{% else %}CHASSIS / NÄCHSTE VERSION{% endif %}</span><strong>{% if current_lang == 'en' %}Coming soon{% else %}Demnächst{% endif %}</strong></figcaption>
+        </figure>
+        <figure class="media-photo-slot" role="img" aria-label="{% if current_lang == 'en' %}Empty photo placeholder for additional chassis details{% else %}Leerer Fotoplatz für weitere Chassis-Details{% endif %}">
+            <span class="media-slot-number">07</span>
+            <span class="media-slot-mark" aria-hidden="true">+</span>
+            <figcaption><span>{% if current_lang == 'en' %}CHASSIS / DETAILS{% else %}CHASSIS / DETAILS{% endif %}</span><strong>{% if current_lang == 'en' %}Coming soon{% else %}Demnächst{% endif %}</strong></figcaption>
         </figure>
     </div>
 </section>
