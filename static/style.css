@@ -2530,21 +2530,49 @@ footer { background: #050608; }
 
 .media-photo-slots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 1500px; margin: 0 auto; }
 .media-photo-slot { position: relative; display: grid; min-width: 0; aspect-ratio: 4 / 3; place-items: center; overflow: hidden; margin: 0; border: 1px dashed rgba(255, 255, 255, .28); background: radial-gradient(circle at 50% 48%, rgba(168, 85, 247, .1), transparent 38%), repeating-linear-gradient(0deg, transparent 0 36px, rgba(255, 255, 255, .035) 37px 38px), repeating-linear-gradient(90deg, transparent 0 36px, rgba(255, 255, 255, .035) 37px 38px), var(--surface); }
+.media-photo-slot--filled {
+    border-style: solid;
+    border-color: rgba(255, 255, 255, .18);
+    background-image: linear-gradient(180deg, rgba(8, 11, 16, 0.18), rgba(8, 11, 16, 0.55)), url('/static/images/Teamfoto4.jpeg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .media-slot-number { position: absolute; top: 16px; left: 17px; color: var(--accent-soft); font-size: 10px; font-weight: 800; letter-spacing: .13em; }
 .media-slot-mark { display: grid; width: 42px; height: 42px; place-items: center; border: 1px solid rgba(255, 255, 255, .38); border-radius: 50%; color: #fff; font-size: 23px; font-weight: 300; transition: border-color .2s ease, transform .2s ease; }
 .media-photo-slot:hover .media-slot-mark { transform: rotate(90deg); border-color: var(--accent-soft); }
+.media-photo-slot--filled .media-slot-mark { display: none; }
 .media-photo-slot figcaption { position: absolute; right: 17px; bottom: 16px; left: 17px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .media-photo-slot figcaption span { color: var(--text-muted); font-size: 9px; font-weight: 800; letter-spacing: .1em; }
 .media-photo-slot figcaption strong { color: #fff; font-size: 10px; font-weight: 700; }
+.media-photo-slot--filled figcaption { background: rgba(8, 11, 16, 0.28); border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 8px; padding: 8px 10px; backdrop-filter: blur(2px); }
+.media-photo-slot--filled figcaption span { color: rgba(255, 255, 255, .7); }
+.media-photo-slot--filled figcaption strong { text-shadow: 0 3px 15px rgba(0, 0, 0, 0.35); }
 
-@media (max-width: 900px) {
-    .media-photo-slots { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 1100px) {
+    .media-center-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .media-video-slots, .media-photo-slots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .media-section-heading { flex-direction: column; align-items: flex-start; }
+    .media-section-heading > p { max-width: 100%; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 820px) {
+    .media-center-grid,
+    .media-video-slots,
     .media-photo-slots { grid-template-columns: 1fr; gap: 12px; }
     .media-photo-slot { aspect-ratio: 16 / 10; }
     .media-photo-slot figcaption { right: 13px; bottom: 13px; left: 13px; align-items: start; flex-direction: column; gap: 5px; }
+    .media-note { display: block; margin: 0 6vw; padding: 20px 0 54px; }
+    .media-note > p:last-child { margin-top: 10px; }
+    .media-section-heading h2 { font-size: clamp(2.2rem, 7vw, 3.25rem); }
+}
+
+@media (max-width: 480px) {
+    .media-center-grid { margin-right: 6vw; margin-left: 6vw; }
+    .media-section-heading { gap: 16px; }
+    .media-slot-number { top: 12px; left: 12px; }
+    .media-photo-slot figcaption strong { font-size: 9px; }
+    .media-photo-slot figcaption span { letter-spacing: .08em; }
 }
 
 .media-index-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr); gap: 7vw; align-items: center; min-height: 460px; padding: 74px 10vw 68px; overflow: hidden; border-bottom: 1px solid var(--border); background: radial-gradient(circle at 84% 44%, rgba(0, 177, 170, .11), transparent 24%), radial-gradient(circle at 74% 22%, rgba(168, 85, 247, .16), transparent 28%), linear-gradient(125deg, #090c11, #151922 64%, #10171b); }
