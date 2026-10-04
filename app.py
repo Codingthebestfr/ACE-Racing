@@ -6,6 +6,7 @@ import json
 import urllib.request
 import urllib.error
 import unicodedata
+from datetime import date, timedelta
 from html.parser import HTMLParser
 from flask import Flask, redirect, render_template, request, url_for
 
@@ -489,9 +490,29 @@ def legacy():
     return render_template("legacy.html")
 
 
+def _week_label(weeks_offset, language):
+    target_date = date.today() - timedelta(weeks=weeks_offset)
+    iso_year, iso_week, _ = target_date.isocalendar()
+    if language == "en":
+        return f"Week {iso_week} / {iso_year}"
+    return f"Woche {iso_week} / {iso_year}"
+
+
 @app.route("/media")
 def media():
-    return render_template("media.html")
+    current_lang = request.args.get("lang") or request.cookies.get(LANGUAGE_COOKIE_NAME) or DEFAULT_LANGUAGE
+    if current_lang not in LANGUAGES:
+        current_lang = DEFAULT_LANGUAGE
+
+    return render_template(
+        "media.html",
+        news_weeks={
+            "01": _week_label(5, current_lang),
+            "02": _week_label(2, current_lang),
+            "03": _week_label(1, current_lang),
+            "04": _week_label(0, current_lang),
+        },
+    )
 
 
 @app.route("/contact")
