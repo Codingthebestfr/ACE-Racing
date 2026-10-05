@@ -7,6 +7,7 @@ import urllib.request
 import urllib.error
 import unicodedata
 from datetime import date, timedelta
+from html.parser import HTMLParser
 from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
@@ -19,50 +20,17 @@ CONTACT_TOPICS = {"sponsoring", "engineering", "mentoring", "school", "press", "
 DEFAULT_CONTACT_RECIPIENT = "contact@ace-racing.de"
 
 SEARCH_PAGES = (
-    ("home", {"de": "Home", "en": "Home"}, {
-        "de": "A.C.E. Racing ist das STEM-Racing-Team des Einhard-Gymnasiums Aachen. Wir entwickeln einen eigenen Rennwagen.",
-        "en": "A.C.E. Racing is the STEM Racing team of Einhard-Gymnasium Aachen. We are developing our own race car.",
-    }),
-    ("about", {"de": "Über uns", "en": "About us"}, {
-        "de": "STEM Racing ist ein internationaler, von Formula 1 unterstützter Bildungswettbewerb. Teams entwerfen, bauen, testen und präsentieren Miniatur-Rennwagen.",
-        "en": "STEM Racing is an international, Formula 1-endorsed education competition. Teams design, build, test and present miniature race cars.",
-    }),
-    ("team", {"de": "Team", "en": "Team"}, {
-        "de": "Lerne das fünfköpfige Schülerteam des Einhard-Gymnasiums Aachen und seine Aufgaben in Konstruktion, Produktion, IT, Forschung, Grafik und Kommunikation kennen.",
-        "en": "Meet the five-member student team from Einhard-Gymnasium Aachen and its roles in engineering, production, IT, research, graphics and communication.",
-    }),
-    ("car", {"de": "Auto & Projekt", "en": "Car & Project"}, {
-        "de": "Unser Projekt: einen STEM-Racing-Rennwagen entwickeln. Dazu gehören Recherche, Konzept, CAD-Konstruktion mit Autodesk Fusion 360, 3D-Druck von Prototypen, Tests und Optimierung.",
-        "en": "Our project is to develop a STEM Racing car, including research, concepts, CAD design in Autodesk Fusion 360, 3D-printed prototypes, testing and optimisation.",
-    }),
-    ("roadmap", {"de": "Zeitplan", "en": "Roadmap"}, {
-        "de": "Saisonplan 2026/27: Team und Anmeldung von September bis Oktober, Konzept und CAD ab Oktober, danach Bau, Tests und Vorbereitung auf Regionalmeisterschaft und Deutsche Meisterschaft.",
-        "en": "2026/27 season plan: team and registration from September through October, concept and CAD work starting in October, followed by building, testing and competition preparation.",
-    }),
-    ("legacy", {"de": "Unsere Geschichte", "en": "Our history"}, {
-        "de": "Die Geschichte und Entwicklung von A.C.E. Racing am Einhard-Gymnasium Aachen.",
-        "en": "The history and development of A.C.E. Racing at Einhard-Gymnasium Aachen.",
-    }),
-    ("media", {"de": "Media Center", "en": "Media Center"}, {
-        "de": "Neuigkeiten, Projektupdates, Fotos und Einblicke in die Saison, Recherche und Konzeptarbeit von A.C.E. Racing.",
-        "en": "News, project updates, photos and insights into the A.C.E. Racing season, research and concept work.",
-    }),
-    ("sponsors", {"de": "Sponsoren", "en": "Sponsors"}, {
-        "de": "Informationen für Sponsoren und Partner: So können Unternehmen und Unterstützer das STEM-Racing-Projekt und das Team fördern.",
-        "en": "Information for sponsors and partners: how companies and supporters can help the team and its STEM Racing project.",
-    }),
-    ("contact", {"de": "Kontakt", "en": "Contact"}, {
-        "de": "Kontaktiere A.C.E. Racing über das Kontaktformular oder die veröffentlichten Kontaktdaten. Themen: Sponsoring, Engineering, Mentoring, Schule und Presse.",
-        "en": "Contact A.C.E. Racing using the contact form or published contact details. Topics include sponsorship, engineering, mentoring, schools and press.",
-    }),
-    ("impressum", {"de": "Impressum", "en": "Legal notice"}, {
-        "de": "Impressum und Kontaktdaten von A.C.E. Racing am Einhard-Gymnasium in Aachen.",
-        "en": "Legal notice and contact details for A.C.E. Racing at Einhard-Gymnasium in Aachen, Germany.",
-    }),
-    ("datenschutz", {"de": "Datenschutz", "en": "Privacy"}, {
-        "de": "Datenschutzhinweise und Informationen zum Umgang mit personenbezogenen Daten auf der Website.",
-        "en": "Privacy information and details about how personal data is handled on this website.",
-    }),
+    ("home", {"de": "Home", "en": "Home"}),
+    ("about", {"de": "Über uns", "en": "About us"}),
+    ("team", {"de": "Team", "en": "Team"}),
+    ("car", {"de": "Auto & Projekt", "en": "Car & Project"}),
+    ("roadmap", {"de": "Zeitplan", "en": "Roadmap"}),
+    ("legacy", {"de": "Unsere Geschichte", "en": "Our history"}),
+    ("media", {"de": "Media Center", "en": "Media Center"}),
+    ("sponsors", {"de": "Sponsoren", "en": "Sponsors"}),
+    ("contact", {"de": "Kontakt", "en": "Contact"}),
+    ("impressum", {"de": "Impressum", "en": "Legal notice"}),
+    ("datenschutz", {"de": "Datenschutz", "en": "Privacy"}),
 )
 
 SEARCH_STOP_WORDS = {
@@ -92,6 +60,36 @@ SEARCH_FAQS = {
         {"question": "Where is A.C.E. Racing based?", "answer": "A.C.E. Racing is the team of Einhard-Gymnasium in Aachen, Germany.", "keywords": "address location school einhard", "endpoint": "impressum"},
     ),
 }
+
+
+class _MainContentParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.in_main = False
+        self.ignored_depth = 0
+        self.parts = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "main":
+            self.in_main = True
+        elif self.in_main and tag in {"script", "style", "noscript"}:
+            self.ignored_depth += 1
+
+    def handle_endtag(self, tag):
+        if tag == "main":
+            self.in_main = False
+        elif self.in_main and tag in {"script", "style", "noscript"} and self.ignored_depth:
+            self.ignored_depth -= 1
+
+    def handle_data(self, data):
+        if self.in_main and not self.ignored_depth:
+            self.parts.append(data)
+
+
+def _main_text(rendered_page):
+    parser = _MainContentParser()
+    parser.feed(rendered_page)
+    return re.sub(r"\s+", " ", " ".join(parser.parts)).strip()
 
 
 def _search_tokens(value):
@@ -424,8 +422,9 @@ def search():
     results = []
 
     if terms:
-        for endpoint, titles, descriptions in SEARCH_PAGES:
-            page_text = descriptions[current_lang]
+        for endpoint, titles in SEARCH_PAGES:
+            page_response = app.make_response(app.view_functions[endpoint]())
+            page_text = _main_text(page_response.get_data(as_text=True))
             title = titles[current_lang]
             score = _search_score(terms, title, page_text)
             if score:
