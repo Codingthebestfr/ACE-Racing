@@ -1911,8 +1911,27 @@ footer { background: #050608; }
     }
 
     .hero-home h1 {
-        font-size: clamp(54px, 7.4vw, 116px);
+        font-size: clamp(72px, 9.5vw, 150px);
         letter-spacing: -0.065em;
+    }
+
+    .hero-kicker {
+        font-size: 12px;
+    }
+
+    .hero-title-logo {
+        flex-basis: clamp(120px, 9.5vw, 146px);
+        width: clamp(120px, 9.5vw, 146px);
+    }
+
+    .hero-description {
+        max-width: 640px;
+        font-size: clamp(23px, 2.15vw, 31px);
+    }
+
+    .hero-buttons .button {
+        padding: 17px 24px;
+        font-size: 15px;
     }
 
     .hero-data {
@@ -3404,4 +3423,57 @@ footer { background: #050608; }
     .media-news-entry { grid-template-columns: 28px minmax(0, 1fr); gap: 12px; padding: 18px 6px; }
     .media-news-entry > a { grid-column: 2; margin-top: 3px; }
     .media-news-entry h3 { font-size: 18px; }
+}
+
+@media (max-width: 600px) {
+    .hero-home {
+        display: block;
+        min-height: 0;
+        padding: 46px 6vw 30px;
+        background-position: center, 58% center, center;
+    }
+
+    .hero-brandline { top: 0; margin-bottom: 12px; }
+    .hero-title-lockup { top: 0; gap: 16px; }
+    .hero-home h1 { gap: .08em; font-size: clamp(46px, 13vw, 68px); }
+    .hero-title-logo { flex-basis: 68px; width: 68px; margin-top: 4px; transform: none; }
+    .hero-kicker { font-size: 10px; letter-spacing: .16em; margin-bottom: 0; }
+
+    .hero-description {
+        max-width: 36rem;
+        margin-top: 20px;
+        font-size: 18px;
+        line-height: 1.45;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 22px;
+    }
+
+    .hero-buttons .button {
+        width: auto;
+        min-height: 48px;
+        padding: 12px 17px;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .hero-data {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: auto;
+        margin: 34px 0 0;
+    }
+
+    .hero-data-line { padding: 9px 0; }
+}
+
+@media (max-width: 420px) {
+    .hero-home { padding-top: 40px; padding-bottom: 26px; }
+    .hero-home h1 { font-size: clamp(46px, 13vw, 58px); }
 }
