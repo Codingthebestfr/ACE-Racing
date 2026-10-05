@@ -14,7 +14,7 @@ Meet the members of A.C.E. Racing, our STEM Racing team from Aachen, and discove
 
 {% else %}
 
-Lerne die Mitglieder von A.C.E. Racing, unserem STEM-Racing-Team aus Aachen, und ihre Aufgaben im Engineering-Projekt kennen.
+Lerne die Mitglieder von A.C.E. Racing, unserem STEM-Racing-Team aus Aachen, und ihre Aufgaben im technischen Projekt kennen.
 
 {% endif %}
 
@@ -78,47 +78,47 @@ Lerne das Team hinter A.C.E. Racing und unsere verschiedenen Aufgabenbereiche ke
 
         <div class="team-card">
             <div class="team-person-photo">
-                <img src="{{ url_for('static', filename='images/Minh ACE.png') }}" alt="Minh Dao portrait">
+                <img src="{{ url_for('static', filename='images/Minh ACE.png') }}" alt="{% if current_lang == 'en' %}Minh Dao portrait{% else %}Porträt von Minh Dao{% endif %}">
             </div>
             <div class="team-number">01</div>
             <h3>Minh Dao</h3>
             <p class="team-age">{% if current_lang == 'en' %}15 years{% else %}15 Jahre{% endif %}</p>
-            <p>{% if current_lang == 'en' %}Head of IT / Marketing & PR, Research & Development{% else %}Head of IT / Marketing & PR, Forschung & Entwicklung{% endif %}</p>
+            <p>{% if current_lang == 'en' %}Head of IT / Marketing & PR, Research & Development{% else %}Leitung IT / Marketing & Öffentlichkeitsarbeit / Forschung & Entwicklung{% endif %}</p>
         </div>
 
         <div class="team-card">
             <div class="team-person-photo">
-                <img src="{{ url_for('static', filename='images/Yashmith ACE.png') }}" alt="Yashmith Gettam portrait">
+                <img src="{{ url_for('static', filename='images/Yashmith ACE.png') }}" alt="{% if current_lang == 'en' %}Yashmith Gettam portrait{% else %}Porträt von Yashmith Gettam{% endif %}">
             </div>
             <div class="team-number">02</div>
             <h3>Yashmith Gettam</h3>
             <p class="team-age">{% if current_lang == 'en' %}14 years{% else %}14 Jahre{% endif %}</p>
-            <p>{% if current_lang == 'en' %}Team leader, Head of Construction{% else %}Teamleader, Head of Construction{% endif %}</p>
+            <p>{% if current_lang == 'en' %}Team leader, Head of Construction{% else %}Teamleitung / Leitung Konstruktion{% endif %}</p>
         </div>
 
         <div class="team-card">
             <div class="team-person-photo">
-                <img src="{{ url_for('static', filename='images/Darius ACE.png') }}" alt="Darius Melian-Flamand portrait">
+                <img src="{{ url_for('static', filename='images/Darius ACE.png') }}" alt="{% if current_lang == 'en' %}Darius Melian-Flamand portrait{% else %}Porträt von Darius Melian-Flamand{% endif %}">
             </div>
             <div class="team-number">03</div>
             <h3>Darius Melian-Flamand</h3>
             <p class="team-age">{% if current_lang == 'en' %}15 years{% else %}15 Jahre{% endif %}</p>
-            <p>{% if current_lang == 'en' %}Head of Production / Research & Development{% else %}Head of Production / Forschung & Entwicklung{% endif %}</p>
+            <p>{% if current_lang == 'en' %}Head of Production / Research & Development{% else %}Leitung Produktion / Forschung & Entwicklung{% endif %}</p>
         </div>
 
         <div class="team-card">
             <div class="team-person-photo">
-                <img src="{{ url_for('static', filename='images/Tri-Dung ACE.png') }}" alt="Tri-Dung Tran portrait">
+                <img src="{{ url_for('static', filename='images/Tri-Dung ACE.png') }}" alt="{% if current_lang == 'en' %}Tri-Dung Tran portrait{% else %}Porträt von Tri-Dung Tran{% endif %}">
             </div>
             <div class="team-number">04</div>
             <h3>Tri-Dung Tran</h3>
             <p class="team-age">{% if current_lang == 'en' %}15 years{% else %}15 Jahre{% endif %}</p>
-            <p>{% if current_lang == 'en' %}Head of Graphics/Design and Media{% else %}Head of Graphics/Designing & Media{% endif %}</p>
+            <p>{% if current_lang == 'en' %}Head of Graphics/Design and Media{% else %}Leitung Grafik, Design & Medien{% endif %}</p>
         </div>
 
         <div class="team-card">
             <div class="team-person-photo">
-                <img src="{{ url_for('static', filename='images/Omar ACE.png') }}" alt="Omar Ahmed portrait">
+                <img src="{{ url_for('static', filename='images/Omar ACE.png') }}" alt="{% if current_lang == 'en' %}Omar Ahmed portrait{% else %}Porträt von Omar Ahmed{% endif %}">
             </div>
             <div class="team-number">05</div>
             <h3>Omar Ahmed</h3>
@@ -169,7 +169,7 @@ Lerne das Team hinter A.C.E. Racing und unsere verschiedenen Aufgabenbereiche ke
             <li>{% if current_lang == 'en' %}5 team members{% else %}5 Teammitglieder{% endif %}</li>
             <li>STEM Racing 2026/27</li>
             <li>{% if current_lang == 'en' %}Einhard-Gymnasium Aachen{% else %}Einhard-Gymnasium Aachen{% endif %}</li>
-            <li>{% if current_lang == 'en' %}Engineering & Racing{% else %}Engineering & Racing{% endif %}</li>
+            <li>{% if current_lang == 'en' %}Engineering & Racing{% else %}Konstruktion & Rennsport{% endif %}</li>
         </ul>
 
     </div>

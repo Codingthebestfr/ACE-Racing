@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{% if current_lang == 'en' %}Roadmap | A.C.E. Racing{% else %}Zeitplan | A.C.E. Racing{% endif %}{% endblock %}
-{% block meta_description %}{% if current_lang == 'en' %}Follow the A.C.E. Racing season plan from registration and engineering to the 2027 championships.{% else %}Verfolge den Saisonplan von A.C.E. Racing: von Anmeldung und Engineering bis zu den Meisterschaften 2027.{% endif %}{% endblock %}
+{% block meta_description %}{% if current_lang == 'en' %}Follow the A.C.E. Racing season plan from registration and engineering to the 2027 championships.{% else %}Verfolge den Saisonplan von A.C.E. Racing: von der Anmeldung und technischen Entwicklung bis zu den Meisterschaften 2027.{% endif %}{% endblock %}
 {% block og_title %}{% if current_lang == 'en' %}The road to race day | A.C.E. Racing{% else %}Der Weg zum Renntag | A.C.E. Racing{% endif %}{% endblock %}
 {% block og_description %}{% if current_lang == 'en' %}A transparent look at our development phases and competition milestones for the 2026/27 season.{% else %}Ein transparenter Einblick in unsere Entwicklungsphasen und Wettbewerbsmeilensteine der Saison 2026/27.{% endif %}{% endblock %}
 
@@ -14,16 +14,24 @@
 
 <section class="roadmap-section" aria-labelledby="development-roadmap-title">
     <p class="section-label">{% if current_lang == 'en' %}01 / TEAM DEVELOPMENT{% else %}01 / TEAM-ENTWICKLUNG{% endif %}</p>
-    <h2 id="development-roadmap-title">{% if current_lang == 'en' %}Our development roadmap.{% else %}Unsere Entwicklungs-Roadmap.{% endif %}</h2>
+    <h2 id="development-roadmap-title">{% if current_lang == 'en' %}Our development roadmap.{% else %}Unser Entwicklungszeitplan.{% endif %}</h2>
     <p class="roadmap-intro">{% if current_lang == 'en' %}A working plan for the season. The order is clear; individual work packages may overlap as the project develops.{% else %}Unser Arbeitsplan für die Saison. Die Reihenfolge gibt Orientierung; einzelne Arbeitspakete können sich im Projektverlauf überschneiden.{% endif %}</p>
     <div class="roadmap-scroll" tabindex="0" role="region" aria-label="{% if current_lang == 'en' %}Horizontal development timeline{% else %}Horizontaler Entwicklungs-Zeitstrahl{% endif %}">
         <ol class="roadmap-track development-track">
-            <li class="roadmap-stop is-current"><span class="roadmap-date">{% if current_lang == 'en' %}SEP — OCT 2026{% else %}SEP — OKT 2026{% endif %}</span><span class="roadmap-node" aria-hidden="true"></span><h3>{% if current_lang == 'en' %}Team &amp; registration{% else %}Team &amp; Anmeldung{% endif %}</h3><p>{% if current_lang == 'en' %}Confirm roles, plan the budget, find partners and complete season registration by 31 October 2026.{% else %}Rollen festlegen, Budget planen, Partner finden und die Saisonanmeldung bis zum 31. Oktober 2026 abschließen.{% endif %}</p></li>
-            <li><span class="roadmap-date">{% if current_lang == 'en' %}OCT 2026 — JAN 2027{% else %}OKT 2026 — JAN 2027{% endif %}</span><span class="roadmap-node" aria-hidden="true"></span><h3>{% if current_lang == 'en' %}Concept &amp; CAD{% else %}Konzept &amp; CAD{% endif %}</h3><p>{% if current_lang == 'en' %}Develop concepts, create the CAD model and evaluate aerodynamic ideas and feasibility.{% else %}Konzepte entwickeln, das CAD-Modell erstellen und Aerodynamik sowie Umsetzbarkeit bewerten.{% endif %}</p></li>
+            <li class="roadmap-stop is-current"><span class="roadmap-date">{% if current_lang == 'en' %}SEP — NOV 2026{% else %}SEP — NOV 2026{% endif %}</span><span class="roadmap-node" aria-hidden="true"></span><h3>{% if current_lang == 'en' %}Team &amp; registration{% else %}Team &amp; Anmeldung{% endif %}</h3><p>{% if current_lang == 'en' %}Confirm roles, plan the budget, find partners and complete season registration by 30 November 2026.{% else %}Rollen festlegen, Budget planen, Partner finden und die Saisonanmeldung bis zum 30. November 2026 abschließen.{% endif %}</p></li>
+            <li><span class="roadmap-date">{% if current_lang == 'en' %}OCT 2026 — JAN 2027{% else %}OKT 2026 — JAN 2027{% endif %}</span><span class="roadmap-node" aria-hidden="true"></span><h3>{% if current_lang == 'en' %}Design &amp; simulation{% else %}Konstruktion &amp; Simulation{% endif %}</h3><p>{% if current_lang == 'en' %}Design several prototypes in Autodesk Fusion 360, use CFD simulations to assess aerodynamics, and complete multiple prototype designs. Build and test at least one physical prototype.{% else %}Mehrere Prototypen mit Autodesk Fusion 360 konstruieren und fertig entwerfen sowie ihre Aerodynamik mit CFD-Simulationen untersuchen. Mindestens einen physischen Prototypen bauen und testen.{% endif %}</p></li>
             <li><span class="roadmap-date">{% if current_lang == 'en' %}JAN — FEB 2027{% else %}JAN — FEB 2027{% endif %}</span><span class="roadmap-node" aria-hidden="true"></span><h3>{% if current_lang == 'en' %}Build &amp; test{% else %}Bau &amp; Tests{% endif %}</h3><p>{% if current_lang == 'en' %}Plan manufacturing, assemble the car, test performance and refine the design.{% else %}Fertigung planen, den Rennwagen aufbauen, Leistung testen und das Design weiterentwickeln.{% endif %}</p></li>
             <li><span class="roadmap-date">{% if current_lang == 'en' %}FEB — MAR 2027{% else %}FEB — MÄR 2027{% endif %}</span><span class="roadmap-node" aria-hidden="true"></span><h3>{% if current_lang == 'en' %}Race preparation{% else %}Wettbewerbsvorbereitung{% endif %}</h3><p>{% if current_lang == 'en' %}Prepare portfolios, presentation, pit display and competition-day workflows.{% else %}Portfolios, Präsentation, Pit Display und Abläufe für den Wettbewerbstag vorbereiten.{% endif %}</p></li>
         </ol>
     </div>
+    <aside class="project-progress-cta roadmap-media-cta" aria-label="{% if current_lang == 'en' %}Current project status{% else %}Aktueller Projektstand{% endif %}">
+        <div class="project-progress-copy">
+            <p>{% if current_lang == 'en' %}To see the latest project status, click “Open Media Center”.{% else %}Um den aktuellen Stand zu sehen, klicke auf „Zum Media Center“.{% endif %}</p>
+        </div>
+        <div class="project-progress-panel">
+            <a class="button button-outline" href="{{ url_for('media', _anchor='media-news', lang=current_lang) }}">{% if current_lang == 'en' %}Open Media Center{% else %}Zum Media Center{% endif %}</a>
+        </div>
+    </aside>
 </section>
 
 <section class="roadmap-section competition-roadmap" aria-labelledby="competition-roadmap-title">

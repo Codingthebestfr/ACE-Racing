@@ -71,7 +71,7 @@ Nimm Kontakt mit A.C.E. Racing auf – für Partnerschaften, Sponsoring und Frag
             <p class="contact-form-feedback" role="alert">{% if current_lang == 'en' %}Too many messages were sent. Please wait a minute before trying again.{% else %}Es wurden zu viele Nachrichten gesendet. Bitte warten Sie eine Minute und versuchen Sie es erneut.{% endif %}</p>
         {% endif %}
         <form class="contact-inquiry-form" action="{{ url_for('contact', lang=current_lang) }}" method="post">
-            <div class="contact-honeypot" aria-hidden="true"><label>Leave blank<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <div class="contact-honeypot" aria-hidden="true"><label>{% if current_lang == 'en' %}Leave blank{% else %}Bitte leer lassen{% endif %}<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
             <label>{% if current_lang == 'en' %}Name *{% else %}Name *{% endif %}<input type="text" name="name" autocomplete="name" maxlength="120" required></label>
             <label>{% if current_lang == 'en' %}Email *{% else %}E-Mail *{% endif %}<input type="email" name="email" autocomplete="email" maxlength="254" required></label>
             <label>{% if current_lang == 'en' %}Organisation{% else %}Organisation{% endif %}<input type="text" name="organisation" autocomplete="organization" maxlength="160"></label>
@@ -101,7 +101,7 @@ Nimm Kontakt mit A.C.E. Racing auf – für Partnerschaften, Sponsoring und Frag
             </div>
 
             <div class="contact-people">
-                <article class="contact-person-card"><span class="contact-person-number">01</span><div><h3>Minh Dao</h3><p>{% if current_lang == 'en' %}IT / Marketing &amp; PR / Research &amp; Development{% else %}IT / Marketing &amp; PR / Forschung &amp; Entwicklung{% endif %}</p></div><a href="mailto:minh.dao.game5@gmail.com">minh.dao.game5@gmail.com</a></article>
+                <article class="contact-person-card"><span class="contact-person-number">01</span><div><h3>Minh Dao</h3><p>{% if current_lang == 'en' %}IT / Marketing &amp; PR / Research &amp; Development{% else %}IT / Marketing &amp; Öffentlichkeitsarbeit / Forschung &amp; Entwicklung{% endif %}</p></div><a href="mailto:minh.dao.game5@gmail.com">minh.dao.game5@gmail.com</a></article>
                 <article class="contact-person-card"><span class="contact-person-number">02</span><div><h3>Omar Ahmed</h3><p>{% if current_lang == 'en' %}Construction &amp; graphics team{% else %}Konstruktion &amp; Grafikdesign{% endif %}</p></div><a href="mailto:omarahmed6306@gmail.com">omarahmed6306@gmail.com</a></article>
                 <article class="contact-person-card"><span class="contact-person-number">03</span><div><h3>Tri-Dung Tran</h3><p>{% if current_lang == 'en' %}Graphics, design &amp; media{% else %}Grafik, Design &amp; Medien{% endif %}</p></div><a href="mailto:dung20.tran01@gmail.com">dung20.tran01@gmail.com</a></article>
                 <article class="contact-person-card"><span class="contact-person-number">04</span><div><h3>Yashmith Gettam</h3><p>{% if current_lang == 'en' %}Team leader / Construction{% else %}Teamleitung / Konstruktion{% endif %}</p></div><a href="mailto:yashmith.gettam@gmail.com">yashmith.gettam@gmail.com</a></article>

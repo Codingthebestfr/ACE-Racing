@@ -1591,6 +1591,27 @@ nav a:hover, nav a.is-active, .footer-content a:hover { color: var(--accent); }
     justify-self: start;
     margin-top: 4px;
 }
+.project-progress-cta.roadmap-media-cta {
+    width: min(calc(100% - 20vw), 1050px);
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 20px;
+    margin: 12px auto 0;
+    padding: 14px 18px;
+}
+.project-progress-cta.roadmap-media-cta .project-progress-copy p:not(.section-label) {
+    margin: 0;
+}
+.project-progress-cta.roadmap-media-cta .project-progress-panel {
+    display: block;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+.project-progress-cta.roadmap-media-cta .project-progress-panel .button {
+    width: auto;
+    margin: 0;
+    text-align: center;
+}
 .project-process { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; padding: 0 10vw 90px; background: var(--border); }
 .project-step { min-height: 200px; padding: 25px; background: var(--background); }
 .project-step span { color: var(--accent); font-size: 11px; letter-spacing: .12em; }

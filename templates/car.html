@@ -34,7 +34,7 @@ The car, design goals and development process of the A.C.E. Racing STEM Racing p
 
 {% else %}
 
-Rennwagen, Entwicklungsziele und Engineering-Prozess von A.C.E. Racing.
+Rennwagen, Entwicklungsziele und technischer Entwicklungsprozess von A.C.E. Racing.
 
 {% endif %}
 
@@ -42,7 +42,7 @@ Rennwagen, Entwicklungsziele und Engineering-Prozess von A.C.E. Racing.
 
 {% block content %}
 <section class="page-header">
-	<p class="section-label">STEM RACING / ENGINEERING</p>
+	<p class="section-label">{% if current_lang == 'en' %}STEM RACING / ENGINEERING{% else %}STEM RACING / TECHNISCHE ENTWICKLUNG{% endif %}</p>
 	<h1>{% if current_lang == 'en' %}Car &amp; Project{% else %}Auto &amp; Projekt{% endif %}</h1>
 	<p>{% if current_lang == 'en' %}The car we are developing and the process that takes it from concept to competition.{% else %}Der Rennwagen, den wir entwickeln, und der Weg von der Idee bis zum Wettbewerb.{% endif %}</p>
 	<div class="page-meta"><span>{% if current_lang == 'en' %}SEASON{% else %}SAISON{% endif %}</span><strong>2026 / 27</strong><span>{% if current_lang == 'en' %}DESIGN · BUILD · TEST{% else %}ENTWURF · BAU · TEST{% endif %}</span></div>
@@ -100,7 +100,7 @@ Rennwagen, Entwicklungsziele und Engineering-Prozess von A.C.E. Racing.
 
 <section class="engineering-process" id="process">
 	<p class="section-label">{% if current_lang == 'en' %}FROM IDEA TO RACE{% else %}VON DER IDEE ZUM RENNEN{% endif %}</p>
-	<h2>{% if current_lang == 'en' %}Four phases. One engineering cycle.{% else %}Vier Phasen. Ein Engineering-Prozess.{% endif %}</h2>
+	<h2>{% if current_lang == 'en' %}Four phases. One engineering cycle.{% else %}Vier Phasen. Ein Entwicklungsprozess.{% endif %}</h2>
 	<div class="project-process">
 		<article class="project-step"><span>01 / {% if current_lang == 'en' %}RESEARCH &amp; CONCEPT{% else %}RECHERCHE &amp; KONZEPT{% endif %}</span><h3>{% if current_lang == 'en' %}Understand before building{% else %}Erst verstehen, dann bauen{% endif %}</h3><p>{% if current_lang == 'en' %}Review the brief, regulations and design options. Set clear goals before choosing a direction.{% else %}Aufgabe, Reglement und Entwürfe prüfen. Klare Ziele setzen, bevor wir uns festlegen.{% endif %}</p></article>
 		<article class="project-step"><span>02 / CAD</span><h3>{% if current_lang == 'en' %}Design and refine{% else %}Konstruieren und optimieren{% endif %}</h3><p>{% if current_lang == 'en' %}Create the digital model and assess aerodynamics, dimensions, weight and manufacturability.{% else %}Das digitale Modell erstellen und Aerodynamik, Maße, Gewicht sowie Fertigbarkeit bewerten.{% endif %}</p></article>

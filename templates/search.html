@@ -12,7 +12,7 @@
 <section class="search-page">
     <p class="section-label">{% if current_lang == 'en' %}SEARCH THE WEBSITE{% else %}WEBSITE DURCHSUCHEN{% endif %}</p>
     <h1>{% if current_lang == 'en' %}What are you looking for?{% else %}Wonach suchst du?{% endif %}</h1>
-    <p class="search-intro">{% if current_lang == 'en' %}Search team, engineering, project progress, partners and more.{% else %}Finde Inhalte zu Team, Engineering, Projektfortschritt, Partnern und mehr.{% endif %}</p>
+    <p class="search-intro">{% if current_lang == 'en' %}Search team, engineering, project progress, partners and more.{% else %}Finde Inhalte zu Team, Konstruktion, Projektfortschritt, Partnern und mehr.{% endif %}</p>
 
     <form class="search-page-form" action="{{ url_for('search') }}" method="get" role="search">
         <input type="hidden" name="lang" value="{{ current_lang }}">

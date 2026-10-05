@@ -13,7 +13,7 @@
     <p class="section-label">{% if current_lang == 'en' %}MEDIA CENTER / SEASON 2026–27{% else %}MEDIA CENTER / SAISON 2026–27{% endif %}</p>
     <h1 id="media-index-title">{% if current_lang == 'en' %}Our project<br>in motion.{% else %}Unser Projekt<br>in Bewegung.{% endif %}</h1>
     <p class="media-intro">{% if current_lang == 'en' %}Updates, videos and photos document our journey from the first idea to the race track.{% else %}Neuigkeiten, Videos und Fotos dokumentieren unseren Weg von der ersten Idee bis zur Rennstrecke.{% endif %}</p>
-    <div class="page-meta"><span>{% if current_lang == 'en' %}SEASON{% else %}SAISON{% endif %}</span><strong>2026 / 27</strong><span>NEWS · VIDEO · FOTO</span></div>
+    <div class="page-meta"><span>{% if current_lang == 'en' %}SEASON{% else %}SAISON{% endif %}</span><strong>2026 / 27</strong><span>{% if current_lang == 'en' %}NEWS · VIDEO · PHOTOS{% else %}NEUIGKEITEN · VIDEO · FOTOS{% endif %}</span></div>
 </section>
 
 <nav class="media-center-grid" aria-label="{% if current_lang == 'en' %}Media categories{% else %}Medienkategorien{% endif %}">
@@ -53,8 +53,8 @@
         </article>
         <article class="media-news-entry">
             <span class="media-news-entry-number">02</span>
-            <div><div class="media-news-entry-meta"><p>DESIGN / ENGINEERING</p><span class="media-news-week">{{ news_weeks['02'] }}</span></div><h3>{% if current_lang == 'en' %}Designing with purpose.{% else %}Mit Plan konstruieren.{% endif %}</h3><span>{% if current_lang == 'en' %}3D CAD in Autodesk Fusion 360 supports the design process; CFD simulations are planned for evaluating future concepts.{% else %}3D-CAD mit Autodesk Fusion 360 unterstützt den Entwurf; CFD-Simulationen sind zur Bewertung künftiger Konzepte geplant.{% endif %}</span></div>
-            <a href="{{ url_for('car', _anchor='car') }}">Engineering</a>
+            <div><div class="media-news-entry-meta"><p>{% if current_lang == 'en' %}DESIGN / ENGINEERING{% else %}DESIGN / KONSTRUKTION{% endif %}</p><span class="media-news-week">{{ news_weeks['02'] }}</span></div><h3>{% if current_lang == 'en' %}Designing with purpose.{% else %}Mit Plan konstruieren.{% endif %}</h3><span>{% if current_lang == 'en' %}3D CAD in Autodesk Fusion 360 supports the design process; CFD simulations are planned for evaluating future concepts.{% else %}3D-CAD mit Autodesk Fusion 360 unterstützt den Entwurf; CFD-Simulationen sind zur Bewertung künftiger Konzepte geplant.{% endif %}</span></div>
+            <a href="{{ url_for('car', _anchor='car') }}">{% if current_lang == 'en' %}Engineering{% else %}Konstruktion{% endif %}</a>
         </article>
         <article class="media-news-entry">
             <span class="media-news-entry-number">03</span>
