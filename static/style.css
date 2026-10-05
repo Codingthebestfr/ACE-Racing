@@ -3434,14 +3434,14 @@ footer { background: #050608; }
     }
 
     .hero-brandline { top: 0; margin-bottom: 12px; }
-    .hero-title-lockup { top: 0; gap: 14px; }
-    .hero-home h1 { gap: .08em; font-size: clamp(58px, 16vw, 76px); }
-    .hero-title-logo { flex-basis: 76px; width: 76px; margin-top: 4px; transform: none; }
+    .hero-title-lockup { top: 0; gap: clamp(10px, 3vw, 14px); }
+    .hero-home h1 { gap: .08em; font-size: clamp(64px, 21vw, 82px); }
+    .hero-title-logo { flex-basis: clamp(84px, 27vw, 104px); width: clamp(84px, 27vw, 104px); margin-top: 4px; transform: none; }
     .hero-kicker { font-size: 10px; letter-spacing: .16em; margin-bottom: 0; }
 
     .hero-description {
         max-width: 36rem;
-        margin-top: 20px;
+        margin-top: 34px;
         font-size: 18px;
         line-height: 1.45;
     }
@@ -3475,6 +3475,5 @@ footer { background: #050608; }
 
 @media (max-width: 420px) {
     .hero-home { padding-top: 40px; padding-bottom: 26px; }
-    .hero-home h1 { font-size: clamp(58px, 18vw, 70px); }
-    .hero-title-logo { flex-basis: 84px; width: 84px; }
+    .hero-home h1 { font-size: clamp(64px, 21vw, 82px); }
 }
