@@ -1362,47 +1362,31 @@ nav a:hover, nav a.is-active, .footer-content a:hover { color: var(--accent); }
     padding: clamp(90px, 12vw, 160px) 10vw 110px;
     overflow: hidden;
     background:
-        radial-gradient(circle at 18% 14%, rgba(255,122,69,.12), transparent 24%),
-        radial-gradient(circle at 84% 26%, rgba(168,85,247,.18), transparent 28%),
-        radial-gradient(circle at 78% 68%, rgba(255,122,69,.12), transparent 30%),
-        linear-gradient(120deg, #070b10 0%, #0d141d 48%, #171d23 100%);
+        linear-gradient(90deg, #05070c 0%, rgba(5,7,12,.97) 25%, rgba(5,7,12,.82) 43%, rgba(5,7,12,.24) 72%, rgba(5,7,12,.12) 100%),
+        url("/static/images/hero-racing-background.svg") center right / cover no-repeat,
+        linear-gradient(112deg, #05070c 0%, #090d16 47%, #12101d 100%);
     box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
 }
 
 .hero-home::before {
     content: "";
     position: absolute;
-    inset: 0 0 0 46%;
-    opacity: 0.38;
-    background: repeating-linear-gradient(90deg, transparent 0 74px, rgba(255,255,255,.06) 75px 76px), repeating-linear-gradient(0deg, transparent 0 74px, rgba(255,255,255,.06) 75px 76px);
-    transform: skewX(-18deg) translateX(10%);
+    inset: 0 0 0 38%;
+    opacity: .62;
+    background: linear-gradient(90deg, transparent 25%, rgba(5,7,12,.05) 60%, rgba(5,7,12,.3));
+    pointer-events: none;
 }
 
 .hero-home::after { background: var(--accent); height: 4px; }
-.hero-brandline { position: relative; display: flex; align-items: flex-start; gap: clamp(24px, 4vw, 52px); height: 20px; margin-bottom: 24px; overflow: visible; }
-.hero-brandline .hero-kicker { flex: 0 1 auto; margin: 0; }
-.hero-logo { display: block; flex: 0 0 140px; width: 140px; height: 140px; object-fit: contain; }
-.hero-kicker { display: flex; align-items: center; gap: 10px; color: var(--accent-soft); font-size: 12px; letter-spacing: .2em; font-weight: 700; margin-bottom: 24px; font-family: var(--display); }
+.hero-brandline { position: relative; top: -28px; margin-bottom: 20px; }
+.hero-brandline .hero-kicker { margin: 0; }
+.hero-kicker { display: flex; align-items: center; gap: 10px; color: var(--accent-soft); font-size: 10px; letter-spacing: .18em; font-weight: 700; margin-bottom: 24px; font-family: "Trebuchet MS", Arial, sans-serif; }
 .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 6px rgba(168,85,247,.16); }
-.hero-home h1 { font-family: var(--display); font-size: clamp(72px, 11vw, 166px); letter-spacing: -.07em; line-height: .82; text-transform: uppercase; font-weight: 600; }
-.hero-home h1 .hero-word {
-    display: inline-block;
-    color: #f6f7f8;
-    font-size: 0.42em;
-    letter-spacing: -0.03em;
-    white-space: nowrap;
-    text-shadow: 0 0 18px rgba(255,255,255,.08);
-    font-weight: 600;
-}
-
-.hero-home h1 .hero-initial {
-    display: inline-block;
-    color: var(--accent);
-    font-size: 2.38em;
-    letter-spacing: -0.065em;
-    text-shadow: 0 0 18px rgba(168,85,247,.22);
-    font-weight: 700;
-}
+.hero-title-lockup { position: relative; top: -12px; display: flex; align-items: flex-start; gap: clamp(18px, 2.5vw, 34px); }
+.hero-home h1 { display: flex; flex: 0 1 auto; flex-direction: column; align-items: flex-start; gap: 0; margin: 0; font-family: "Trebuchet MS", Arial, sans-serif; font-size: clamp(72px, 9vw, 136px); font-style: italic; font-weight: 900; letter-spacing: -.075em; line-height: .74; white-space: nowrap; }
+.hero-home h1 .hero-title-ace { color: #f6f7f8; font-family: "Trebuchet MS", Arial, sans-serif; font-size: 1em; font-style: italic; font-weight: 900; letter-spacing: -.09em; line-height: .8; transform: none; }
+.hero-title-racing { color: var(--accent); font-size: .72em; font-style: italic; font-weight: 900; letter-spacing: -.045em; line-height: .9; }
+.hero-title-logo { display: block; flex: 0 0 clamp(84px, 8vw, 112px); width: clamp(84px, 8vw, 112px); height: auto; margin-top: 8px; object-fit: contain; transform: translateY(-34px); filter: drop-shadow(0 8px 18px rgba(0, 0, 0, .25)); }
 .hero-description {
     max-width: 560px;
     margin-top: 18px;
@@ -1777,21 +1761,15 @@ footer { background: #050608; }
     .home-team-photo img { min-height: 0; }
     .hero-home {
         padding: 72px 6vw 220px;
+        background-image:
+            linear-gradient(90deg, rgba(5,7,12,.96), rgba(5,7,12,.76) 54%, rgba(5,7,12,.36)),
+            url("/static/images/hero-racing-background.svg"),
+            linear-gradient(112deg, #05070c 0%, #090d16 47%, #12101d 100%);
+        background-position: center, 58% center, center;
     }
-    .hero-home h1 {
-        font-size: clamp(44px, 17vw, 92px);
-        line-height: 0.9;
-        letter-spacing: -0.06em;
-    }
-    .hero-home h1 br { display: none; }
-    .hero-home h1 .hero-word {
-        display: block;
-        white-space: normal;
-        line-height: 0.9;
-    }
-    .hero-home h1 .hero-initial {
-        font-size: 2.1em;
-    }
+    .hero-title-lockup { gap: 12px; }
+    .hero-home h1 { gap: .28em; font-size: clamp(40px, 10.5vw, 76px); }
+    .hero-title-logo { flex-basis: 58px; width: 58px; }
     .hero-kicker {
         font-size: 10px;
         letter-spacing: .16em;
@@ -1929,6 +1907,7 @@ footer { background: #050608; }
 
     .hero-home .hero-content {
         max-width: 760px;
+        transform: translateY(-42px);
     }
 
     .hero-home h1 {
@@ -1989,9 +1968,8 @@ footer { background: #050608; }
     .navbar nav.is-open a { width: 100%; padding: 13px 0; border-bottom: 1px solid rgba(255, 255, 255, .1); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
     .navbar .nav-more > button { width: 100%; justify-content: space-between; padding: 13px 0; border-bottom: 1px solid rgba(255, 255, 255, .1); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
     .navbar .nav-more-menu { position: static; min-width: 0; padding: 0 0 0 16px; border: 0; box-shadow: none; background: transparent; }
-    .hero-brandline { gap: 16px; }
-    .hero-brandline .hero-kicker { font-size: 10px; letter-spacing: .14em; }
-    .hero-logo { flex-basis: 100px; width: 100px; height: 100px; }
+    .hero-brandline { margin-bottom: 18px; }
+    .hero-brandline .hero-kicker { font-size: 9px; letter-spacing: .14em; }
 }
 
 @media (min-width: 1101px) and (max-width: 1250px) {
@@ -2066,14 +2044,21 @@ footer { background: #050608; }
         width: 100%;
     }
 
-    .hero-brandline { gap: 20px; margin-bottom: 22px; }
-    .hero-logo { flex-basis: 96px; width: 96px; height: 96px; }
+    .hero-home {
+        background-position: center, 62% center, center;
+    }
 
+    .hero-brandline { margin-bottom: 18px; }
+
+    .hero-title-lockup { width: 100%; gap: 12px; }
     .hero-home h1 {
-        max-width: 100%;
-        font-size: clamp(62px, 19vw, 100px);
+        width: max-content;
+        max-width: calc(100% - 70px);
+        min-width: 0;
+        font-size: clamp(36px, 11vw, 76px);
         overflow-wrap: normal;
     }
+    .hero-title-logo { flex-basis: 58px; width: 58px; }
 
     .hero-description {
         max-width: 34rem;
@@ -3157,19 +3142,6 @@ footer { background: #050608; }
     .search-page-form { height: 56px; padding-left: 13px; }
     .search-result h2 { font-size: 22px; }
     .search-suggestions ul { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 600px) {
-    .hero-brandline { gap: 12px; height: auto; min-height: 68px; margin-bottom: 18px; }
-    .hero-brandline .hero-kicker { font-size: 9px; letter-spacing: .12em; }
-    .hero-logo { flex-basis: 68px; width: 68px; height: 68px; }
-}
-
-@media (max-width: 360px) {
-    .hero-brandline { gap: 10px; }
-    .hero-brandline { min-height: 56px; }
-    .hero-brandline .hero-kicker { font-size: 8px; letter-spacing: .1em; }
-    .hero-logo { flex-basis: 56px; width: 56px; height: 56px; }
 }
 
 .media-photo-slots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 1500px; margin: 0 auto; }

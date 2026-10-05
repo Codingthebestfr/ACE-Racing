@@ -2,7 +2,7 @@
 
 {% block title %}
 
-{% if current_lang == 'en' %}Contact | A.C.E. Racing{% else %}Kontakt | A.C.E. Racing{% endif %}
+{% if current_lang == 'en' %}Contact | ACE Racing{% else %}Kontakt | ACE Racing{% endif %}
 
 {% endblock %}
 
@@ -10,11 +10,11 @@
 
 {% if current_lang == 'en' %}
 
-Contact A.C.E. Racing, the STEM Racing team from Aachen, for questions, partnerships and project inquiries.
+Contact ACE Racing, the STEM Racing team from Aachen, for questions, partnerships and project inquiries.
 
 {% else %}
 
-Kontaktiere A.C.E. Racing, das STEM-Racing-Team aus Aachen, für Fragen, Partnerschaften und Anfragen zu unserem Projekt.
+Kontaktiere ACE Racing, das STEM-Racing-Team aus Aachen, für Fragen, Partnerschaften und Anfragen zu unserem Projekt.
 
 {% endif %}
 
@@ -22,7 +22,7 @@ Kontaktiere A.C.E. Racing, das STEM-Racing-Team aus Aachen, für Fragen, Partner
 
 {% block og_title %}
 
-{% if current_lang == 'en' %}Contact | A.C.E. Racing{% else %}Kontakt | A.C.E. Racing{% endif %}
+{% if current_lang == 'en' %}Contact | ACE Racing{% else %}Kontakt | ACE Racing{% endif %}
 
 {% endblock %}
 
@@ -30,11 +30,11 @@ Kontaktiere A.C.E. Racing, das STEM-Racing-Team aus Aachen, für Fragen, Partner
 
 {% if current_lang == 'en' %}
 
-Get in touch with A.C.E. Racing for partnerships, sponsorships and questions about our STEM Racing project.
+Get in touch with ACE Racing for partnerships, sponsorships and questions about our STEM Racing project.
 
 {% else %}
 
-Nimm Kontakt mit A.C.E. Racing auf – für Partnerschaften, Sponsoring und Fragen zu unserem STEM-Racing-Projekt.
+Nimm Kontakt mit ACE Racing auf – für Partnerschaften, Sponsoring und Fragen zu unserem STEM-Racing-Projekt.
 
 {% endif %}
 
@@ -46,10 +46,10 @@ Nimm Kontakt mit A.C.E. Racing auf – für Partnerschaften, Sponsoring und Frag
         <div class="contact-hero-copy">
             <p class="section-label">{% if current_lang == 'en' %}DIRECT LINE{% else %}DIREKTER DRAHT{% endif %}</p>
             <h1>{% if current_lang == 'en' %}Let's talk.{% else %}Lassen Sie uns sprechen.{% endif %}</h1>
-            <p class="contact-hero-intro">{% if current_lang == 'en' %}Questions about our project, an idea for collaboration or simply curious about A.C.E? We are ready to hear from you.{% else %}Fragen zu unserem Projekt, eine Idee für eine Zusammenarbeit oder einfach neugierig auf A.C.E? Wir freuen uns auf Ihre Nachricht.{% endif %}</p>
+            <p class="contact-hero-intro">{% if current_lang == 'en' %}Questions about our project, an idea for collaboration or simply curious about ACE Racing? We are ready to hear from you.{% else %}Fragen zu unserem Projekt, eine Idee für eine Zusammenarbeit oder einfach neugierig auf ACE Racing? Wir freuen uns auf Ihre Nachricht.{% endif %}</p>
         </div>
         <div class="contact-hero-meta">
-            <span>TEAM</span><strong>A.C.E</strong>
+            <span>TEAM</span><strong>ACE</strong>
             <span>{% if current_lang == 'en' %}BASE{% else %}STANDORT{% endif %}</span><strong>EINHARD-GYMNASIUM AACHEN</strong>
             <span>{% if current_lang == 'en' %}SEASON{% else %}SAISON{% endif %}</span><strong>2026 / 27</strong>
         </div>
@@ -62,7 +62,7 @@ Nimm Kontakt mit A.C.E. Racing auf – für Partnerschaften, Sponsoring und Frag
             <p>{% if current_lang == 'en' %}Send a message directly to the team from this page. Your existing email and phone contacts remain available below.{% else %}Senden Sie dem Team direkt über diese Seite eine Nachricht. E-Mail- und Telefonkontakte bleiben weiter unten verfügbar.{% endif %}</p>
         </div>
         {% if contact_status == 'success' %}
-            <p class="contact-form-feedback is-success" role="status">{% if current_lang == 'en' %}Message sent. The A.C.E. team will get back to you.{% else %}Nachricht gesendet. Das A.C.E.-Team meldet sich bei Ihnen.{% endif %}</p>
+            <p class="contact-form-feedback is-success" role="status">{% if current_lang == 'en' %}Message sent. The ACE Racing team will get back to you.{% else %}Nachricht gesendet. Das Team von ACE Racing meldet sich bei Ihnen.{% endif %}</p>
         {% elif contact_status == 'unavailable' %}
             <p class="contact-form-feedback" role="alert">{% if current_lang == 'en' %}Online delivery is temporarily unavailable. Please use the team email or phone details on this page.{% else %}Der Online-Versand ist gerade nicht verfügbar. Bitte nutzen Sie die E-Mail-Adresse oder Telefonnummer auf dieser Seite.{% endif %}</p>
         {% elif contact_status == 'invalid' %}
@@ -87,7 +87,7 @@ Nimm Kontakt mit A.C.E. Racing auf – für Partnerschaften, Sponsoring und Frag
                 </select>
             </label>
             <label class="form-message">{% if current_lang == 'en' %}Message *{% else %}Nachricht *{% endif %}<textarea name="message" rows="5" maxlength="5000" required></textarea></label>
-            <label class="form-consent"><input type="checkbox" name="privacy_consent" value="yes" required><span>{% if current_lang == 'en' %}I have read the <a href="{{ url_for('datenschutz') }}">privacy information</a> and agree to send these details to A.C.E. Racing by email so the team can reply.{% else %}Ich habe die <a href="{{ url_for('datenschutz') }}">Datenschutzhinweise</a> gelesen und bin damit einverstanden, diese Angaben per E-Mail an A.C.E. Racing zu senden, damit das Team antworten kann.{% endif %}</span></label>
+            <label class="form-consent"><input type="checkbox" name="privacy_consent" value="yes" required><span>{% if current_lang == 'en' %}I have read the <a href="{{ url_for('datenschutz') }}">privacy information</a> and agree to send these details to ACE Racing by email so the team can reply.{% else %}Ich habe die <a href="{{ url_for('datenschutz') }}">Datenschutzhinweise</a> gelesen und bin damit einverstanden, diese Angaben per E-Mail an ACE Racing zu senden, damit das Team antworten kann.{% endif %}</span></label>
             <button class="button" type="submit">{% if current_lang == 'en' %}Send message{% else %}Nachricht senden{% endif %}</button>
         </form>
     </section>

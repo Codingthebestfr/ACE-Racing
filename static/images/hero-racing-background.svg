@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="800" y1="0" x2="800" y2="530" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#100c20"/>
+      <stop offset=".42" stop-color="#53218c"/>
+      <stop offset=".72" stop-color="#bd63ff"/>
+      <stop offset="1" stop-color="#12101d"/>
+    </linearGradient>
+    <linearGradient id="track" x1="830" y1="540" x2="830" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#251634"/>
+      <stop offset="1" stop-color="#05070c"/>
+    </linearGradient>
+    <filter id="blur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1600v560H0z"/>
+  <path fill="#db8aff" fill-opacity=".4" filter="url(#blur)" d="M390 315c230-177 519-200 838-92-180 43-265 89-404 137-176 61-302 56-434-45Z"/>
+  <path fill="url(#track)" d="M0 533c321-31 575-12 837 42 309 63 558 63 763 5v320H0z"/>
+  <g stroke="#c084fc" stroke-opacity=".65" stroke-width="3">
+    <path d="m825 556-385 344M1014 567l-97 333M1196 574l132 326M1390 570l373 330"/>
+    <path stroke-opacity=".35" d="M0 668h1600M0 760h1600M0 846h1600"/>
+  </g>
+</svg>

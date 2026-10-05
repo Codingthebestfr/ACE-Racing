@@ -41,23 +41,23 @@ SEARCH_STOP_WORDS = {
 SEARCH_FAQS = {
     "de": (
         {"question": "Was ist STEM Racing?", "answer": "Ein internationaler, von Formula 1 unterstützter Bildungswettbewerb. Teams entwerfen, bauen, testen und präsentieren Miniatur-Rennwagen.", "keywords": "wettbewerb formel 1 rennwagen schule", "endpoint": "about"},
-        {"question": "Wer ist A.C.E. Racing?", "answer": "Wir sind das fünfköpfige STEM-Racing-Team des Einhard-Gymnasiums Aachen für die Saison 2026/27.", "keywords": "team mitglieder schüler aachen schule", "endpoint": "team"},
+        {"question": "Wer ist ACE Racing?", "answer": "Wir sind das fünfköpfige STEM-Racing-Team des Einhard-Gymnasiums Aachen für die Saison 2026/27.", "keywords": "team mitglieder schüler aachen schule", "endpoint": "team"},
         {"question": "Was entwickelt das Team?", "answer": "Wir entwickeln einen kompakten Rennwagen. Dazu gehören CAD-Konstruktion mit Autodesk Fusion 360, 3D-Druck von Prototypen, Tests und Optimierung.", "keywords": "auto projekt konstruktion cad fusion 360 prototyping 3d druck", "endpoint": "car"},
         {"question": "Wie ist der aktuelle Projektstand?", "answer": "Das Team befindet sich in der frühen Projektphase und arbeitet an Recherche, Projektdokumentation, Konzeptideen und dem ersten Prototyp.", "keywords": "fortschritt status aktueller stand prototype prototyp", "endpoint": "car"},
-        {"question": "Wie kann ich A.C.E. Racing unterstützen?", "answer": "Auf der Sponsoren-Seite erklären wir, wie Unternehmen und Partner das STEM-Racing-Projekt unterstützen können.", "keywords": "sponsor partner sponsoring unterstützen", "endpoint": "sponsors"},
+        {"question": "Wie kann ich ACE Racing unterstützen?", "answer": "Auf der Sponsoren-Seite erklären wir, wie Unternehmen und Partner das STEM-Racing-Projekt unterstützen können.", "keywords": "sponsor partner sponsoring unterstützen", "endpoint": "sponsors"},
         {"question": "Wie kann ich das Team kontaktieren?", "answer": "Nutze das Kontaktformular oder die veröffentlichten Kontaktdaten auf der Kontaktseite.", "keywords": "email telefon nachricht kontakt erreichen", "endpoint": "contact"},
         {"question": "Welche Aufgaben hat das Team?", "answer": "Die Aufgaben umfassen Konstruktion, Produktion, IT, Forschung und Entwicklung sowie Grafik, Medien und Kommunikation.", "keywords": "rollen aufgaben it marketing grafik konstruktion produktion", "endpoint": "team"},
-        {"question": "Wo ist A.C.E. Racing zuhause?", "answer": "A.C.E. Racing ist das Team des Einhard-Gymnasiums in Aachen.", "keywords": "adresse standort schule einhard", "endpoint": "impressum"},
+        {"question": "Wo ist ACE Racing zuhause?", "answer": "ACE Racing ist das Team des Einhard-Gymnasiums in Aachen.", "keywords": "adresse standort schule einhard", "endpoint": "impressum"},
     ),
     "en": (
         {"question": "What is STEM Racing?", "answer": "An international, Formula 1-endorsed education competition. Teams design, build, test and present miniature race cars.", "keywords": "competition formula 1 race car school", "endpoint": "about"},
-        {"question": "Who is A.C.E. Racing?", "answer": "We are the five-member STEM Racing team of Einhard-Gymnasium Aachen for the 2026/27 season.", "keywords": "team members students aachen school", "endpoint": "team"},
+        {"question": "Who is ACE Racing?", "answer": "We are the five-member STEM Racing team of Einhard-Gymnasium Aachen for the 2026/27 season.", "keywords": "team members students aachen school", "endpoint": "team"},
         {"question": "What is the team developing?", "answer": "We are developing a compact race car, including CAD design in Autodesk Fusion 360, 3D-printed prototypes, testing and optimisation.", "keywords": "car project engineering cad fusion 360 prototyping 3d print", "endpoint": "car"},
         {"question": "What is the current project status?", "answer": "The team is in the early project phase, working on research, documentation, concept ideas and its first prototype.", "keywords": "progress status prototype", "endpoint": "car"},
-        {"question": "How can I support A.C.E. Racing?", "answer": "The Sponsors page explains how companies and partners can support the STEM Racing project.", "keywords": "sponsor partner sponsorship support", "endpoint": "sponsors"},
+        {"question": "How can I support ACE Racing?", "answer": "The Sponsors page explains how companies and partners can support the STEM Racing project.", "keywords": "sponsor partner sponsorship support", "endpoint": "sponsors"},
         {"question": "How can I contact the team?", "answer": "Use the contact form or the published contact details on the Contact page.", "keywords": "email phone message contact reach", "endpoint": "contact"},
         {"question": "What does the team work on?", "answer": "Responsibilities include construction, production, IT, research and development, graphics, media and communication.", "keywords": "roles responsibilities it marketing graphics construction production", "endpoint": "team"},
-        {"question": "Where is A.C.E. Racing based?", "answer": "A.C.E. Racing is the team of Einhard-Gymnasium in Aachen, Germany.", "keywords": "address location school einhard", "endpoint": "impressum"},
+        {"question": "Where is ACE Racing based?", "answer": "ACE Racing is the team of Einhard-Gymnasium in Aachen, Germany.", "keywords": "address location school einhard", "endpoint": "impressum"},
     ),
 }
 
@@ -124,8 +124,8 @@ def _search_snippet(text, query):
 
 TRANSLATIONS = {
     "de": {
-        "site_name": "A.C.E.",
-        "home_aria_label": "A.C.E. Racing am Einhard-Gymnasium Aachen, Startseite",
+        "site_name": "ACE",
+        "home_aria_label": "ACE Racing am Einhard-Gymnasium Aachen, Startseite",
         "main_navigation": "Hauptnavigation",
         "language_switch": "Sprachauswahl",
         "nav_home": "Home",
@@ -224,12 +224,12 @@ TRANSLATIONS = {
         "footer_all_impressum": "Alle Impressumsangaben",
         "footer_team_email": "Team Email",
         "footer_phone": "Telefon",
-        "copyright": "© 2026 A.C.E. Racing",
+        "copyright": "© 2026 ACE Racing",
         "legal_notice": "Impressum",
         "legal_intro": "Kontakt und Anschrift unseres STEM-Racing-Teams.",
-        "legal_title": "A.C.E. Racing",
+        "legal_title": "ACE Racing",
         "legal_contact": "Kontakt",
-        "legal_box_title": "A.C.E. Racing",
+        "legal_box_title": "ACE Racing",
         "car_page_title": "Unser Auto",
         "car_header": "Unser Auto",
         "car_intro": "Vom ersten Entwurf bis zur Rennstrecke: jedes Detail entsteht mit einem klaren Ziel.",
@@ -246,8 +246,8 @@ TRANSLATIONS = {
         "lang_en": "EN"
     },
     "en": {
-        "site_name": "A.C.E.",
-        "home_aria_label": "A.C.E. Racing at Einhard-Gymnasium Aachen home page",
+        "site_name": "ACE",
+        "home_aria_label": "ACE Racing at Einhard-Gymnasium Aachen home page",
         "main_navigation": "Main navigation",
         "language_switch": "Language selection",
         "nav_home": "Home",
@@ -346,12 +346,12 @@ TRANSLATIONS = {
         "footer_all_impressum": "All legal information",
         "footer_team_email": "Team email",
         "footer_phone": "Phone",
-        "copyright": "© 2026 A.C.E. Racing",
+        "copyright": "© 2026 ACE Racing",
         "legal_notice": "Legal notice",
         "legal_intro": "Contact details and address of our STEM Racing team.",
-        "legal_title": "A.C.E. Racing",
+        "legal_title": "ACE Racing",
         "legal_contact": "Contact",
-        "legal_box_title": "A.C.E. Racing",
+        "legal_box_title": "ACE Racing",
         "car_page_title": "Our car",
         "car_header": "Our car",
         "car_intro": "From the first concept to the race track: every detail is created with a clear goal.",
@@ -569,9 +569,9 @@ def contact():
             return render_template("contact.html", contact_status="unavailable"), 503
 
         email_data = {
-            "from": "A.C.E. Racing <contact@ace-racing.de>",
+            "from": "ACE Racing <contact@ace-racing.de>",
             "to": [recipient],
-            "subject": f"A.C.E. website inquiry: {topic}",
+            "subject": f"ACE website inquiry: {topic}",
             "reply_to": email,
             "text": (
                 f"Name: {name}\n"
@@ -590,7 +590,7 @@ def contact():
             headers={
                 "Authorization": f"Bearer {resend_api_key}",
                 "Content-Type": "application/json",
-                "User-Agent": "A.C.E.-Racing-Website/1.0 (+https://ace-racing.de)",
+                "User-Agent": "ACE-Racing-Website/1.0 (+https://ace-racing.de)",
             },
             method="POST",
         )

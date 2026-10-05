@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
-{% block title %}{% if current_lang == 'en' %}Media Center | A.C.E. Racing{% else %}Media Center | A.C.E. Racing{% endif %}{% endblock %}
+{% block title %}{% if current_lang == 'en' %}Media Center | ACE Racing{% else %}Media Center | ACE Racing{% endif %}{% endblock %}
 
-{% block meta_description %}{% if current_lang == 'en' %}News, videos and photos from A.C.E. Racing.{% else %}Neuigkeiten, Videos und Fotos von A.C.E. Racing.{% endif %}{% endblock %}
+{% block meta_description %}{% if current_lang == 'en' %}News, videos and photos from ACE Racing.{% else %}Neuigkeiten, Videos und Fotos von ACE Racing.{% endif %}{% endblock %}
 
-{% block og_title %}{% if current_lang == 'en' %}Media Center | A.C.E. Racing{% else %}Media Center | A.C.E. Racing{% endif %}{% endblock %}
+{% block og_title %}{% if current_lang == 'en' %}Media Center | ACE Racing{% else %}Media Center | ACE Racing{% endif %}{% endblock %}
 
-{% block og_description %}{% if current_lang == 'en' %}Follow the progress of A.C.E. Racing through news, videos and photos.{% else %}Verfolge die Entwicklung von A.C.E. Racing mit Neuigkeiten, Videos und Fotos.{% endif %}{% endblock %}
+{% block og_description %}{% if current_lang == 'en' %}Follow the progress of ACE Racing through news, videos and photos.{% else %}Verfolge die Entwicklung von ACE Racing mit Neuigkeiten, Videos und Fotos.{% endif %}{% endblock %}
 
 {% block content %}
 <section class="page-header media-header" aria-labelledby="media-index-title">
@@ -89,17 +89,17 @@
     <div class="media-photo-slots">
         <figure class="media-photo-slot media-photo-slot--image" id="chassis-rendering">
             <span class="media-slot-number">01</span>
-            <img src="{{ url_for('static', filename='images/Chassis Rendering 1.jpeg') }}" alt="{% if current_lang == 'en' %}First rendering of chassis parts designed by A.C.E. Racing{% else %}Erstes Rendering der von A.C.E. Racing entworfenen Chassisteile{% endif %}">
+            <img src="{{ url_for('static', filename='images/Chassis Rendering 1.jpeg') }}" alt="{% if current_lang == 'en' %}First rendering of chassis parts designed by ACE Racing{% else %}Erstes Rendering der von ACE Racing entworfenen Chassisteile{% endif %}">
             <figcaption><span>{% if current_lang == 'en' %}CHASSIS / FIRST DESIGN{% else %}CHASSIS / ERSTER ENTWURF{% endif %}</span><strong>{% if current_lang == 'en' %}Chassis rendering 01{% else %}Chassis-Rendering 01{% endif %}</strong></figcaption>
         </figure>
         <figure class="media-photo-slot media-photo-slot--image">
             <span class="media-slot-number">02</span>
-            <img src="{{ url_for('static', filename='images/Chassis1(02).jpeg') }}" alt="{% if current_lang == 'en' %}Second chassis rendering by A.C.E. Racing{% else %}Zweites Chassis-Rendering von A.C.E. Racing{% endif %}">
+            <img src="{{ url_for('static', filename='images/Chassis1(02).jpeg') }}" alt="{% if current_lang == 'en' %}Second chassis rendering by ACE Racing{% else %}Zweites Chassis-Rendering von ACE Racing{% endif %}">
             <figcaption><span>{% if current_lang == 'en' %}CHASSIS / DESIGN{% else %}CHASSIS / DESIGN{% endif %}</span><strong>Chassis-Rendering 02</strong></figcaption>
         </figure>
         <figure class="media-photo-slot media-photo-slot--image">
             <span class="media-slot-number">03</span>
-            <img src="{{ url_for('static', filename='images/Chassis1(03).jpeg') }}" alt="{% if current_lang == 'en' %}Third chassis rendering by A.C.E. Racing{% else %}Drittes Chassis-Rendering von A.C.E. Racing{% endif %}">
+            <img src="{{ url_for('static', filename='images/Chassis1(03).jpeg') }}" alt="{% if current_lang == 'en' %}Third chassis rendering by ACE Racing{% else %}Drittes Chassis-Rendering von ACE Racing{% endif %}">
             <figcaption><span>{% if current_lang == 'en' %}CHASSIS / DESIGN{% else %}CHASSIS / DESIGN{% endif %}</span><strong>Chassis-Rendering 03</strong></figcaption>
         </figure>
         <figure class="media-photo-slot" role="img" aria-label="{% if current_lang == 'en' %}Empty photo placeholder for prototype and manufacturing{% else %}Leerer Fotoplatz für Prototyp und Fertigung{% endif %}">
@@ -107,7 +107,7 @@
             <span class="media-slot-mark" aria-hidden="true">+</span>
             <figcaption><span>{% if current_lang == 'en' %}BUILD / PROTOTYPE{% else %}BAU / PROTOTYP{% endif %}</span><strong>{% if current_lang == 'en' %}Add a photo{% else %}Foto einfügen{% endif %}</strong></figcaption>
         </figure>
-        <figure class="media-photo-slot media-photo-slot--filled" role="img" aria-label="{% if current_lang == 'en' %}Team photo of A.C.E. Racing{% else %}Teamfoto von A.C.E. Racing{% endif %}">
+        <figure class="media-photo-slot media-photo-slot--filled" role="img" aria-label="{% if current_lang == 'en' %}Team photo of ACE Racing{% else %}Teamfoto von ACE Racing{% endif %}">
             <span class="media-slot-number">05</span>
             <figcaption><span>{% if current_lang == 'en' %}TEAM / ACE{% else %}TEAM / ACE{% endif %}</span><strong>{% if current_lang == 'en' %}Team photo{% else %}Teamfoto{% endif %}</strong></figcaption>
         </figure>
