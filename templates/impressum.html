@@ -79,6 +79,36 @@ Rechtliche Informationen und Kontaktdaten von ACE Racing.
             {% if current_lang == 'en' %}Get directions{% else %}Jetzt anreisen{% endif %}
         </a>
 
+        <h2>
+            {% if current_lang == 'en' %}Copyright and use of content{% else %}Urheberrecht und Nutzung von Inhalten{% endif %}
+        </h2>
+
+        {% if current_lang == 'en' %}
+        <p>
+            Unless otherwise indicated, the texts, photographs, graphics and web design published on this website are protected by copyright. Copyright remains with the respective authors; usage rights may be held by the respective rights holders. Third-party content remains subject to the rights of its respective rights holders.
+        </p>
+
+        <p>
+            Reproduction, adaptation, publication or other use beyond the limits permitted by law requires the prior consent of the relevant rights holder. Please direct enquiries about using content to <a href="mailto:contact@ace-racing.de">contact@ace-racing.de</a>.
+        </p>
+
+        <p>
+            In the event of unauthorised use, rights holders may assert the remedies available to them under applicable law. Criminal prosecution is subject to the applicable legal requirements and does not occur automatically.
+        </p>
+        {% else %}
+        <p>
+            Die auf dieser Website veröffentlichten Texte, Fotos, Grafiken und das Webdesign sind, soweit nicht anders gekennzeichnet, urheberrechtlich geschützt. Das Urheberrecht liegt bei den jeweiligen Urheberinnen und Urhebern; Nutzungsrechte können den jeweiligen Rechteinhabern zustehen. Für Inhalte Dritter gelten die Rechte der jeweiligen Rechteinhaber.
+        </p>
+
+        <p>
+            Vervielfältigung, Bearbeitung, Veröffentlichung oder sonstige Nutzung außerhalb der gesetzlich zulässigen Schranken bedarf der vorherigen Zustimmung der jeweils Rechteinhabenden. Anfragen zur Nutzung von Inhalten bitte an <a href="mailto:contact@ace-racing.de">contact@ace-racing.de</a>.
+        </p>
+
+        <p>
+            Bei einer unberechtigten Nutzung können die Rechteinhaber die ihnen nach geltendem Recht zustehenden Ansprüche geltend machen. Eine strafrechtliche Verfolgung setzt die gesetzlichen Voraussetzungen voraus und erfolgt nicht automatisch.
+        </p>
+        {% endif %}
+
     </div>
 
     <div class="info-box impressum-contact">
