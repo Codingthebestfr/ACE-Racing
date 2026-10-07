@@ -1811,6 +1811,7 @@ footer { background: #050608; }
     .legacy-strip article { min-height: 128px; }
     .roadmap-track li { width: 235px; padding-right: 24px; }
     .roadmap-track h3 { font-size: 20px; }
+    .competition-track h3 { font-size: 14px; }
     .legacy-event { grid-template-columns: 1fr; gap: 12px; padding: 28px 0; }
     .legacy-year { font-size: 30px; }
     .project-progress-cta { margin-left: 7%; margin-right: 7%; padding: 22px 18px; }
