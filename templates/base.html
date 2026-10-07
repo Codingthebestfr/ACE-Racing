@@ -16,6 +16,12 @@
     <meta property="og:title" content="{% block og_title %}ACE Racing – STEM Racing Team aus Aachen{% endblock %}">
     <meta property="og:description" content="{% block og_description %}ACE Racing entwickelt als STEM-Racing-Team in Aachen einen eigenen Rennwagen.{% endblock %}">
 
+    {% if request.endpoint == 'home' %}
+    <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"WebSite","name":"ACE Racing","alternateName":"ACE Racing Aachen","url":"https://ace-racing.de/"}
+    </script>
+    {% endif %}
+
     <meta name="google-site-verification" content="cPE7UnuxALZNXwSe5Zkk_JAuQYZfw4GBz-4qrTUoSp0">
 
     <title>{% block title %}ACE Racing – STEM Racing Team aus Aachen{% endblock %}</title>
