@@ -1991,10 +1991,30 @@ footer { background: #050608; }
     .hero-brandline .hero-kicker { font-size: 9px; letter-spacing: .14em; }
 }
 
-@media (min-width: 1101px) and (max-width: 1250px) {
-    .navbar { padding-right: 2.5vw; padding-left: 2.5vw; }
-    .navbar .site-search { flex-basis: 170px; margin-left: 12px; }
-    .navbar nav { gap: 14px; margin-right: 14px; }
+@media (min-width: 1101px) and (max-width: 1365px) {
+    .navbar {
+        gap: 12px;
+        padding-right: 3vw;
+        padding-left: 3vw;
+    }
+    .navbar .logo { gap: 8px; font-size: clamp(20px, 1.7vw, 23px); }
+    .navbar .school-seal { flex-basis: 42px; width: 42px; height: 42px; }
+    .navbar .site-search { flex-basis: clamp(140px, 12vw, 165px); margin-left: 8px; }
+    .navbar nav { gap: clamp(8px, .9vw, 12px); margin-right: 10px; }
+    .navbar nav a,
+    .navbar .nav-more > button { font-size: clamp(9px, .78vw, 10px); letter-spacing: .05em; white-space: nowrap; }
+
+    .hero-home {
+        grid-template-columns: minmax(0, 1.2fr) minmax(250px, .8fr);
+        column-gap: clamp(32px, 4vw, 54px);
+        padding-right: 7vw;
+        padding-left: 7vw;
+    }
+    .hero-home .hero-content { transform: translateY(-24px); }
+    .hero-home h1 { font-size: clamp(72px, 8vw, 108px); }
+    .hero-title-logo { flex-basis: clamp(110px, 8.5vw, 124px); width: clamp(110px, 8.5vw, 124px); }
+    .hero-description { font-size: clamp(21px, 1.8vw, 24px); }
+    .hero-buttons .button { padding: 15px 20px; }
 }
 
 /* =========================================
