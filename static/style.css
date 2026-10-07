@@ -999,6 +999,136 @@ footer {
     font-size: 16px;
 }
 
+.team-card-roles {
+    display: grid;
+    gap: 7px;
+    margin: 0 0 0 2px;
+    padding: 0;
+    list-style: none;
+}
+
+.team-card-roles li {
+    position: relative;
+    padding-left: 14px;
+    color: #c3bacd;
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.team-card-roles li::before {
+    position: absolute;
+    top: .48em;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    content: "";
+}
+
+.team-section .team-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 58px 34px;
+}
+
+.team-section .team-card {
+    grid-column: span 2;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    transition: none;
+}
+
+.team-section .team-card::before {
+    display: none;
+}
+
+.team-section .team-card:hover {
+    transform: none;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+}
+
+.team-section .team-card:nth-last-child(2) {
+    grid-column: 2 / span 2;
+}
+
+.team-section .team-card:last-child {
+    grid-column: 4 / span 2;
+}
+
+.team-section .team-person-photo {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    margin: 0 0 22px;
+    border: 0;
+    border-radius: 3px;
+    background: #11161d;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .16);
+}
+
+.team-section .team-person-photo img {
+    filter: saturate(.88);
+    transition: filter .3s ease;
+}
+
+.team-section .team-person-photo::after {
+    position: absolute;
+    inset: 35% 0 0;
+    background: linear-gradient(180deg, transparent, rgba(5, 7, 10, .38));
+    content: "";
+    pointer-events: none;
+}
+
+.team-section .team-number {
+    margin: 0 0 10px;
+    color: var(--accent-soft);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .14em;
+}
+
+.team-section .team-card:hover .team-person-photo img {
+    filter: saturate(1);
+}
+
+.team-section .team-card h3 {
+    margin: 0 0 5px;
+    font-size: clamp(21px, 2vw, 26px);
+    letter-spacing: -.015em;
+}
+
+.team-section .team-age {
+    margin: 0 0 16px;
+    color: #8f98a4 !important;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.team-section .team-card-roles {
+    gap: 7px;
+}
+
+.team-section .team-card-roles li {
+    padding-left: 11px;
+    color: #b7bdc6;
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.team-section .team-card-roles li::before {
+    top: .65em;
+    width: 4px;
+    height: 4px;
+    background: #a879d7;
+}
+
 
 /* =========================================
    TEAM RESPONSIVE
@@ -1008,6 +1138,21 @@ footer {
 
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .team-section .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .team-section .team-card:nth-last-child(2),
+    .team-section .team-card:last-child {
+        grid-column: auto;
+    }
+
+    .team-section .team-card:last-child {
+        grid-column: 1 / -1;
+        width: calc(50% - 13px);
+        justify-self: center;
     }
 
 }
@@ -1043,6 +1188,26 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .team-section .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 42px 26px;
+    }
+
+    .team-section .team-card:last-child {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .team-section .team-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+
+    .team-section .team-card:last-child {
+        grid-column: auto;
+    }
 }
 
 
