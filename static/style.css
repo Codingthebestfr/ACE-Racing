@@ -2848,8 +2848,39 @@ footer { background: #050608; }
 }
 
 .contact-form-feedback {
+    padding: 24px 28px;
     border-left-color: var(--accent-warm);
+    border-left-width: 6px;
     border-radius: 3px;
+    font-size: clamp(18px, 1.5vw, 22px);
+    font-weight: 650;
+    line-height: 1.55;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, .2), inset 0 1px rgba(255, 255, 255, .04);
+}
+
+.contact-form-feedback.is-success {
+    border-left-color: #62c88b;
+    background: linear-gradient(110deg, rgba(30, 82, 57, .72), rgba(17, 24, 29, .96) 70%);
+}
+
+.contact-form-feedback[role="alert"] {
+    border-left-color: #ff7a45;
+    background: linear-gradient(110deg, rgba(104, 43, 28, .64), rgba(17, 24, 29, .96) 70%);
+}
+
+.contact-form-feedback p {
+    margin: 0;
+}
+
+.contact-form-feedback form {
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .contact-form-feedback {
+        padding: 20px 22px;
+        font-size: 18px;
+    }
 }
 
 .contact-layout {
