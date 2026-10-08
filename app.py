@@ -3,6 +3,9 @@ import re
 import ssl
 import time
 import json
+import hashlib
+import secrets
+import sqlite3
 import urllib.request
 import urllib.error
 import unicodedata
@@ -18,6 +21,7 @@ LANGUAGE_COOKIE_NAME = "site_lang"
 CONTACT_SUBMISSIONS = {}
 CONTACT_TOPICS = {"sponsoring", "engineering", "mentoring", "school", "press", "general"}
 DEFAULT_CONTACT_RECIPIENT = "contact@ace-racing.de"
+CONTACT_CONFIRMATION_TTL_SECONDS = 30 * 60
 
 SEARCH_PAGES = (
     ("home", {"de": "Home", "en": "Home"}),
@@ -522,7 +526,7 @@ def contact():
     if request.method == "GET":
         if request.args.get("sent") == "1":
             status = "success"
-        elif not os.environ.get("RESEND_API_KEY") or not os.environ.get("CONTACT_RECIPIENT", DEFAULT_CONTACT_RECIPIENT):
+        elif not _contact_email_configured():
             status = "unavailable"
         else:
             status = None
@@ -537,7 +541,6 @@ def contact():
     organisation = request.form.get("organisation", "").strip()
     topic = request.form.get("topic", "")
     message_text = request.form.get("message", "").strip()
-
     valid_email = re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", email)
     if (
         not name
@@ -561,59 +564,231 @@ def contact():
     recent.append(now)
     CONTACT_SUBMISSIONS[client_ip] = recent
 
-    resend_api_key = os.environ.get("RESEND_API_KEY")
-    recipient = os.environ.get("CONTACT_RECIPIENT", DEFAULT_CONTACT_RECIPIENT)
+    if not _contact_email_configured():
+        return render_template("contact.html", contact_status="unavailable"), 503
+
+    token = secrets.token_urlsafe(32)
+    token_hash = _hash_contact_token(token)
+    now_epoch = int(time.time())
+    pending_payload = {
+        "name": name,
+        "email": email,
+        "organisation": organisation,
+        "topic": topic,
+        "message": message_text,
+    }
+    _store_pending_contact(token_hash, pending_payload, now_epoch, now_epoch + CONTACT_CONFIRMATION_TTL_SECONDS)
+    language = request.args.get("lang")
+    if language not in LANGUAGES:
+        language = DEFAULT_LANGUAGE
+    public_base_url = os.environ.get("CONTACT_PUBLIC_URL", "https://ace-racing.de").rstrip("/")
+    confirmation_url = f"{public_base_url}{url_for('confirm_contact', token=token, lang=language)}"
+    try:
+        _send_contact_email(
+            email,
+            "Confirm your message to ACE Racing",
+            (
+                f"Hello {name},\n\n"
+                "Please confirm your email address by opening this link. "
+                "Your message will only be sent to the ACE Racing team after confirmation:\n\n"
+                f"{confirmation_url}\n\n"
+                "This link expires in 30 minutes. If you did not submit this request, ignore this email."
+            ),
+        )
+    except ContactDeliveryError:
+        _delete_pending_contact(token_hash)
+        return render_template("contact.html", contact_status="verification_failed"), 503
+
+    return render_template("contact.html", contact_status="verification_pending"), 202
+
+
+@app.route("/contact/confirm/<token>", methods=["GET", "POST"])
+def confirm_contact(token):
+    if not re.fullmatch(r"[A-Za-z0-9_-]{43}", token):
+        return render_template("contact.html", contact_status="verification_invalid"), 400
+
+    token_hash = _hash_contact_token(token)
+    if request.method == "GET":
+        pending = _get_pending_contact(token_hash, int(time.time()))
+        if not pending or pending["status"] != "pending":
+            return render_template("contact.html", contact_status="verification_invalid"), 400
+        return render_template("contact.html", contact_status="confirm", confirmation_token=token)
+
+    claim_status, pending_payload = _claim_pending_contact(token_hash, int(time.time()))
+    if claim_status == "invalid":
+        return render_template("contact.html", contact_status="verification_invalid"), 400
+    if claim_status == "processing":
+        return render_template("contact.html", contact_status="verification_processing"), 202
 
     try:
-        if not resend_api_key or not recipient:
-            return render_template("contact.html", contact_status="unavailable"), 503
-
-        email_data = {
-            "from": "ACE Racing <contact@ace-racing.de>",
-            "to": [recipient],
-            "subject": f"ACE website inquiry: {topic}",
-            "reply_to": email,
-            "text": (
-                f"Name: {name}\n"
-                f"Email: {email}\n"
-                f"Organisation: {organisation or '-'}\n"
-                f"Topic: {topic}\n\n"
-                f"{message_text}"
+        _send_contact_email(
+            os.environ.get("CONTACT_RECIPIENT", DEFAULT_CONTACT_RECIPIENT),
+            f"ACE website inquiry: {pending_payload['topic']}",
+            (
+                f"Name: {pending_payload['name']}\n"
+                f"Email: {pending_payload['email']}\n"
+                f"Organisation: {pending_payload['organisation'] or '-'}\n"
+                f"Topic: {pending_payload['topic']}\n\n"
+                f"{pending_payload['message']}"
             ),
-        }
-
-        request_data = json.dumps(email_data).encode("utf-8")
-
-        api_request = urllib.request.Request(
-            "https://api.resend.com/emails",
-            data=request_data,
-            headers={
-                "Authorization": f"Bearer {resend_api_key}",
-                "Content-Type": "application/json",
-                "User-Agent": "ACE-Racing-Website/1.0 (+https://ace-racing.de)",
-            },
-            method="POST",
+            reply_to=pending_payload["email"],
         )
+    except ContactDeliveryError:
+        _release_pending_contact(token_hash)
+        return render_template("contact.html", contact_status="delivery_unavailable"), 503
 
+    _delete_pending_contact(token_hash)
+    language = request.args.get("lang")
+    if language not in LANGUAGES:
+        language = DEFAULT_LANGUAGE
+    return redirect(url_for("contact", sent="1", lang=language))
+
+
+class ContactDeliveryError(Exception):
+    pass
+
+
+def _contact_email_configured():
+    return bool(
+        os.environ.get("RESEND_API_KEY")
+        and os.environ.get("CONTACT_RECIPIENT", DEFAULT_CONTACT_RECIPIENT)
+    )
+
+
+def _send_contact_email(recipient, subject, text, reply_to=None):
+    resend_api_key = os.environ.get("RESEND_API_KEY")
+    if not resend_api_key or not recipient:
+        raise ContactDeliveryError("Contact email delivery is not configured.")
+
+    email_data = {
+        "from": "ACE Racing <contact@ace-racing.de>",
+        "to": [recipient],
+        "subject": subject,
+        "text": text,
+    }
+    if reply_to:
+        email_data["reply_to"] = reply_to
+
+    api_request = urllib.request.Request(
+        "https://api.resend.com/emails",
+        data=json.dumps(email_data).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {resend_api_key}",
+            "Content-Type": "application/json",
+            "User-Agent": "ACE-Racing-Website/1.0 (+https://ace-racing.de)",
+        },
+        method="POST",
+    )
+    try:
         with urllib.request.urlopen(api_request, timeout=15) as response:
             response.read()
+    except urllib.error.HTTPError as error:
+        app.logger.error("RESEND EMAIL ERROR: HTTP %s", error.code)
+        raise ContactDeliveryError("Resend rejected the email request.") from error
+    except (OSError, urllib.error.URLError) as error:
+        app.logger.exception("RESEND EMAIL ERROR")
+        raise ContactDeliveryError("Resend could not be reached.") from error
 
-    except urllib.error.HTTPError as e:
-        error_body = e.read().decode("utf-8", errors="replace")
-        cf_ray = e.headers.get("CF-Ray", "unavailable")
-        app.logger.error("RESEND EMAIL ERROR: HTTP %s - CF-Ray %s - %s", e.code, cf_ray, error_body)
-        return render_template("contact.html", contact_status="unavailable"), 503
 
-    except (OSError, urllib.error.URLError) as e:
-        app.logger.exception("RESEND EMAIL ERROR: %s", e)
-        return render_template("contact.html", contact_status="unavailable"), 503
-    
-    redirect_values = {"sent": "1"}
-    language = request.args.get("lang")
-    if language in LANGUAGES:
-        redirect_values["lang"] = language
-    return redirect(url_for("contact", **redirect_values))
+def _contact_db_path():
+    return os.environ.get(
+        "CONTACT_DB_PATH",
+        os.path.join(app.instance_path, "contact_submissions.sqlite3"),
+    )
 
+
+def _connect_contact_db():
+    database_path = _contact_db_path()
+    os.makedirs(os.path.dirname(os.path.abspath(database_path)), exist_ok=True)
+    connection = sqlite3.connect(database_path, timeout=10)
+    connection.row_factory = sqlite3.Row
+    connection.execute(
+        "CREATE TABLE IF NOT EXISTS pending_contact_messages ("
+        "token_hash TEXT PRIMARY KEY, payload TEXT NOT NULL, expires_at INTEGER NOT NULL, "
+        "status TEXT NOT NULL DEFAULT 'pending', processing_at INTEGER)"
+    )
+    connection.execute(
+        "CREATE INDEX IF NOT EXISTS pending_contact_messages_expiry "
+        "ON pending_contact_messages (expires_at)"
+    )
+    with connection:
+        connection.execute(
+            "DELETE FROM pending_contact_messages WHERE expires_at <= ?",
+            (int(time.time()),),
+        )
+    return connection
+
+
+def _hash_contact_token(token):
+    return hashlib.sha256(token.encode("utf-8")).hexdigest()
+
+
+def _store_pending_contact(token_hash, payload, now, expires_at):
+    connection = _connect_contact_db()
+    try:
+        with connection:
+            connection.execute("DELETE FROM pending_contact_messages WHERE expires_at <= ?", (now,))
+            connection.execute(
+                "INSERT INTO pending_contact_messages (token_hash, payload, expires_at) VALUES (?, ?, ?)",
+                (token_hash, json.dumps(payload), expires_at),
+            )
+    finally:
+        connection.close()
+
+
+def _get_pending_contact(token_hash, now):
+    connection = _connect_contact_db()
+    try:
+        return connection.execute(
+            "SELECT payload, status FROM pending_contact_messages WHERE token_hash = ? AND expires_at > ?",
+            (token_hash, now),
+        ).fetchone()
+    finally:
+        connection.close()
+
+
+def _claim_pending_contact(token_hash, now):
+    connection = _connect_contact_db()
+    try:
+        with connection:
+            row = connection.execute(
+                "SELECT payload, status, processing_at, expires_at "
+                "FROM pending_contact_messages WHERE token_hash = ?",
+                (token_hash,),
+            ).fetchone()
+            if not row or row["expires_at"] <= now:
+                connection.execute("DELETE FROM pending_contact_messages WHERE token_hash = ?", (token_hash,))
+                return "invalid", None
+            if row["status"] == "processing" and row["processing_at"] and now - row["processing_at"] < 120:
+                return "processing", None
+            connection.execute(
+                "UPDATE pending_contact_messages SET status = 'processing', processing_at = ? WHERE token_hash = ?",
+                (now, token_hash),
+            )
+            return "claimed", json.loads(row["payload"])
+    finally:
+        connection.close()
+
+
+def _release_pending_contact(token_hash):
+    connection = _connect_contact_db()
+    try:
+        with connection:
+            connection.execute(
+                "UPDATE pending_contact_messages SET status = 'pending', processing_at = NULL WHERE token_hash = ?",
+                (token_hash,),
+            )
+    finally:
+        connection.close()
+
+
+def _delete_pending_contact(token_hash):
+    connection = _connect_contact_db()
+    try:
+        with connection:
+            connection.execute("DELETE FROM pending_contact_messages WHERE token_hash = ?", (token_hash,))
+    finally:
+        connection.close()
 
 @app.route("/impressum")
 def impressum():

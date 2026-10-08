@@ -63,6 +63,23 @@ Nimm Kontakt mit ACE Racing auf – für Partnerschaften, Sponsoring und Fragen 
         </div>
         {% if contact_status == 'success' %}
             <p class="contact-form-feedback is-success" role="status">{% if current_lang == 'en' %}Message sent. The ACE Racing team will get back to you.{% else %}Nachricht gesendet. Das Team von ACE Racing meldet sich bei Ihnen.{% endif %}</p>
+        {% elif contact_status == 'verification_pending' %}
+            <p class="contact-form-feedback is-success" role="status">{% if current_lang == 'en' %}Confirmation email sent. Open the link in that email to send your message to the team. The link expires in 30 minutes.{% else %}Bestätigungsmail versendet. Öffnen Sie den Link in der E-Mail, damit Ihre Nachricht an das Team gesendet wird. Der Link ist 30 Minuten gültig.{% endif %}</p>
+        {% elif contact_status == 'verification_failed' %}
+            <p class="contact-form-feedback" role="alert">{% if current_lang == 'en' %}The confirmation email could not be sent. Please try another email address.{% else %}Bestätigungsmail konnte nicht verschickt werden. Bitte probieren Sie eine andere E-Mail-Adresse.{% endif %}</p>
+        {% elif contact_status == 'confirm' %}
+            <div class="contact-form-feedback" role="status">
+                <p>{% if current_lang == 'en' %}Confirm that this is your email address. Your message will be sent to the ACE Racing team only after you confirm.{% else %}Bestätigen Sie, dass dies Ihre E-Mail-Adresse ist. Ihre Nachricht wird erst nach der Bestätigung an das ACE-Racing-Team gesendet.{% endif %}</p>
+                <form method="post" action="{{ url_for('confirm_contact', token=confirmation_token, lang=current_lang) }}">
+                    <button class="button" type="submit">{% if current_lang == 'en' %}Confirm email and send message{% else %}E-Mail bestätigen und Nachricht senden{% endif %}</button>
+                </form>
+            </div>
+        {% elif contact_status == 'verification_invalid' %}
+            <p class="contact-form-feedback" role="alert">{% if current_lang == 'en' %}This confirmation link is invalid or has expired. Please submit the contact form again.{% else %}Dieser Bestätigungslink ist ungültig oder abgelaufen. Bitte senden Sie das Kontaktformular erneut ab.{% endif %}</p>
+        {% elif contact_status == 'verification_processing' %}
+            <p class="contact-form-feedback" role="status">{% if current_lang == 'en' %}Your message is being sent. Please wait a moment before trying again.{% else %}Ihre Nachricht wird gerade gesendet. Bitte warten Sie einen Moment, bevor Sie es erneut versuchen.{% endif %}</p>
+        {% elif contact_status == 'delivery_unavailable' %}
+            <p class="contact-form-feedback" role="alert">{% if current_lang == 'en' %}Your address was confirmed, but the message could not be delivered to the team right now. Please try the confirmation link again later or use the contact details below.{% else %}Ihre E-Mail-Adresse wurde bestätigt, aber die Nachricht konnte gerade nicht an das Team gesendet werden. Bitte versuchen Sie den Bestätigungslink später erneut oder nutzen Sie die Kontaktdaten weiter unten.{% endif %}</p>
         {% elif contact_status == 'unavailable' %}
             <p class="contact-form-feedback" role="alert">{% if current_lang == 'en' %}Online delivery is temporarily unavailable. Please use the team email or phone details on this page.{% else %}Der Online-Versand ist gerade nicht verfügbar. Bitte nutzen Sie die E-Mail-Adresse oder Telefonnummer auf dieser Seite.{% endif %}</p>
         {% elif contact_status == 'invalid' %}
