@@ -1837,7 +1837,7 @@ nav a:hover, nav a.is-active, .footer-content a:hover { color: var(--accent); }
 .contact-inquiry-form .form-consent input { flex: 0 0 auto; width: 18px; height: 18px; margin-top: 2px; accent-color: var(--accent); }
 .contact-inquiry-form .form-consent a { color: var(--accent-soft); }
 .contact-inquiry-form .button { justify-self: start; cursor: pointer; }
-.contact-form-feedback { grid-column: 2; align-self: end; padding: 16px 18px; border-left: 3px solid var(--accent); background: var(--surface); color: #fff; }
+.contact-form-feedback { grid-column: 2; align-self: start; padding: 16px 18px; border-left: 3px solid var(--accent); background: var(--surface); color: #fff; }
 .contact-form-feedback.is-success { border-color: #62c88b; }
 .contact-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .privacy-review-note { margin: 0 10vw; padding: 24px 28px; border-left: 4px solid var(--accent); background: var(--surface); color: var(--text-muted); }
@@ -2752,7 +2752,20 @@ footer { background: #050608; }
 @media (min-width: 601px) and (max-width: 1200px) {
     .contact-hero .contact-hero-copy h1 {
         max-width: none;
-        font-size: clamp(72px, 9vw, 104px);
+        font-size: clamp(64px, 7vw, 82px);
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1200px) {
+    .contact-hero {
+        min-height: 340px;
+        align-items: center;
+        gap: 5vw;
+        padding: 36px 7vw 32px;
+    }
+
+    .contact-hero-meta {
+        align-self: center;
     }
 }
 
