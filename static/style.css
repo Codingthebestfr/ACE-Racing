@@ -2568,13 +2568,13 @@ footer { background: #050608; }
 .contact-hero { position: relative; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr); gap: 8vw; min-height: 500px; align-items: end; padding: 120px 10vw 86px; overflow: hidden; background: linear-gradient(125deg, #0b0f14 0%, #161c23 62%, #1d1720 100%); }
 .contact-hero::after { content: ""; position: absolute; inset: 0 0 0 55%; opacity: .38; background: repeating-linear-gradient(90deg, transparent 0 70px, rgba(255,255,255,.08) 71px 72px), repeating-linear-gradient(0deg, transparent 0 70px, rgba(255,255,255,.08) 71px 72px); transform: skewX(-18deg); pointer-events: none; }
 .contact-hero > * { position: relative; z-index: 1; }
-.contact-hero h1 { max-width: 780px; margin: 16px 0 28px; font-family: var(--display); font-size: clamp(58px, 8vw, 116px); line-height: .88; letter-spacing: -.06em; text-transform: uppercase; }
+.contact-hero h1 { max-width: 780px; margin: 16px 0 28px; font-family: var(--display); font-size: clamp(48px, 6vw, 88px); line-height: .92; letter-spacing: -.06em; text-transform: uppercase; }
 .contact-hero-intro { max-width: 620px; color: #d2d8de; font-size: clamp(18px, 2vw, 22px); line-height: 1.5; }
 .contact-hero-meta { display: grid; grid-template-columns: 1fr auto; align-self: end; border-top: 1px solid rgba(255,255,255,.24); }
 .contact-hero-meta span, .contact-hero-meta strong { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.14); font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
 .contact-hero-meta span { color: #8995a1; }
 .contact-hero-meta strong { color: #f6f7f8; text-align: right; }
-.contact-layout { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(280px, .65fr); gap: 7vw; max-width: 1500px; margin: 0 auto; padding: 110px 10vw 120px; }
+.contact-layout { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(280px, .65fr); gap: 7vw; width: 100%; padding: 110px 10vw 120px; }
 .contact-main-panel { min-width: 0; }
 .contact-panel-heading { max-width: 680px; margin-bottom: 54px; }
 .contact-panel-heading h2 { margin: 14px 0 18px; font-family: var(--display); font-size: clamp(42px, 5vw, 72px); line-height: .98; letter-spacing: -.045em; text-transform: uppercase; }
@@ -2703,39 +2703,58 @@ footer { background: #050608; }
 /* CONTACT PAGE COLOR & MOTION */
 .contact-page {
     background:
-        radial-gradient(ellipse at 12% 38%, rgba(168, 85, 247, .09), transparent 30%),
-        radial-gradient(ellipse at 92% 72%, rgba(255, 122, 69, .07), transparent 27%),
-        #090c10;
+        radial-gradient(circle at 15% 12%, rgba(255, 122, 69, .18), transparent 22%),
+        radial-gradient(circle at 82% 20%, rgba(168, 85, 247, .20), transparent 28%),
+        radial-gradient(circle at 70% 74%, rgba(69, 114, 185, .12), transparent 30%),
+        radial-gradient(circle at 48% 42%, rgba(255, 255, 255, .03), transparent 34%),
+        linear-gradient(135deg, #070b10 0%, #0d131b 38%, #111923 60%, #171d26 100%);
+    background-attachment: fixed;
 }
 
 .contact-hero {
     isolation: isolate;
     background:
-        radial-gradient(ellipse at 78% 25%, rgba(168, 85, 247, .2), transparent 34%),
-        radial-gradient(ellipse at 12% 100%, rgba(255, 122, 69, .12), transparent 38%),
-        linear-gradient(125deg, #0b0f14 0%, #111923 58%, #171321 100%);
+        radial-gradient(circle at 18% 18%, rgba(255,122,69,.12), transparent 24%),
+        radial-gradient(circle at 82% 24%, rgba(168,85,247,.26), transparent 25%),
+        radial-gradient(circle at 68% 100%, rgba(44,132,255,.14), transparent 34%),
+        linear-gradient(125deg, #0a0d12 0%, #15212d 56%, #201a22 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, .14);
+}
+
+.contact-hero::after {
+    position: absolute;
+    z-index: 0;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: rgba(190, 198, 207, .62);
+    transform: none;
+    content: "";
+    pointer-events: none;
 }
 
 .contact-hero::before {
+    display: block;
     position: absolute;
-    z-index: -1;
-    top: -32%;
-    right: 9%;
-    width: min(44vw, 620px);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(168, 85, 247, .26), rgba(255, 122, 69, .09) 42%, transparent 70%);
-    filter: blur(12px);
+    z-index: 0;
+    top: 0;
+    right: 9vw;
+    width: 34vw;
+    height: 100%;
+    background:
+        repeating-linear-gradient(90deg, transparent 0 64px, rgba(255,255,255,.1) 65px 66px),
+        repeating-linear-gradient(0deg, transparent 0 64px, rgba(255,255,255,.1) 65px 66px);
+    opacity: .58;
+    transform: skewX(-17deg) rotate(6deg) scale(1.12);
     content: "";
-    animation: contact-glow 14s ease-in-out infinite alternate;
     pointer-events: none;
 }
 
 .contact-hero::after {
-    opacity: .2;
-    background:
-        repeating-linear-gradient(90deg, transparent 0 70px, rgba(192, 132, 252, .13) 71px 72px),
-        repeating-linear-gradient(0deg, transparent 0 70px, rgba(255, 255, 255, .06) 71px 72px);
+    opacity: 1;
+    background: rgba(190, 198, 207, .62);
 }
 
 .contact-hero .section-label,
@@ -2752,7 +2771,7 @@ footer { background: #050608; }
 @media (min-width: 601px) and (max-width: 1200px) {
     .contact-hero .contact-hero-copy h1 {
         max-width: none;
-        font-size: clamp(64px, 7vw, 82px);
+        font-size: clamp(52px, 5.5vw, 68px);
     }
 }
 
@@ -2781,11 +2800,7 @@ footer { background: #050608; }
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    background:
-        radial-gradient(ellipse at 82% 20%, rgba(168, 85, 247, .2), transparent 34%),
-        radial-gradient(ellipse at 8% 92%, rgba(255, 122, 69, .14), transparent 32%),
-        radial-gradient(ellipse at 58% 80%, rgba(44, 132, 255, .09), transparent 38%),
-        linear-gradient(125deg, #0b1015 0%, #111923 56%, #171321 100%);
+    background: transparent;
 }
 
 .contact-form-section::before {
@@ -2800,15 +2815,7 @@ footer { background: #050608; }
 }
 
 .contact-form-section::after {
-    position: absolute;
-    z-index: 0;
-    inset: 0;
-    background:
-        repeating-linear-gradient(90deg, transparent 0 66px, rgba(192, 132, 252, .055) 67px 68px),
-        repeating-linear-gradient(0deg, transparent 0 66px, rgba(255, 255, 255, .035) 67px 68px);
-    content: "";
-    opacity: .58;
-    pointer-events: none;
+    display: none;
 }
 
 .contact-form-section > * {
@@ -2910,14 +2917,7 @@ footer { background: #050608; }
 }
 
 .contact-layout {
-    background:
-        radial-gradient(ellipse at 12% 20%, rgba(255, 122, 69, .11), transparent 30%),
-        radial-gradient(ellipse at 86% 28%, rgba(168, 85, 247, .16), transparent 31%),
-        radial-gradient(ellipse at 72% 92%, rgba(44, 132, 255, .09), transparent 35%),
-        repeating-linear-gradient(90deg, transparent 0 72px, rgba(255, 255, 255, .025) 73px 74px),
-        linear-gradient(130deg, #0a0e13 0%, #111923 56%, #171521 100%);
-    background-size: 150% 150%, 150% 150%, 150% 150%, auto, 100% 100%;
-    animation: contact-background-drift 24s ease-in-out infinite alternate;
+    background: transparent;
 }
 
 .contact-person-card {
@@ -3131,10 +3131,16 @@ footer { background: #050608; }
     background:
         radial-gradient(ellipse at 88% 14%, rgba(168, 85, 247, .15), transparent 34%),
         radial-gradient(ellipse at 8% 88%, rgba(255, 122, 69, .1), transparent 31%),
-        repeating-linear-gradient(90deg, transparent 0 72px, rgba(255, 255, 255, .025) 73px 74px),
         linear-gradient(130deg, #0a0e13 0%, #111923 56%, #171521 100%);
-    background-size: 150% 150%, 150% 150%, auto, 100% 100%;
+    background-size: 150% 150%, 150% 150%, 100% 100%;
     animation: sponsors-background-drift 32s ease-in-out infinite alternate;
+}
+
+.sponsors-page .sponsor-levels {
+    max-width: none;
+    margin: 0;
+    padding-right: max(10%, calc((100vw - 1400px) / 2 + 10vw));
+    padding-left: max(10%, calc((100vw - 1400px) / 2 + 10vw));
 }
 
 .sponsors-page .sponsor-value-section > *,
@@ -3243,6 +3249,13 @@ footer { background: #050608; }
 @media (max-width: 900px) {
     .sponsors-page .supporter-section {
         gap: 38px;
+    }
+}
+
+@media (max-width: 850px) {
+    .sponsors-page .sponsor-levels {
+        padding-right: 7%;
+        padding-left: 7%;
     }
 }
 

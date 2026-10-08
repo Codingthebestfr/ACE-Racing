@@ -57,8 +57,7 @@ Nimm Kontakt mit ACE Racing auf – für Partnerschaften, Sponsoring und Fragen 
 
     <section class="contact-form-section" aria-labelledby="contact-form-title">
         <div class="contact-form-copy">
-            <p class="section-label">{% if current_lang == 'en' %}SEND A MESSAGE{% else %}NACHRICHT SENDEN{% endif %}</p>
-            <h2 id="contact-form-title">{% if current_lang == 'en' %}Start a conversation.{% else %}Lassen Sie uns ins Gespräch kommen.{% endif %}</h2>
+            <p class="section-label" id="contact-form-title">{% if current_lang == 'en' %}SEND A MESSAGE{% else %}NACHRICHT SENDEN{% endif %}</p>
             <p>{% if current_lang == 'en' %}Send a message directly to the team from this page. Your existing email and phone contacts remain available below.{% else %}Senden Sie dem Team direkt über diese Seite eine Nachricht. E-Mail- und Telefonkontakte bleiben weiter unten verfügbar.{% endif %}</p>
         </div>
         {% if contact_status == 'success' %}
