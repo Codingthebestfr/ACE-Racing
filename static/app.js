@@ -42,6 +42,16 @@
         });
     }
 
+    const confirmationForm = document.querySelector("[data-confirmation-autosubmit]");
+
+    if (confirmationForm) {
+        const fallbackButton = confirmationForm.querySelector("[data-confirmation-fallback]");
+        if (fallbackButton) {
+            fallbackButton.hidden = true;
+        }
+        confirmationForm.requestSubmit();
+    }
+
     const countdown = document.querySelector("[data-countdown-target]");
 
     if (countdown) {

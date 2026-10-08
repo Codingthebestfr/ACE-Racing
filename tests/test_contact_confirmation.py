@@ -52,7 +52,8 @@ class ContactConfirmationTests(unittest.TestCase):
 
         link_response = self.client.get(confirmation_path)
         self.assertEqual(link_response.status_code, 200)
-        self.assertIn(b"Confirm email and send message", link_response.data)
+        self.assertIn(b"data-confirmation-autosubmit", link_response.data)
+        self.assertIn(b"data-confirmation-fallback", link_response.data)
         send_email.assert_called_once()
 
         confirmed_response = self.client.post(confirmation_path)

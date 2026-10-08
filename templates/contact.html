@@ -69,9 +69,9 @@ Nimm Kontakt mit ACE Racing auf – für Partnerschaften, Sponsoring und Fragen 
             <p class="contact-form-feedback" role="alert">{% if current_lang == 'en' %}The confirmation email could not be sent. Please try another email address.{% else %}Bestätigungsmail konnte nicht verschickt werden. Bitte probieren Sie eine andere E-Mail-Adresse.{% endif %}</p>
         {% elif contact_status == 'confirm' %}
             <div class="contact-form-feedback" role="status">
-                <p>{% if current_lang == 'en' %}Confirm that this is your email address. Your message will be sent to the ACE Racing team only after you confirm.{% else %}Bestätigen Sie, dass dies Ihre E-Mail-Adresse ist. Ihre Nachricht wird erst nach der Bestätigung an das ACE-Racing-Team gesendet.{% endif %}</p>
-                <form method="post" action="{{ url_for('confirm_contact', token=confirmation_token, lang=current_lang) }}">
-                    <button class="button" type="submit">{% if current_lang == 'en' %}Confirm email and send message{% else %}E-Mail bestätigen und Nachricht senden{% endif %}</button>
+                <p>{% if current_lang == 'en' %}Your email is being confirmed and your message is being sent to the ACE Racing team.{% else %}Ihre E-Mail-Adresse wird bestätigt und Ihre Nachricht wird an das ACE-Racing-Team gesendet.{% endif %}</p>
+                <form method="post" action="{{ url_for('confirm_contact', token=confirmation_token, lang=current_lang) }}" data-confirmation-autosubmit>
+                    <button class="button" type="submit" data-confirmation-fallback>{% if current_lang == 'en' %}Continue to send message{% else %}Bestätigen und Nachricht senden{% endif %}</button>
                 </form>
             </div>
         {% elif contact_status == 'verification_invalid' %}
